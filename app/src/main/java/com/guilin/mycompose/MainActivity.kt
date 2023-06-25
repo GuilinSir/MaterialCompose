@@ -3,12 +3,17 @@ package com.guilin.mycompose
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.animation.core.Spring
+import androidx.compose.animation.core.animateDpAsState
+import androidx.compose.animation.core.spring
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Button
 import androidx.compose.material3.ElevatedButton
 import androidx.compose.material3.FilledTonalButton
@@ -21,6 +26,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -41,61 +47,63 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting(modifier: Modifier = Modifier) {
-    //如需在重组后保留状态，请使用remember记住可变状态
-    val isExpanded = remember {
-        mutableStateOf(false)
-
-    }
-    val extraPadding = if (isExpanded.value) 48.dp else 0.dp
-    val names: List<String> = listOf("Android", "IOS", "JAVA")
-
-    Surface(
-        color = MaterialTheme.colorScheme.primary,
-        modifier = Modifier.padding(vertical = 4.dp, horizontal = 8.dp)
-    ) {
-        Column() {
-            for (name in names) {
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(24.dp)
-                ) {
-                    Column(
-                        modifier = Modifier
-                            .weight(1f)
-                            .padding(bottom = extraPadding)
-                    ) {
-                        Text(text = "Hello,")
-                        Text(text = name)
-                    }
-                    ElevatedButton(
-                        //Button具有一个名为onClick的形参，但它不接受值，而接受函数
-                        onClick = {
-                            isExpanded.value = !isExpanded.value
-                        },
-                    ) {
-                        Text(
-                            if (isExpanded.value) {
-                                "Show less"
-                            } else {
-                                "Show more"
-                            }
-                        )
-                    }
-                }
-            }
-
+fun Greetings(modifier: Modifier = Modifier) {
+    val names: List<String> = List(1000) { "$it" }
+    LazyColumn(modifier = modifier.padding(vertical = 4.dp)) {
+        items(items = names) { name ->
+            Greeting(name)
         }
-
 
     }
 
 }
 
 @Composable
+fun Greeting(name: String, modifier: Modifier = Modifier) {
+    //如需在重组后保留状态，请使用remember记住可变状态
+    val isExpanded = remember {
+        mutableStateOf(false)
+
+    }
+    //animateDpAsState动画，animationSpec可以自定义动画
+    val extraPadding = if (isExpanded.value) 48.dp else 0.dp
+
+
+    Surface(
+        color = MaterialTheme.colorScheme.primary,
+        modifier = Modifier.padding(vertical = 4.dp, horizontal = 8.dp)
+    ) {
+        Row(modifier = Modifier.padding(24.dp)) {
+            Column(
+                modifier = Modifier
+                    .weight(1f)
+                    .padding(bottom = extraPadding.coerceAtLeast(0.dp))
+            ) {
+                Text(text = "Hello,")
+                Text(text = name)
+            }
+            ElevatedButton(
+                //Button具有一个名为onClick的形参，但它不接受值，而接受函数
+                onClick = {
+                    isExpanded.value = !isExpanded.value
+                },
+            ) {
+                Text(
+                    if (isExpanded.value) {
+                        "Show less"
+                    } else {
+                        "Show more"
+                    }
+                )
+            }
+        }
+    }
+
+}
+
+
+@Composable
 fun OnboardingScreen(onContinueClicked: () -> Unit, modifier: Modifier = Modifier) {
-    var shouldShowOnboarding by remember { mutableStateOf(true) }
 
     Column(
         modifier = modifier.fillMaxSize(),
@@ -119,7 +127,7 @@ private fun MyApp(modifier: Modifier = Modifier) {
         if (shouldShowOnboarding) {
             OnboardingScreen(onContinueClicked = { shouldShowOnboarding = false })
         } else {
-            Greeting()
+            Greetings()
         }
     }
 }
@@ -128,7 +136,7 @@ private fun MyApp(modifier: Modifier = Modifier) {
 @Composable
 fun GreetingPreview() {
     MyComposeTheme {
-        Greeting()
+        Greetings()
     }
 }
 
