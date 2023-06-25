@@ -63,8 +63,8 @@ fun MyComposeTheme(
     }
 
     MaterialTheme(
-            colorScheme = colorScheme,
-            typography = Typography,
-            content = content
+            colorScheme = colorScheme,//配色方案
+            typography = Typography,//字体排印
+            content = content//
     )
 }

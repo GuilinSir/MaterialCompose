@@ -31,6 +31,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.guilin.mycompose.ui.theme.MyComposeTheme
@@ -48,7 +49,7 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun Greetings(modifier: Modifier = Modifier) {
-    val names: List<String> = List(1000) { "$it" }
+    val names: List<String> = List(10000) { "$it" }
     LazyColumn(modifier = modifier.padding(vertical = 4.dp)) {
         items(items = names) { name ->
             Greeting(name)
@@ -85,7 +86,9 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
                     .padding(bottom = extraPadding.coerceAtLeast(0.dp))
             ) {
                 Text(text = "Hello,")
-                Text(text = name)
+                Text(text = name, style = MaterialTheme.typography.headlineSmall.copy(
+                    fontWeight = FontWeight.ExtraBold
+                ))
             }
             ElevatedButton(
                 //Button具有一个名为onClick的形参，但它不接受值，而接受函数
