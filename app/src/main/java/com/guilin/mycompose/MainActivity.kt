@@ -95,7 +95,6 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
                 Text(text = "Hello,")
                 Text(
                     text = name, style = MaterialTheme.typography.headlineSmall.copy(
-
                         fontWeight = FontWeight.ExtraBold
                     )
                 )
@@ -108,12 +107,10 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
             ) {
                 Icon(
                     imageVector = if (isExpanded.value) Icons.Filled.ExpandLess else Icons.Filled.ExpandMore,
+                    contentDescription = if (isExpanded.value) stringResource(R.string.show_less) else stringResource(
+                        R.string.show_more
+                    )
 
-                    if (isExpanded.value) {
-                        stringResource(R.string.show_less)
-                    } else {
-                        stringResource(R.string.show_more)
-                    }
                 )
             }
         }
