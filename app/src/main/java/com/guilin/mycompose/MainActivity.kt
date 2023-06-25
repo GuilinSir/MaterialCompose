@@ -66,9 +66,8 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 
     }
     //animateDpAsState动画，animationSpec可以自定义动画
-    val extraPadding = if (isExpanded.value) 48.dp else 0.dp
-
-
+    val extraPadding by animateDpAsState(if (isExpanded.value) 48.dp else 0.dp)
+    
     Surface(
         color = MaterialTheme.colorScheme.primary,
         modifier = Modifier.padding(vertical = 4.dp, horizontal = 8.dp)
