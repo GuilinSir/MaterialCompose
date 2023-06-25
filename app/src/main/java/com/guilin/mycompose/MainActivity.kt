@@ -122,7 +122,8 @@ fun OnboardingScreen(onContinueClicked: () -> Unit, modifier: Modifier = Modifie
 
 @Composable
 private fun MyApp(modifier: Modifier = Modifier) {
-    var shouldShowOnboarding by remember { mutableStateOf(true) }
+    ////可以使用rememberSaveable，而不使用remeber。这会保存每个在配置更改（如旋转）和进程终止后保留下来的状态。
+    var shouldShowOnboarding by rememberSaveable { mutableStateOf(true) }
     Surface(modifier) {
         if (shouldShowOnboarding) {
             OnboardingScreen(onContinueClicked = { shouldShowOnboarding = false })
