@@ -4,6 +4,7 @@ import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.core.spring
@@ -19,6 +20,8 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ExpandLess
 import androidx.compose.material.icons.filled.ExpandMore
 import androidx.compose.material3.Button
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ElevatedButton
 import androidx.compose.material3.FilledTonalButton
 import androidx.compose.material3.Icon
@@ -67,54 +70,78 @@ fun Greetings(modifier: Modifier = Modifier) {
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
+private fun Greeting(name: String) {
+    Card(
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.primary
+        ),
+        modifier = Modifier.padding(vertical = 4.dp, horizontal = 8.dp)
+    ) {
+        CardContent(name = name)
+    }
+}
+
+@Composable
+fun CardContent(name: String, modifier: Modifier = Modifier) {
     //如需在重组后保留状态，请使用remember记住可变状态
-    val isExpanded = remember {
+    var isExpanded by remember {
         mutableStateOf(false)
 
     }
     //animateDpAsState动画，animationSpec可以自定义动画
-    val extraPadding by animateDpAsState(
-        if (isExpanded.value) 48.dp else 0.dp,
-        animationSpec = spring(
-            dampingRatio = Spring.DampingRatioHighBouncy,
-            stiffness = Spring.StiffnessLow
-        )
-    )
+//    val extraPadding by animateDpAsState(
+//        if (isExpanded.value) 48.dp else 0.dp,
+//        animationSpec = spring(
+//            dampingRatio = Spring.DampingRatioHighBouncy,
+//            stiffness = Spring.StiffnessLow
+//        )
+//    )
 
-    Surface(
-        color = MaterialTheme.colorScheme.primary,
-        modifier = Modifier.padding(vertical = 4.dp, horizontal = 8.dp)
-    ) {
-        Row(modifier = Modifier.padding(24.dp)) {
-            Column(
-                modifier = Modifier
-                    .weight(1f)
-                    .padding(bottom = extraPadding.coerceAtLeast(0.dp))
-            ) {
-                Text(text = "Hello,")
-                Text(
-                    text = name, style = MaterialTheme.typography.headlineSmall.copy(
-                        fontWeight = FontWeight.ExtraBold
-                    )
+
+    Row(
+        modifier = Modifier
+            .padding(12.dp)
+            .animateContentSize(
+                animationSpec = spring(
+                    dampingRatio = Spring.DampingRatioMediumBouncy,
+                    stiffness = Spring.StiffnessLow
                 )
-            }
-            IconButton(
-                //Button具有一个名为onClick的形参，但它不接受值，而接受函数
-                onClick = {
-                    isExpanded.value = !isExpanded.value
-                },
-            ) {
-                Icon(
-                    imageVector = if (isExpanded.value) Icons.Filled.ExpandLess else Icons.Filled.ExpandMore,
-                    contentDescription = if (isExpanded.value) stringResource(R.string.show_less) else stringResource(
-                        R.string.show_more
-                    )
-
+            )
+    ) {
+        Column(
+            modifier = Modifier
+                .weight(1f)
+                .padding(12.dp)
+        ) {
+            Text(text = "Hello,")
+            Text(
+                text = name, style = MaterialTheme.typography.headlineSmall.copy(
+                    fontWeight = FontWeight.ExtraBold
+                )
+            )
+            if (isExpanded) {
+                Text(
+                    text = ("Composem ipsum color sit lazy, " +
+                            "padding theme elit, sed do bouncy.").repeat(4)
                 )
             }
         }
+        IconButton(
+            //Button具有一个名为onClick的形参，但它不接受值，而接受函数
+            onClick = {
+                isExpanded = !isExpanded
+            },
+        ) {
+            Icon(
+                imageVector = if (isExpanded) Icons.Filled.ExpandLess else Icons.Filled.ExpandMore,
+                contentDescription = if (isExpanded) stringResource(R.string.show_less) else stringResource(
+                    R.string.show_more
+                )
+
+            )
+        }
     }
+
 
 }
 
@@ -150,15 +177,15 @@ private fun MyApp(modifier: Modifier = Modifier) {
     }
 }
 
-@Preview(showBackground = true, widthDp = 320, uiMode = UI_MODE_NIGHT_YES, name = "Dark")
-@Preview(showBackground = true, widthDp = 320)
-@Composable
-fun GreetingPreview() {
-    MyComposeTheme {
-        Greetings()
-    }
-}
-
+//@Preview(showBackground = true, widthDp = 320, uiMode = UI_MODE_NIGHT_YES, name = "Dark")
+//@Preview(showBackground = true, widthDp = 320)
+//@Composable
+//fun GreetingPreview() {
+//    MyComposeTheme {
+//        Greetings()
+//    }
+//}
+//
 @Preview(showBackground = true)
 @Composable
 fun MyAppPreview() {
