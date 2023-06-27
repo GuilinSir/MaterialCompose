@@ -1,6 +1,8 @@
 package com.guilin.mycompose.ui.view
 
+import android.widget.AdapterView.OnItemClickListener
 import androidx.annotation.DrawableRes
+import androidx.compose.animation.Animatable
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -23,13 +25,16 @@ import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicTextField
+import androidx.compose.foundation.text.ClickableText
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.ElevatedButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -42,8 +47,10 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.guilin.mycompose.R
@@ -56,7 +63,7 @@ import com.guilin.mycompose.R
  */
 
 @Composable
- fun LookOnView() {
+fun LookOnView() {
     Column {
         Column(
             Modifier
@@ -69,7 +76,7 @@ import com.guilin.mycompose.R
             NamesBar()
             GirlsArea()
         }
-        NavBar()
+        //NavBar()
     }
 }
 
@@ -178,7 +185,7 @@ fun SearchBar() {
 @Composable
 fun NamesBar() {
     var names =
-        listOf("香玲", "海娇", "艺萱", "梦阁", "钰晗",  "艳霞", "小然", "思凝")
+        listOf("香玲", "海娇", "艺萱", "梦阁", "钰晗", "艳霞", "小然", "思凝")
     var selected by remember {
         mutableStateOf(0)
     }
@@ -189,17 +196,25 @@ fun NamesBar() {
                     .padding(8.dp, 4.dp)
                     .width(IntrinsicSize.Max)
             ) {
-                Text(
-                    item,
-                    fontSize = 14.sp,
-                    color = if (index == selected) Color(0xfffa9e51) else Color(0xff707070),
-                    fontWeight = if (index == selected) FontWeight.Bold else FontWeight.Normal
-                )
+                ClickableText(
+                    text = AnnotatedString(item),
+                    onClick = {
+                        selected = index
+                    },
+                    style = TextStyle(
+                        fontSize = 14.sp,
+                        color = if (index == selected) Color(0xfffa9e51) else Color(0xff707070),
+                        fontWeight = if (index == selected) FontWeight.Bold else FontWeight.Normal,
+                        textAlign = TextAlign.Center,
+                    )
+                    )
                 if (index == selected) {
                     Box(
                         Modifier
                             .fillMaxWidth()
+                            .padding(0.dp,2.dp)
                             .height(2.dp)
+                            //.padding(0.dp,2.dp)
                             .clip(RoundedCornerShape(1.dp))
                             .background(Color(0xfffa9e51))
                     )
@@ -217,6 +232,7 @@ fun GirlsArea() {
     photos.add(R.drawable.pic1)
     photos.add(R.drawable.pic1)
     Row(
+
         Modifier
             .padding(24.dp, 12.dp, 24.dp)
             .fillMaxWidth()

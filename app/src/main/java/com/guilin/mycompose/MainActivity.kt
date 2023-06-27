@@ -1,195 +1,134 @@
 package com.guilin.mycompose
 
-import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.animation.animateContentSize
-import androidx.compose.animation.core.Spring
-import androidx.compose.animation.core.animateDpAsState
-import androidx.compose.animation.core.spring
-import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.pager.HorizontalPager
+import androidx.compose.foundation.pager.PagerState
+import androidx.compose.foundation.pager.rememberPagerState
+import androidx.compose.material.BottomNavigation
+import androidx.compose.material.BottomNavigationItem
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ExpandLess
-import androidx.compose.material.icons.filled.ExpandMore
-import androidx.compose.material3.Button
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.ElevatedButton
-import androidx.compose.material3.FilledTonalButton
+import androidx.compose.material.icons.filled.Home
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedButton
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.semantics.SemanticsProperties.Text
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.guilin.mycompose.ui.theme.MyComposeTheme
+import com.guilin.mycompose.ui.view.LookOnView
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
+
             MyComposeTheme {
-                MyApp()
+                PagerView()
             }
         }
     }
 }
 
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun Greetings(modifier: Modifier = Modifier) {
-    val names: List<String> = List(10000) { "$it" }
-    LazyColumn(modifier = modifier.padding(vertical = 4.dp)) {
-        items(items = names) { name ->
-            Greeting(name)
-        }
-
+fun PagerView() {
+    var selectedIndex = remember {
+        mutableStateOf(0)
     }
-
-}
-
-@Composable
-private fun Greeting(name: String) {
-    Card(
-        colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.primary
-        ),
-        modifier = Modifier.padding(vertical = 4.dp, horizontal = 8.dp)
-    ) {
-        CardContent(name = name)
-    }
-}
-
-@Composable
-fun CardContent(name: String, modifier: Modifier = Modifier) {
-    //如需在重组后保留状态，请使用remember记住可变状态
-    var isExpanded by remember {
-        mutableStateOf(false)
-
-    }
-    //animateDpAsState动画，animationSpec可以自定义动画
-//    val extraPadding by animateDpAsState(
-//        if (isExpanded.value) 48.dp else 0.dp,
-//        animationSpec = spring(
-//            dampingRatio = Spring.DampingRatioHighBouncy,
-//            stiffness = Spring.StiffnessLow
-//        )
-//    )
-
-
-    Row(
-        modifier = Modifier
-            .padding(12.dp)
-            .animateContentSize(
-                animationSpec = spring(
-                    dampingRatio = Spring.DampingRatioMediumBouncy,
-                    stiffness = Spring.StiffnessLow
-                )
-            )
-    ) {
-        Column(
-            modifier = Modifier
-                .weight(1f)
-                .padding(12.dp)
-        ) {
-            Text(text = "Hello,")
-            Text(
-                text = name, style = MaterialTheme.typography.headlineSmall.copy(
-                    fontWeight = FontWeight.ExtraBold
-                )
-            )
-            if (isExpanded) {
-                Text(
-                    text = ("Composem ipsum color sit lazy, " +
-                            "padding theme elit, sed do bouncy.").repeat(4)
-                )
+    Column {
+        val pagerState = rememberPagerState(selectedIndex.value, 0f)
+        HorizontalPager(pageCount = 5, state = pagerState, modifier = Modifier.weight(1f)) { page ->
+            when (page) {
+                0 -> LookOnView()
+                1 -> LookOnView()
+                2 -> LookOnView()
+                3 -> LookOnView()
+                4 -> LookOnView()
             }
         }
-        IconButton(
-            //Button具有一个名为onClick的形参，但它不接受值，而接受函数
-            onClick = {
-                isExpanded = !isExpanded
-            },
-        ) {
-            Icon(
-                imageVector = if (isExpanded) Icons.Filled.ExpandLess else Icons.Filled.ExpandMore,
-                contentDescription = if (isExpanded) stringResource(R.string.show_less) else stringResource(
-                    R.string.show_more
+        BottomNav(selectedIndex, pagerState)
+    }
+}
+
+@OptIn(ExperimentalFoundationApi::class)
+@Composable
+fun BottomNav(selectedIndex: MutableState<Int>, pagerState: PagerState) {
+    val scope = rememberCoroutineScope()
+    val listItems = listOf(
+        stringResource(R.string.first_tab_title),
+        stringResource(R.string.second_tab_title),
+        stringResource(R.string.third_tab_title),
+        stringResource(R.string.fourth_tab_title),
+        stringResource(R.string.fifth_tab_title)
+    )
+
+
+    BottomNavigation(backgroundColor = Color.White) {
+        listItems.forEachIndexed { index, s ->
+            BottomNavigationItem(
+                selected = selectedIndex.value == index,
+                onClick = {
+                    selectedIndex.value = index
+                    scope.launch {
+                        pagerState.scrollToPage(index)
+                    }
+                },
+                icon = {
+                    when (index) {
+                        0 -> BottomIcon(Icons.Filled.Home, selectedIndex.value, index)
+                        1 -> BottomIcon(Icons.Filled.Home, selectedIndex.value, index)
+                        2 -> BottomIcon(Icons.Filled.Home, selectedIndex.value, index)
+                        3 -> BottomIcon(Icons.Filled.Home, selectedIndex.value, index)
+                        4 -> BottomIcon(Icons.Filled.Home, selectedIndex.value, index)
+                    }
+                },
+                label = {
+                    Text(
+                        s,
+                        color = if (selectedIndex.value == index) MaterialTheme.colorScheme.primary else Color.Gray,
+                        fontSize = 12.sp,
+                    )
+                },
+
                 )
-
-            )
         }
+
     }
 
-
-}
-
-
-@Composable
-fun OnboardingScreen(onContinueClicked: () -> Unit, modifier: Modifier = Modifier) {
-
-    Column(
-        modifier = modifier.fillMaxSize(),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        Text("Welcome to the Basics Codelab!")
-        Button(
-            modifier = Modifier.padding(vertical = 24.dp),
-            onClick = onContinueClicked
-        ) {
-            Text("Continue")
-        }
-    }
 }
 
 @Composable
-private fun MyApp(modifier: Modifier = Modifier) {
-    ////可以使用rememberSaveable，而不使用remeber。这会保存每个在配置更改（如旋转）和进程终止后保留下来的状态。
-    var shouldShowOnboarding by rememberSaveable { mutableStateOf(true) }
-    Surface(modifier) {
-        if (shouldShowOnboarding) {
-            OnboardingScreen(onContinueClicked = { shouldShowOnboarding = false })
-        } else {
-            Greetings()
-        }
-    }
+private fun BottomIcon(imageVector: ImageVector, selectedIndex: Int, index: Int) {
+    Icon(
+        imageVector,
+        null,
+        tint = if (selectedIndex == index) MaterialTheme.colorScheme.primary else Color.Gray
+    )
 }
 
-//@Preview(showBackground = true, widthDp = 320, uiMode = UI_MODE_NIGHT_YES, name = "Dark")
-//@Preview(showBackground = true, widthDp = 320)
-//@Composable
-//fun GreetingPreview() {
-//    MyComposeTheme {
-//        Greetings()
-//    }
-//}
-//
+
 @Preview(showBackground = true)
 @Composable
 fun MyAppPreview() {
     MyComposeTheme {
-        MyApp(Modifier.fillMaxSize())
+        PagerView()
     }
 }

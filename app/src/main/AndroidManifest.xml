@@ -13,10 +13,10 @@
         android:theme="@style/Theme.MyCompose"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".LookOnActivity"
             android:exported="false" />
         <activity
-            android:name=".LookOnActivity"
+            android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.MyCompose">

@@ -2,4 +2,9 @@
     <string name="app_name">MyCompose</string>
     <string name="show_less">Show less</string>
     <string name="show_more">Show more</string>
+    <string name="first_tab_title">First</string>
+    <string name="second_tab_title">Second</string>
+    <string name="third_tab_title">Third</string>
+    <string name="fourth_tab_title">Fourth</string>
+    <string name="fifth_tab_title">Fifth</string>
 </resources>

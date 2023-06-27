@@ -59,6 +59,7 @@ dependencies {
     implementation(libs.material3)
     implementation(libs.appcompat)
     implementation(libs.material)
+    implementation(libs.google.material )
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.espresso.core)
