@@ -1,0 +1,112 @@
+package com.guilin.mycompose.ui.view
+
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.material.Divider
+import androidx.compose.material.TopAppBar
+import androidx.compose.material.contentColorFor
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.NavigateNext
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.modifier.modifierLocalProvider
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.dp
+import com.guilin.mycompose.ui.theme.MyComposeTheme
+
+/**
+ * @description:基础组件
+ * @author:  guilin
+ * @email:   308139995@qq.com
+ * @date :   2023/6/28 8:26 AM
+ */
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun BasicPage() {
+    val list = listOf<String>(
+        "Alertdialog",
+        "Button",
+        "Card",
+        "FloatingActionButton",
+        "Icon",
+        "IconButton",
+        "Image",
+        "Slider",
+        "Text",
+        "TextField"
+    )
+    //verticalArrangement = Arrangement.Center,
+    //horizontalAlignment = Alignment.CenterHorizontally
+
+    Column(Modifier.fillMaxSize()) {
+        TopAppBar(
+            modifier = Modifier.fillMaxWidth(),
+            backgroundColor = MaterialTheme.colorScheme.primary,//背景色
+            contentPadding = PaddingValues(4.dp),//AppBar的内边距
+
+        ) {
+            Column(modifier = Modifier.fillMaxWidth()) {
+                Text(
+                    text = "基础布局",
+                    color = Color.White,
+                    modifier = Modifier.align(Alignment.CenterHorizontally),
+                    textAlign = TextAlign.Center
+                )
+
+            }
+
+
+        }
+
+        LazyColumn(Modifier.weight(1f)) {
+            itemsIndexed(list) { index, item ->
+                Column(
+                    Modifier
+                        .fillMaxWidth()
+                        .height(60.dp),
+                    //Modifier.align(alignment = Alignment.CenterHorizontally) 垂直布局Column 进行水平居中
+                ) {
+                    Row(
+                        Modifier
+                            .weight(1f)
+                            .padding(24.dp, 0.dp),
+                        //horizontalArrangement = Arrangement.Center,//设置水平居中对齐
+                        verticalAlignment = Alignment.CenterVertically//设置垂直居中对齐
+                    ) {
+                        Text(text = item, modifier = Modifier.weight(1f))
+                        Icon(
+                            imageVector = Icons.Filled.NavigateNext,
+                            contentDescription = "查看",
+                        )
+                    }
+                    Divider(
+                        //color = Color.Red,
+                        thickness = 0.5.dp,
+                        startIndent = 0.dp,
+                        modifier = Modifier
+                            .padding(24.dp, 0.dp),
+                    )
+                }
+
+
+            }
+        }
+    }
+
+}

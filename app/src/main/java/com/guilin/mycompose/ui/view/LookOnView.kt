@@ -1,8 +1,6 @@
 package com.guilin.mycompose.ui.view
 
-import android.widget.AdapterView.OnItemClickListener
 import androidx.annotation.DrawableRes
-import androidx.compose.animation.Animatable
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -34,7 +32,6 @@ import androidx.compose.material3.ElevatedButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -46,7 +43,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
-import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.TextStyle
@@ -57,7 +53,7 @@ import androidx.compose.ui.unit.sp
 import com.guilin.mycompose.R
 
 /**
- * @description:
+ * @description:demo
  * @author:  guilin
  * @email:   308139995@qq.com
  * @date :   2023/6/26 3:44 PM

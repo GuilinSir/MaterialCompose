@@ -31,7 +31,9 @@ import androidx.compose.ui.semantics.SemanticsProperties.Text
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 import com.guilin.mycompose.ui.theme.MyComposeTheme
-import com.guilin.mycompose.ui.view.HomePager
+import com.guilin.mycompose.ui.view.BasicPage
+import com.guilin.mycompose.ui.view.DesignPage
+import com.guilin.mycompose.ui.view.LayoutPage
 import com.guilin.mycompose.ui.view.LookOnView
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
@@ -57,13 +59,12 @@ fun PagerView() {
     }
     Column {
         val pagerState = rememberPagerState(selectedIndex.value, 0f)
-        HorizontalPager(pageCount = 5, state = pagerState, modifier = Modifier.weight(1f)) { page ->
+        HorizontalPager(pageCount = 4, state = pagerState, modifier = Modifier.weight(1f)) { page ->
             when (page) {
-                0 -> HomePager()
-                1 -> LookOnView()
-                2 -> LookOnView()
+                0 -> BasicPage()
+                1 -> LayoutPage()
+                2 -> DesignPage()
                 3 -> LookOnView()
-                4 -> LookOnView()
             }
         }
         BottomNav(selectedIndex, pagerState)
@@ -79,7 +80,6 @@ fun BottomNav(selectedIndex: MutableState<Int>, pagerState: PagerState) {
         stringResource(R.string.second_tab_title),
         stringResource(R.string.third_tab_title),
         stringResource(R.string.fourth_tab_title),
-        stringResource(R.string.fifth_tab_title)
     )
 
 
@@ -93,7 +93,6 @@ fun BottomNav(selectedIndex: MutableState<Int>, pagerState: PagerState) {
                         1 -> BottomIcon(Icons.Filled.Home, selectedIndex.value, index)
                         2 -> BottomIcon(Icons.Filled.Home, selectedIndex.value, index)
                         3 -> BottomIcon(Icons.Filled.Home, selectedIndex.value, index)
-                        4 -> BottomIcon(Icons.Filled.Home, selectedIndex.value, index)
                     }
                 },
                 label = {
@@ -111,20 +110,6 @@ fun BottomNav(selectedIndex: MutableState<Int>, pagerState: PagerState) {
                 },
                 selectedContentColor = MaterialTheme.colorScheme.primary,
                 unselectedContentColor = Color.Gray,
-//                modifier = Modifier.clickable(
-//                    onClick = {
-//                        selectedIndex.value = index
-//                        scope.launch {
-//                            pagerState.scrollToPage(index)
-//                        }
-//                    },
-//                    indication = null,
-//                    interactionSource = remember {
-//                        MutableInteractionSource()
-//                    }
-//                ),
-
-
             )
 
         }
@@ -148,6 +133,6 @@ private fun BottomIcon(imageVector: ImageVector, selectedIndex: Int, index: Int)
 @Composable
 fun MyAppPreview() {
     MyComposeTheme {
-        PagerView()
+       BasicPage()
     }
 }
