@@ -39,6 +39,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -61,6 +62,7 @@ import com.guilin.mycompose.R
  * @email:   308139995@qq.com
  * @date :   2023/6/26 3:44 PM
  */
+
 
 @Composable
 fun LookOnView() {
@@ -186,7 +188,7 @@ fun SearchBar() {
 fun NamesBar() {
     var names =
         listOf("香玲", "海娇", "艺萱", "梦阁", "钰晗", "艳霞", "小然", "思凝")
-    var selected by remember {
+    var selected by rememberSaveable {
         mutableStateOf(0)
     }
     LazyRow(Modifier.padding(0.dp, 8.dp), contentPadding = PaddingValues(12.dp, 0.dp)) {
@@ -207,12 +209,12 @@ fun NamesBar() {
                         fontWeight = if (index == selected) FontWeight.Bold else FontWeight.Normal,
                         textAlign = TextAlign.Center,
                     )
-                    )
+                )
                 if (index == selected) {
                     Box(
                         Modifier
                             .fillMaxWidth()
-                            .padding(0.dp,2.dp)
+                            .padding(0.dp, 2.dp)
                             .height(2.dp)
                             //.padding(0.dp,2.dp)
                             .clip(RoundedCornerShape(1.dp))
