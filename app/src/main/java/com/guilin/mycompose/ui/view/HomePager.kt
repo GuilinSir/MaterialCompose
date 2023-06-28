@@ -1,10 +1,13 @@
 package com.guilin.mycompose.ui.view
 
+import androidx.compose.runtime.Composable
+
 /**
- * @description: 
+ * @description:
  * @author:  guilin
- * @email:   308139995@qq.com 
+ * @email:   308139995@qq.com
  * @date :   2023/6/28 8:26 AM
  */
-class HomePager {
+@Composable
+fun HomePager() {
 }

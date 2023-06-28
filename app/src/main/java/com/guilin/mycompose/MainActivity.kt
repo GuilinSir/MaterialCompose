@@ -3,7 +3,8 @@ package com.guilin.mycompose
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.*
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.PagerState
@@ -30,6 +31,7 @@ import androidx.compose.ui.semantics.SemanticsProperties.Text
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 import com.guilin.mycompose.ui.theme.MyComposeTheme
+import com.guilin.mycompose.ui.view.HomePager
 import com.guilin.mycompose.ui.view.LookOnView
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
@@ -57,7 +59,7 @@ fun PagerView() {
         val pagerState = rememberPagerState(selectedIndex.value, 0f)
         HorizontalPager(pageCount = 5, state = pagerState, modifier = Modifier.weight(1f)) { page ->
             when (page) {
-                0 -> LookOnView()
+                0 -> HomePager()
                 1 -> LookOnView()
                 2 -> LookOnView()
                 3 -> LookOnView()
@@ -85,12 +87,6 @@ fun BottomNav(selectedIndex: MutableState<Int>, pagerState: PagerState) {
         listItems.forEachIndexed { index, s ->
             BottomNavigationItem(
                 selected = selectedIndex.value == index,
-                onClick = {
-                    selectedIndex.value = index
-                    scope.launch {
-                        pagerState.scrollToPage(index)
-                    }
-                },
                 icon = {
                     when (index) {
                         0 -> BottomIcon(Icons.Filled.Home, selectedIndex.value, index)
@@ -107,9 +103,32 @@ fun BottomNav(selectedIndex: MutableState<Int>, pagerState: PagerState) {
                         fontSize = 12.sp,
                     )
                 },
+                onClick = {
+                    selectedIndex.value = index
+                    scope.launch {
+                        pagerState.scrollToPage(index)
+                    }
+                },
+                selectedContentColor = MaterialTheme.colorScheme.primary,
+                unselectedContentColor = Color.Gray,
+//                modifier = Modifier.clickable(
+//                    onClick = {
+//                        selectedIndex.value = index
+//                        scope.launch {
+//                            pagerState.scrollToPage(index)
+//                        }
+//                    },
+//                    indication = null,
+//                    interactionSource = remember {
+//                        MutableInteractionSource()
+//                    }
+//                ),
 
-                )
+
+            )
+
         }
+
 
     }
 
