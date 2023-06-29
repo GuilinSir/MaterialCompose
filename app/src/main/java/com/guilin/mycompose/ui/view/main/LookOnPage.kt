@@ -1,5 +1,6 @@
-package com.guilin.mycompose.ui.view
+package com.guilin.mycompose.ui.view.main
 
+import android.util.Log
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -28,7 +29,6 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.ElevatedButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -50,6 +50,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavBackStackEntry
+import androidx.navigation.NavController
 import com.guilin.mycompose.R
 
 /**
@@ -61,7 +63,9 @@ import com.guilin.mycompose.R
 
 
 @Composable
-fun LookOnView() {
+fun NavController.LookOnPage() {
+
+
     Column {
         Column(
             Modifier

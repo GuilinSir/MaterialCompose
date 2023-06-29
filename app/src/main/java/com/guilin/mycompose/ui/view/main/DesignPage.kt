@@ -1,6 +1,7 @@
-package com.guilin.mycompose.ui.view
+package com.guilin.mycompose.ui.view.main
 
 import androidx.compose.runtime.Composable
+import androidx.navigation.NavController
 
 /**
  * @description:设计
@@ -9,5 +10,5 @@ import androidx.compose.runtime.Composable
  * @date :   2023/6/28 3:26 PM
  */
 @Composable
-fun DesignPage() {
+fun NavController.DesignPage() {
 }
