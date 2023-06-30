@@ -24,7 +24,10 @@ android {
     buildTypes {
         release {
             isMinifyEnabled = false
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
         }
     }
     compileOptions {
@@ -58,6 +61,7 @@ dependencies {
     implementation(libs.ui.tooling.preview)
     implementation(libs.material3)
     implementation(libs.appcompat)
+    implementation(libs.androidx.constraintlayout.compose)
     //implementation(libs.material)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
@@ -69,6 +73,7 @@ dependencies {
     implementation(libs.material.icons.extended)
     implementation(libs.navigation)
     //implementation(libs.accompanist.navigation.animation)
+    implementation(libs.accompanist.systemuicontroller)
 
 
 }

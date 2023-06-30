@@ -21,7 +21,7 @@ fun NavController.AlertdialogPage(navBackStackEntry: NavBackStackEntry) {
     val personName = navBackStackEntry.arguments?.getString("girl_name")
     personName?.let { Log.e("LookOnPage", it) }
     Column( Modifier.fillMaxSize()) {
-        TopBarView(true, "Alertdialog",this@AlertdialogPage)
+        TopBarView(true, "Alertdialog",this@AlertdialogPage,true)
         Text(text = "AlertdialogPage----$personName")
     }
 

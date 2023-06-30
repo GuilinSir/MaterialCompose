@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.requiredHeight
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.material3.Icon
@@ -23,12 +24,16 @@ import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.filled.Share
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 /**
  * @description:
@@ -38,7 +43,31 @@ import androidx.navigation.NavController
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun TopBarView(isBack: Boolean, title: String, navController: NavController) {
+fun TopBarView(isBack: Boolean, title: String, navController: NavController,isImmersive: Boolean = false) {
+    val topAppBarHeight = 50.dp
+    var statusBarHeight = 0
+    var statusBarHeightDp = Dp(0f)
+
+    if (isImmersive) {
+        val systemUiController = rememberSystemUiController()
+        SideEffect {
+            systemUiController.setSystemBarsColor(
+                color = Color.Transparent,
+                //darkIcons = darkIcons
+            )
+        }
+        with(LocalContext.current) {
+            statusBarHeight =
+                resources.getDimensionPixelSize(resources.getIdentifier("status_bar_height",
+                    "dimen",
+                    "android"))
+        }
+        with(LocalDensity.current) {
+            statusBarHeightDp = statusBarHeight.toDp()
+        }
+    }
+
+
     //自定义的appbar
     Box(Modifier.background(MaterialTheme.colorScheme.primary)) {
         Text(
@@ -46,8 +75,9 @@ fun TopBarView(isBack: Boolean, title: String, navController: NavController) {
             style = MaterialTheme.typography.titleMedium,
             color = MaterialTheme.colorScheme.onPrimary,
             modifier = Modifier
-                .height(50.dp)
                 .fillMaxWidth()
+                .height(topAppBarHeight + statusBarHeightDp)
+                .padding(top = statusBarHeightDp)
                 .wrapContentSize(Alignment.Center)
         )
         if (isBack) {

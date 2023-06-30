@@ -66,7 +66,7 @@ fun NavController.BasicPage() {
     //horizontalAlignment = Alignment.CenterHorizontally
     Surface(Modifier.background(MaterialTheme.colorScheme.surface)) {
         Column(Modifier.fillMaxSize()) {
-            TopBarView(false, "基础组件", this@BasicPage)
+            TopBarView(false, "基础组件", this@BasicPage,true)
             BasicListView(list = list, Modifier.weight(1f), this@BasicPage)
         }
     }

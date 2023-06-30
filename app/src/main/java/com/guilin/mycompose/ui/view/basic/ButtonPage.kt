@@ -15,7 +15,7 @@ import com.guilin.mycompose.ui.view.wight.TopBarView
 @Composable
 fun NavController.ButtonPage() {
     Column {
-        TopBarView(true, "Alertdialog", this@ButtonPage)
+        TopBarView(true, "Alertdialog", this@ButtonPage,true)
         Text(text = "ButtonPage")
     }
 }

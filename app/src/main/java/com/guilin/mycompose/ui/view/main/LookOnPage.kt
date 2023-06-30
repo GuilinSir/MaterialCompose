@@ -38,11 +38,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
@@ -58,7 +61,22 @@ import com.guilin.mycompose.R
 
 @Composable
 fun NavController.LookOnPage() {
-    Column {
+    var statusBarHeight = 0
+    var statusBarHeightDp = Dp(0f)
+    with(LocalContext.current) {
+        statusBarHeight =
+            resources.getDimensionPixelSize(
+                resources.getIdentifier(
+                    "status_bar_height",
+                    "dimen",
+                    "android"
+                )
+            )
+    }
+    with(LocalDensity.current) {
+        statusBarHeightDp = statusBarHeight.toDp()
+    }
+    Column(Modifier.padding(top = statusBarHeightDp)) {
         Column(
             Modifier
                 .fillMaxWidth()
@@ -188,7 +206,7 @@ fun SearchBar() {
 @Composable
 fun NamesBar() {
     var names =
-        listOf("比亚迪","特斯拉", "极氪", "蔚来", "小鹏", "AITO", "领跑", "理想", "问界","特斯拉")
+        listOf("比亚迪", "特斯拉", "极氪", "蔚来", "小鹏", "AITO", "领跑", "理想", "问界", "特斯拉")
     var selected by rememberSaveable {
         mutableStateOf(0)
     }
@@ -259,7 +277,7 @@ fun GirlsArea() {
                     .padding(0.dp, 12.dp)
                     .clip(RoundedCornerShape(10.dp))
                     .background(MaterialTheme.colorScheme.secondaryContainer)
-                    .padding(0.dp,10.dp)
+                    .padding(0.dp, 10.dp)
             ) {
                 Image(
                     painter = painterResource(item),
@@ -269,7 +287,7 @@ fun GirlsArea() {
                         .padding(10.dp)
                         .clip(RoundedCornerShape(10.dp))
                 )
-                Row (Modifier.padding(10.dp,10.dp,0.dp,0.dp)){
+                Row(Modifier.padding(10.dp, 10.dp, 0.dp, 0.dp)) {
                     Text(
                         "型号:",
                         Modifier
@@ -290,7 +308,7 @@ fun GirlsArea() {
                         color = MaterialTheme.colorScheme.onSecondaryContainer,
                     )
                 }
-                Row (Modifier.padding(10.dp,5.dp,0.dp,0.dp)){
+                Row(Modifier.padding(10.dp, 5.dp, 0.dp, 0.dp)) {
                     Text(
                         "品牌:",
                         Modifier
