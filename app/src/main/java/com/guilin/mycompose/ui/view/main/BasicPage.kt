@@ -1,5 +1,6 @@
 package com.guilin.mycompose.ui.view.main
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -9,16 +10,18 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
-import androidx.compose.material.Divider
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.NavigateNext
+import androidx.compose.material3.Divider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.NavigateNext
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.guilin.mycompose.NavHost
+import com.guilin.mycompose.R
 import com.guilin.mycompose.ui.view.wight.TopBarView
 
 /**
@@ -42,11 +45,13 @@ val list = listOf<String>(
 
 fun clickEvent(item: String, navController: NavController) {
     when (item) {
-        "Alertdialog" -> navController.navigate("alertdialog_page/" + "123")
-        "Button" -> navController.navigate("button_page")
-    }
+        "Alertdialog" -> NavHost().Navigate(navController, "alertdialog_page/" + "123")
+        "Button" -> NavHost().Navigate(navController, "button_page")
 
+    }
 }
+
+
 
 
 @Composable
@@ -98,7 +103,6 @@ fun BasicRow(item: String, navController: NavController) {
         Divider(
             //color = Color.Red,
             thickness = 0.5.dp,
-            startIndent = 0.dp,
             modifier = Modifier
                 .padding(24.dp, 0.dp),
         )

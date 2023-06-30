@@ -58,8 +58,7 @@ dependencies {
     implementation(libs.ui.tooling.preview)
     implementation(libs.material3)
     implementation(libs.appcompat)
-    implementation(libs.material)
-    implementation(libs.google.material )
+    //implementation(libs.material)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.espresso.core)
@@ -68,5 +67,8 @@ dependencies {
     debugImplementation(libs.ui.tooling)
     debugImplementation(libs.ui.test.manifest)
     implementation(libs.material.icons.extended)
-    implementation("androidx.navigation:navigation-compose:2.5.3")
+    implementation(libs.navigation)
+    //implementation(libs.accompanist.navigation.animation)
+
+
 }

@@ -1,17 +1,23 @@
 package com.guilin.mycompose.ui.view
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.PagerState
 import androidx.compose.foundation.pager.rememberPagerState
-import androidx.compose.material.BottomNavigation
-import androidx.compose.material.BottomNavigationItem
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Home
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Home
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.NavigationBar
+import androidx.compose.material3.NavigationBarDefaults
+import androidx.compose.material3.NavigationBarItem
+import androidx.compose.material3.NavigationBarItemDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
@@ -21,7 +27,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.guilin.mycompose.R
 import com.guilin.mycompose.ui.view.main.BasicPage
@@ -31,30 +36,40 @@ import com.guilin.mycompose.ui.view.main.LookOnPage
 import kotlinx.coroutines.launch
 
 /**
- * @description:
+ * @description:主页
  * @author:  guilin
  * @email:   308139995@qq.com
  * @date :   2023/6/29 9:55 AM
  */
-@OptIn(ExperimentalFoundationApi::class)
+@OptIn(ExperimentalFoundationApi::class, ExperimentalMaterial3Api::class)
+@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter", "UnusedMaterialScaffoldPaddingParameter")
 @Composable
-fun NavController.MainPage (){
+fun NavController.MainPage() {
     var selectedIndex = remember {
         mutableStateOf(0)
     }
-    Column {
-        val pagerState = rememberPagerState(selectedIndex.value, 0f)
-        HorizontalPager(pageCount = 4, state = pagerState, modifier = Modifier.weight(1f)) { page ->
-            when (page) {
-                0 -> BasicPage()
-                1 -> LayoutPage()
-                2 -> DesignPage()
-                3 -> LookOnPage()
+    val pagerState = rememberPagerState(selectedIndex.value, 0f)
+
+    Scaffold(bottomBar = { BottomNav(selectedIndex, pagerState) }) {
+        Column {
+            HorizontalPager(
+                pageCount = 4,
+                state = pagerState,
+                modifier = Modifier.weight(1f)
+            ) { page ->
+
+                when (page) {
+                    0 -> BasicPage()
+                    1 -> LayoutPage()
+                    2 -> DesignPage()
+                    3 -> LookOnPage()
+                }
+
             }
         }
-        BottomNav(selectedIndex, pagerState)
     }
 }
+
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun BottomNav(selectedIndex: MutableState<Int>, pagerState: PagerState) {
@@ -67,23 +82,25 @@ fun BottomNav(selectedIndex: MutableState<Int>, pagerState: PagerState) {
     )
 
 
-    BottomNavigation(backgroundColor = Color.White) {
+    NavigationBar(
+        containerColor = MaterialTheme.colorScheme.primary
+        ) {
         listItems.forEachIndexed { index, s ->
-            BottomNavigationItem(
+            NavigationBarItem(
                 selected = selectedIndex.value == index,
                 icon = {
                     when (index) {
-                        0 -> BottomIcon(Icons.Filled.Home, selectedIndex.value, index)
-                        1 -> BottomIcon(Icons.Filled.Home, selectedIndex.value, index)
-                        2 -> BottomIcon(Icons.Filled.Home, selectedIndex.value, index)
-                        3 -> BottomIcon(Icons.Filled.Home, selectedIndex.value, index)
+                        0 -> BottomIcon(Icons.Filled.Home, pagerState.currentPage, index)
+                        1 -> BottomIcon(Icons.Filled.Home, pagerState.currentPage, index)
+                        2 -> BottomIcon(Icons.Filled.Home, pagerState.currentPage, index)
+                        3 -> BottomIcon(Icons.Filled.Home, pagerState.currentPage, index)
                     }
                 },
                 label = {
                     Text(
                         s,
-                        color = if (selectedIndex.value == index) MaterialTheme.colorScheme.primary else Color.Gray,
-                        fontSize = 12.sp,
+                        color = if (index == pagerState.currentPage) MaterialTheme.colorScheme.onPrimary else Color.Gray,
+                        style = MaterialTheme.typography.bodyMedium
                     )
                 },
                 onClick = {
@@ -92,8 +109,6 @@ fun BottomNav(selectedIndex: MutableState<Int>, pagerState: PagerState) {
                         pagerState.scrollToPage(index)
                     }
                 },
-                selectedContentColor = MaterialTheme.colorScheme.primary,
-                unselectedContentColor = Color.Gray,
             )
 
         }
@@ -107,6 +122,7 @@ private fun BottomIcon(imageVector: ImageVector, selectedIndex: Int, index: Int)
     Icon(
         imageVector,
         null,
+        //modifier = Modifier.(if (selectedIndex == index) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onPrimary),
         tint = if (selectedIndex == index) MaterialTheme.colorScheme.primary else Color.Gray
     )
 }

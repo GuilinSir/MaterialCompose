@@ -12,14 +12,16 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.requiredHeight
 import androidx.compose.foundation.layout.wrapContentSize
-import androidx.compose.material.TopAppBar
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.filled.Share
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
-import androidx.compose.material3.Text
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -34,39 +36,37 @@ import androidx.navigation.NavController
  * @email:   308139995@qq.com
  * @date :   2023/6/29 11:03 AM
  */
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TopBarView(isBack: Boolean, title: String, navController: NavController) {
-    val context = LocalContext.current
-
     //自定义的appbar
     TopAppBar(
         modifier = Modifier
             .fillMaxWidth()
             .height(50.dp),
-        backgroundColor = Color.White,//背景色
-        contentColor = Color.Red, //子级内容颜色
-        contentPadding = PaddingValues(4.dp)//AppBar的内边距
-    ) {
-        Box {
-            if (isBack) {
-                //返回按钮
-                IconButton(onClick = {
-                    navController.popBackStack()
-                }) {
-                    Icon(Icons.Filled.ArrowBack, null)
-                }
-            }
-            //标题
+        title = {
             Text(
                 title,
+                style = MaterialTheme.typography.titleMedium,
                 modifier = Modifier
                     .fillMaxWidth()
                     .fillMaxHeight()
                     .wrapContentSize(Alignment.Center)
             )
+        },
+        navigationIcon = {
+            Box {
+                if (isBack) {
+                    //返回按钮
+                    IconButton(onClick = {
+                        navController.popBackStack()
+                    }) {
+                        Icon(Icons.Filled.ArrowBack, null)
+                    }
+                }
+            }
         }
-
-    }
+    )
 }
 
 
