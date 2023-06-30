@@ -2,38 +2,35 @@ package com.guilin.mycompose.ui.view
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.ExperimentalFoundationApi
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.PagerState
 import androidx.compose.foundation.pager.rememberPagerState
-import androidx.compose.foundation.selection.selectable
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.NavigationBar
-import androidx.compose.material3.NavigationBarDefaults
 import androidx.compose.material3.NavigationBarItem
-import androidx.compose.material3.NavigationBarItemDefaults
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.MutableState
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.guilin.mycompose.R
+import com.guilin.mycompose.bean.BottomBarBean
 import com.guilin.mycompose.ui.view.main.BasicPage
 import com.guilin.mycompose.ui.view.main.DesignPage
 import com.guilin.mycompose.ui.view.main.LayoutPage
 import com.guilin.mycompose.ui.view.main.LookOnPage
+import com.guilin.mycompose.ui.view.wight.BottomBarView
 import kotlinx.coroutines.launch
 
 /**
@@ -48,28 +45,33 @@ import kotlinx.coroutines.launch
 fun NavController.MainPage() {
 
     val pagerState = rememberPagerState(0, 0f)
-    Scaffold(bottomBar = { BottomNav( pagerState) }) {
-        Column {
-            HorizontalPager(
-                pageCount = 4,
-                state = pagerState,
-                modifier = Modifier.weight(1f)
-            ) { page ->
-                when (page) {
-                    0 -> BasicPage()
-                    1 -> LayoutPage()
-                    2 -> DesignPage()
-                    3 -> LookOnPage()
-                }
 
+    Column {
+        HorizontalPager(
+            pageCount = 4,
+            state = pagerState,
+            modifier = Modifier.weight(1f)
+        ) { page ->
+            when (page) {
+                0 -> BasicPage()
+                1 -> LayoutPage()
+                2 -> DesignPage()
+                3 -> LookOnPage()
             }
         }
+        //BottomNav(pagerState)
+        val list = listOf<BottomBarBean>()
+            .plus(BottomBarBean(R.drawable.icon1, "基础组件"))
+            .plus(BottomBarBean(R.drawable.icon2, "布局组件"))
+            .plus(BottomBarBean(R.drawable.icon2, "设计"))
+            .plus(BottomBarBean(R.drawable.icon2, "Demo"))
+        BottomBarView(list, pagerState)
     }
 }
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun BottomNav( pagerState: PagerState) {
+fun BottomNav(pagerState: PagerState) {
     val scope = rememberCoroutineScope()
     val listItems = listOf(
         stringResource(R.string.first_tab_title),
@@ -80,8 +82,9 @@ fun BottomNav( pagerState: PagerState) {
 
 
     NavigationBar(
-        containerColor = MaterialTheme.colorScheme.primary
-        ) {
+        containerColor = MaterialTheme.colorScheme.primary,
+        modifier = Modifier.height(60.dp)
+    ) {
         listItems.forEachIndexed { index, s ->
             NavigationBarItem(
                 icon = {
@@ -96,7 +99,8 @@ fun BottomNav( pagerState: PagerState) {
                     Text(
                         s,
                         color = if (index == pagerState.currentPage) MaterialTheme.colorScheme.onPrimary else Color.Gray,
-                        style = MaterialTheme.typography.bodyMedium
+                        fontSize = 14.sp,
+                        //style = MaterialTheme.typography.bodySmall
                     )
                 },
                 onClick = {
@@ -110,8 +114,6 @@ fun BottomNav( pagerState: PagerState) {
 
         }
     }
-
-
 }
 
 @Composable

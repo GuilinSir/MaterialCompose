@@ -40,33 +40,25 @@ import androidx.navigation.NavController
 @Composable
 fun TopBarView(isBack: Boolean, title: String, navController: NavController) {
     //自定义的appbar
-    TopAppBar(
-        modifier = Modifier
-            .fillMaxWidth()
-            .height(50.dp),
-        title = {
-            Text(
-                title,
-                style = MaterialTheme.typography.titleMedium,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .fillMaxHeight()
-                    .wrapContentSize(Alignment.Center)
-            )
-        },
-        navigationIcon = {
-            Box {
-                if (isBack) {
-                    //返回按钮
-                    IconButton(onClick = {
-                        navController.popBackStack()
-                    }) {
-                        Icon(Icons.Filled.ArrowBack, null)
-                    }
-                }
+    Box(Modifier.background(MaterialTheme.colorScheme.primary)) {
+        Text(
+            title,
+            style = MaterialTheme.typography.titleMedium,
+            color = MaterialTheme.colorScheme.onPrimary,
+            modifier = Modifier
+                .height(50.dp)
+                .fillMaxWidth()
+                .wrapContentSize(Alignment.Center)
+        )
+        if (isBack) {
+            //返回按钮
+            IconButton(onClick = {
+                navController.popBackStack()
+            }) {
+                Icon(Icons.Filled.ArrowBack, null)
             }
         }
-    )
+    }
 }
 
 

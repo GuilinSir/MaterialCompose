@@ -1,7 +1,5 @@
 package com.guilin.mycompose.ui.view.main
 
-import android.util.Log
-import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -10,7 +8,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxHeight
@@ -25,13 +22,12 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.text.ClickableText
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -42,7 +38,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.TextStyle
@@ -68,14 +63,19 @@ fun NavController.LookOnPage() {
             Modifier
                 .fillMaxWidth()
                 .weight(1f)
-                .background(Color(0xfff4f4f4))
+                .background(MaterialTheme.colorScheme.surface)
         ) {
             TopBar()
             SearchBar()
             NamesBar()
             GirlsArea()
         }
-        NavBar()
+//        val list = listOf<BottomBarBean>()
+//            .plus(BottomBarBean(R.drawable.icon1, "基础组件"))
+//            .plus(BottomBarBean(R.drawable.icon2, "布局组件"))
+//            .plus(BottomBarBean(R.drawable.icon2, "设计"))
+//            .plus(BottomBarBean(R.drawable.icon2, "Demo"))
+//        BottomBarView(list)
     }
 }
 
@@ -101,30 +101,30 @@ fun TopBar() {
                 .weight(1f)
         ) {
             Text(
-                "Arms‘",
+                "新能源",
                 fontSize = 18.sp,
                 fontWeight = FontWeight.Bold,
-                color = Color(0xff000000)
-            )
+
+                )
             Spacer(modifier = Modifier.height(6.dp))
             Text(
-                "Girls",
+                "汽车图鉴",
                 fontSize = 18.sp,
                 fontWeight = FontWeight.Bold,
-                color = Color(0xff000000)
             )
 
         }
         Surface(
             Modifier.clip(CircleShape),
-            color = Color(0xfffef7f0)
+            color = MaterialTheme.colorScheme.primary
         ) {
-            Image(
+            Icon(
                 painter = painterResource(R.drawable.icon5),
                 contentDescription = "通知",
                 Modifier
                     .padding(10.dp)
-                    .size(22.dp)
+                    .size(22.dp),
+                tint = MaterialTheme.colorScheme.onPrimary
             )
         }
     }
@@ -138,7 +138,7 @@ fun SearchBar() {
             .fillMaxWidth()
             .height(50.dp)
             .clip(RoundedCornerShape(30.dp))
-            .background(Color.White),
+            .background(MaterialTheme.colorScheme.surfaceVariant),
         verticalAlignment = Alignment.CenterVertically
     ) {
         var searchText by remember {
@@ -152,7 +152,11 @@ fun SearchBar() {
             textStyle = TextStyle(fontSize = 14.sp)
         ) {
             if (searchText.isEmpty()) {
-                Text("搜搜看？", color = Color(0xffb4b4b4), fontSize = 16.sp)
+                Text(
+                    "搜搜看？",
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    fontSize = 16.sp
+                )
             }
             it()
         }
@@ -164,7 +168,7 @@ fun SearchBar() {
                 .aspectRatio(1f)
                 .clip(CircleShape)
                 .background(
-                    Color(0xfffa9e51)
+                    MaterialTheme.colorScheme.primary
                 )
         ) {
             Icon(
@@ -175,7 +179,7 @@ fun SearchBar() {
                     .padding(2.dp)
                     //.size(24.dp)
                     .align(Alignment.Center),
-                tint = Color.White
+                tint = MaterialTheme.colorScheme.onPrimary
             )
         }
     }
@@ -184,7 +188,7 @@ fun SearchBar() {
 @Composable
 fun NamesBar() {
     var names =
-        listOf("香玲", "海娇", "艺萱", "梦阁", "钰晗", "艳霞", "小然", "思凝")
+        listOf("比亚迪","特斯拉", "极氪", "蔚来", "小鹏", "AITO", "领跑", "理想", "问界","特斯拉")
     var selected by rememberSaveable {
         mutableStateOf(0)
     }
@@ -202,7 +206,7 @@ fun NamesBar() {
                     },
                     style = TextStyle(
                         fontSize = 14.sp,
-                        color = if (index == selected) Color(0xfffa9e51) else Color(0xff707070),
+                        color = if (index == selected) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onBackground,
                         fontWeight = if (index == selected) FontWeight.Bold else FontWeight.Normal,
                         textAlign = TextAlign.Center,
                     )
@@ -215,7 +219,7 @@ fun NamesBar() {
                             .height(2.dp)
                             //.padding(0.dp,2.dp)
                             .clip(RoundedCornerShape(1.dp))
-                            .background(Color(0xfffa9e51))
+                            .background(MaterialTheme.colorScheme.primary)
                     )
                 }
             }
@@ -236,9 +240,14 @@ fun GirlsArea() {
             .padding(24.dp, 12.dp, 24.dp)
             .fillMaxWidth()
     ) {
-        Text("TA 照片", fontWeight = FontWeight.Bold, fontSize = 16.sp)
+        Text(
+            "汽车展示",
+            fontWeight = FontWeight.Bold,
+            fontSize = 16.sp,
+            color = MaterialTheme.colorScheme.onBackground
+        )
         Spacer(modifier = Modifier.weight(1f))
-        Text(text = "查看全部", fontSize = 14.sp, color = Color(0xffb4b4b4))
+        Text(text = "查看全部", fontSize = 14.sp, color = MaterialTheme.colorScheme.outline)
     }
     LazyRow(
         horizontalArrangement = Arrangement.spacedBy(24.dp),
@@ -249,7 +258,8 @@ fun GirlsArea() {
                 Modifier
                     .padding(0.dp, 12.dp)
                     .clip(RoundedCornerShape(10.dp))
-                    .background(Color(0xffffffff))
+                    .background(MaterialTheme.colorScheme.secondaryContainer)
+                    .padding(0.dp,10.dp)
             ) {
                 Image(
                     painter = painterResource(item),
@@ -259,57 +269,53 @@ fun GirlsArea() {
                         .padding(10.dp)
                         .clip(RoundedCornerShape(10.dp))
                 )
-                Text(
-                    "吃面YYDS",
+                Row (Modifier.padding(10.dp,10.dp,0.dp,0.dp)){
+                    Text(
+                        "型号:",
+                        Modifier
+                            .fillMaxWidth(),
+                        //.align(Alignment.CenterHorizontally),
+                        //fontWeight = FontWeight.ExtraBold,
+                        fontSize = 14.sp,
+                        color = MaterialTheme.colorScheme.onSecondaryContainer,
+                    )
+                    Text(
+                        "U9",
+                        Modifier
+                            .padding(10.dp, 0.dp, 0.dp, 0.dp)
+                            .fillMaxWidth(),
+                        //.align(Alignment.CenterHorizontally),
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 14.sp,
+                        color = MaterialTheme.colorScheme.onSecondaryContainer,
+                    )
+                }
+                Row (Modifier.padding(10.dp,5.dp,0.dp,0.dp)){
+                    Text(
+                        "品牌:",
+                        Modifier
+                            .fillMaxWidth(),
+                        //.align(Alignment.CenterHorizontally),
+                        //fontWeight = FontWeight.ExtraBold,
+                        fontSize = 14.sp,
+                        color = MaterialTheme.colorScheme.onSecondaryContainer,
+                    )
+                    Text(
+                        "仰望",
+                        Modifier
+                            .padding(10.dp, 0.dp, 0.dp, 0.dp)
+                            .fillMaxWidth(),
+                        //.align(Alignment.CenterHorizontally),
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 14.sp,
+                        color = MaterialTheme.colorScheme.onSecondaryContainer,
+                    )
+                }
 
-                    Modifier
-                        .padding(10.dp, 0.dp, 0.dp, 10.dp)
-                        .fillMaxWidth()
-                        .align(Alignment.CenterHorizontally),
-                    fontWeight = FontWeight.ExtraBold,
-                    fontSize = 14.sp,
-                    color = Color.Black,
-                )
             }
         }
     }
 }
 
-@Composable
-fun NavBar() {
-    Row(
-        Modifier
-            .height(60.dp)
-            .background(Color(0xffffffff)),
-        verticalAlignment = Alignment.CenterVertically
-    ) {
-        NavItem(R.drawable.icon1, Color(0xfffa9e51))
-        NavItem(R.drawable.icon2, Color(0xffb4b4b4))
-        NavItem(R.drawable.icon3, Color(0xffb4b4b4))
-        NavItem(R.drawable.icon4, Color(0xffb4b4b4))
-    }
-}
-
-@Composable
-private fun RowScope.NavItem(@DrawableRes iconRes: Int, tint: Color) {
-    Button(
-        onClick = {},
-        Modifier
-            .weight(1f)
-            .fillMaxHeight(),
-        shape = RectangleShape,
-        colors = ButtonDefaults.outlinedButtonColors()
-
-    ) {
-        Icon(
-            painterResource(iconRes),
-            "图标",
-            Modifier
-                .size(24.dp)
-                .weight(1f),
-            tint = tint
-        )
-    }
 
 
-}

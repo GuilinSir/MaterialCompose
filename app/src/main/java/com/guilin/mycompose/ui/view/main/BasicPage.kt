@@ -15,6 +15,8 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.NavigateNext
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -40,7 +42,13 @@ val list = listOf<String>(
     "Image",
     "Slider",
     "Text",
-    "TextField"
+    "TextField",
+    "TextField",
+    "TextField",
+    "TextField",
+    "TextField",
+    "Text",
+    "Slider",
 )
 
 fun clickEvent(item: String, navController: NavController) {
@@ -52,18 +60,16 @@ fun clickEvent(item: String, navController: NavController) {
 }
 
 
-
-
 @Composable
 fun NavController.BasicPage() {
     //verticalArrangement = Arrangement.Center,
     //horizontalAlignment = Alignment.CenterHorizontally
-
-    Column(Modifier.fillMaxSize()) {
-        TopBarView(false, "基础组件", this@BasicPage)
-        BasicListView(list = list, Modifier.weight(1f), this@BasicPage)
+    Surface(Modifier.background(MaterialTheme.colorScheme.surface)) {
+        Column(Modifier.fillMaxSize()) {
+            TopBarView(false, "基础组件", this@BasicPage)
+            BasicListView(list = list, Modifier.weight(1f), this@BasicPage)
+        }
     }
-
 }
 
 
