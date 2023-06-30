@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.PagerState
 import androidx.compose.foundation.pager.rememberPagerState
+import androidx.compose.foundation.selection.selectable
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
@@ -45,19 +46,15 @@ import kotlinx.coroutines.launch
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter", "UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun NavController.MainPage() {
-    var selectedIndex = remember {
-        mutableStateOf(0)
-    }
-    val pagerState = rememberPagerState(selectedIndex.value, 0f)
 
-    Scaffold(bottomBar = { BottomNav(selectedIndex, pagerState) }) {
+    val pagerState = rememberPagerState(0, 0f)
+    Scaffold(bottomBar = { BottomNav( pagerState) }) {
         Column {
             HorizontalPager(
                 pageCount = 4,
                 state = pagerState,
                 modifier = Modifier.weight(1f)
             ) { page ->
-
                 when (page) {
                     0 -> BasicPage()
                     1 -> LayoutPage()
@@ -72,7 +69,7 @@ fun NavController.MainPage() {
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun BottomNav(selectedIndex: MutableState<Int>, pagerState: PagerState) {
+fun BottomNav( pagerState: PagerState) {
     val scope = rememberCoroutineScope()
     val listItems = listOf(
         stringResource(R.string.first_tab_title),
@@ -87,7 +84,6 @@ fun BottomNav(selectedIndex: MutableState<Int>, pagerState: PagerState) {
         ) {
         listItems.forEachIndexed { index, s ->
             NavigationBarItem(
-                selected = selectedIndex.value == index,
                 icon = {
                     when (index) {
                         0 -> BottomIcon(Icons.Filled.Home, pagerState.currentPage, index)
@@ -104,11 +100,12 @@ fun BottomNav(selectedIndex: MutableState<Int>, pagerState: PagerState) {
                     )
                 },
                 onClick = {
-                    selectedIndex.value = index
                     scope.launch {
                         pagerState.scrollToPage(index)
+
                     }
                 },
+                selected = pagerState.currentPage == index,
             )
 
         }
@@ -122,7 +119,6 @@ private fun BottomIcon(imageVector: ImageVector, selectedIndex: Int, index: Int)
     Icon(
         imageVector,
         null,
-        //modifier = Modifier.(if (selectedIndex == index) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onPrimary),
         tint = if (selectedIndex == index) MaterialTheme.colorScheme.primary else Color.Gray
     )
 }

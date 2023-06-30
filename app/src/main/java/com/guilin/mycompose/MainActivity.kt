@@ -28,6 +28,6 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun MyAppPreview() {
     MyComposeTheme (){
-       NavHost().MainNavigation()
+        NavHost().MainNavigation()
     }
 }
