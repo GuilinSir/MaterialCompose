@@ -1,5 +1,6 @@
 package com.guilin.mycompose.ui.view.main
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -37,19 +38,16 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.guilin.mycompose.R
+import com.guilin.mycompose.utils.getStatusBarHeightDp
 
 /**
  * @description:demo
@@ -59,24 +57,11 @@ import com.guilin.mycompose.R
  */
 
 
+@SuppressLint("InternalInsetResource", "DiscouragedApi")
 @Composable
 fun NavController.LookOnPage() {
-    var statusBarHeight = 0
-    var statusBarHeightDp = Dp(0f)
-    with(LocalContext.current) {
-        statusBarHeight =
-            resources.getDimensionPixelSize(
-                resources.getIdentifier(
-                    "status_bar_height",
-                    "dimen",
-                    "android"
-                )
-            )
-    }
-    with(LocalDensity.current) {
-        statusBarHeightDp = statusBarHeight.toDp()
-    }
-    Column(Modifier.padding(top = statusBarHeightDp)) {
+
+    Column(Modifier.padding(top = getStatusBarHeightDp())) {
         Column(
             Modifier
                 .fillMaxWidth()

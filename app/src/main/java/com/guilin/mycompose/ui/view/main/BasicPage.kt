@@ -42,13 +42,7 @@ val list = listOf<String>(
     "Image",
     "Slider",
     "Text",
-    "TextField",
-    "TextField",
-    "TextField",
-    "TextField",
-    "TextField",
-    "Text",
-    "Slider",
+    "TextField"
 )
 
 fun clickEvent(item: String, navController: NavController) {

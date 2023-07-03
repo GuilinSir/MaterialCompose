@@ -34,6 +34,8 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
+import com.guilin.mycompose.utils.getStatusBarHeight
+import com.guilin.mycompose.utils.getStatusBarHeightDp
 
 /**
  * @description:
@@ -45,8 +47,6 @@ import com.google.accompanist.systemuicontroller.rememberSystemUiController
 @Composable
 fun TopBarView(isBack: Boolean, title: String, navController: NavController,isImmersive: Boolean = false) {
     val topAppBarHeight = 50.dp
-    var statusBarHeight = 0
-    var statusBarHeightDp = Dp(0f)
 
     if (isImmersive) {
         val systemUiController = rememberSystemUiController()
@@ -55,15 +55,6 @@ fun TopBarView(isBack: Boolean, title: String, navController: NavController,isIm
                 color = Color.Transparent,
                 //darkIcons = darkIcons
             )
-        }
-        with(LocalContext.current) {
-            statusBarHeight =
-                resources.getDimensionPixelSize(resources.getIdentifier("status_bar_height",
-                    "dimen",
-                    "android"))
-        }
-        with(LocalDensity.current) {
-            statusBarHeightDp = statusBarHeight.toDp()
         }
     }
 
@@ -76,8 +67,8 @@ fun TopBarView(isBack: Boolean, title: String, navController: NavController,isIm
             color = MaterialTheme.colorScheme.onPrimary,
             modifier = Modifier
                 .fillMaxWidth()
-                .height(topAppBarHeight + statusBarHeightDp)
-                .padding(top = statusBarHeightDp)
+                .height(topAppBarHeight + getStatusBarHeightDp())
+                .padding(top = getStatusBarHeightDp())
                 .wrapContentSize(Alignment.Center)
         )
         if (isBack) {
