@@ -18,11 +18,12 @@ import com.guilin.mycompose.ui.view.wight.TopBarView
  */
 @Composable
 fun NavController.AlertdialogPage(navBackStackEntry: NavBackStackEntry) {
+    //测试传参
     val personName = navBackStackEntry.arguments?.getString("girl_name")
-    personName?.let { Log.e("LookOnPage", it) }
+    //personName?.let { Log.e("AlertdialogPage", it) }
     Column( Modifier.fillMaxSize()) {
         TopBarView(true, "Alertdialog",this@AlertdialogPage,true)
-        Text(text = "AlertdialogPage----$personName")
+        //Text(text = "AlertdialogPage----$personName")
     }
 
 }

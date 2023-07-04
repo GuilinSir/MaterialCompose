@@ -1,11 +1,15 @@
 package com.guilin.mycompose.ui.view.main
 
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavController
+import com.guilin.mycompose.R
+import com.guilin.mycompose.ui.view.wight.TopBarView
 
 /**
  * @description:设计
@@ -16,7 +20,11 @@ import androidx.navigation.NavController
 @Composable
 fun NavController.DesignPage() {
     Surface (Modifier.fillMaxSize()){
-        Text(text = "DesignPage")
+        Column {
+            TopBarView(false, stringResource(R.string.third_tab_title), this@DesignPage,true)
+            Text(text = "DesignPage")
+        }
+
     }
 
 }

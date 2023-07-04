@@ -45,7 +45,12 @@ import com.guilin.mycompose.utils.getStatusBarHeightDp
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun TopBarView(isBack: Boolean, title: String, navController: NavController,isImmersive: Boolean = false) {
+fun TopBarView(
+    isBack: Boolean,
+    title: String,
+    navController: NavController,
+    isImmersive: Boolean = false
+) {
     val topAppBarHeight = 50.dp
 
     if (isImmersive) {
@@ -57,26 +62,39 @@ fun TopBarView(isBack: Boolean, title: String, navController: NavController,isIm
             )
         }
     }
-
-
-    //自定义的appbar
-    Box(Modifier.background(MaterialTheme.colorScheme.primary)) {
-        Text(
-            title,
-            style = MaterialTheme.typography.titleMedium,
-            color = MaterialTheme.colorScheme.onPrimary,
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(topAppBarHeight + getStatusBarHeightDp())
-                .padding(top = getStatusBarHeightDp())
-                .wrapContentSize(Alignment.Center)
-        )
-        if (isBack) {
-            //返回按钮
-            IconButton(onClick = {
-                navController.popBackStack()
-            }) {
-                Icon(Icons.Filled.ArrowBack, null)
+    Column(
+        Modifier
+            .height(topAppBarHeight + getStatusBarHeightDp())
+            .background(MaterialTheme.colorScheme.primary)
+    ) {
+        if(isImmersive) {
+            Spacer(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(getStatusBarHeightDp())
+            )
+        }
+        //自定义的appbar
+        Box(
+            Modifier
+                .height(topAppBarHeight)
+        ) {
+            Text(
+                title,
+                style = MaterialTheme.typography.titleMedium,
+                color = MaterialTheme.colorScheme.onPrimary,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(topAppBarHeight)
+                    .wrapContentSize(Alignment.Center)
+            )
+            if (isBack) {
+                //返回按钮
+                IconButton(onClick = {
+                    navController.popBackStack()
+                }) {
+                    Icon(Icons.Filled.ArrowBack, null, tint = MaterialTheme.colorScheme.onPrimary)
+                }
             }
         }
     }
