@@ -1,16 +1,15 @@
-package com.guilin.mycompose
+package com.guilin.mycompose.constant
 
 import androidx.compose.animation.ExperimentalAnimationApi
-import androidx.compose.animation.core.tween
-import androidx.compose.animation.slideInHorizontally
-import androidx.compose.animation.slideOutHorizontally
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
 import androidx.navigation.NavController
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import com.guilin.mycompose.R
 import com.guilin.mycompose.ui.view.MainPage
 import com.guilin.mycompose.ui.view.basic.AlertdialogPage
 import com.guilin.mycompose.ui.view.basic.ButtonPage
@@ -64,7 +63,11 @@ class NavHost {
                 }
                 )
             ) { navController.AlertdialogPage(it) }
-            composable("button_page") { navController.ButtonPage() }
+            composable(
+                "button_page"
+            ) {
+                navController.ButtonPage()
+            }
 
         }
     }

@@ -30,7 +30,8 @@ import com.guilin.mycompose.ui.view.main.BasicPage
 import com.guilin.mycompose.ui.view.main.DesignPage
 import com.guilin.mycompose.ui.view.main.LayoutPage
 import com.guilin.mycompose.ui.view.main.LookOnPage
-import com.guilin.mycompose.ui.view.wight.BottomBarView
+import com.guilin.mycompose.ui.view.main.ThemePage
+import com.guilin.mycompose.ui.wight.BottomBarView
 import kotlinx.coroutines.launch
 
 /**
@@ -48,7 +49,7 @@ fun NavController.MainPage() {
 
     Column {
         HorizontalPager(
-            pageCount = 4,
+            pageCount = 5,
             state = pagerState,
             modifier = Modifier.weight(1f)
         ) { page ->
@@ -57,14 +58,16 @@ fun NavController.MainPage() {
                 1 -> LayoutPage()
                 2 -> DesignPage()
                 3 -> LookOnPage()
+                4 -> ThemePage()
             }
         }
         //BottomNav(pagerState)
         val list = listOf<BottomBarBean>()
-            .plus(BottomBarBean(R.drawable.icon1, "基础组件"))
-            .plus(BottomBarBean(R.drawable.icon2, "布局组件"))
-            .plus(BottomBarBean(R.drawable.icon2, "设计"))
-            .plus(BottomBarBean(R.drawable.icon2, "Demo"))
+            .plus(BottomBarBean(R.drawable.icon1, stringResource(R.string.first_tab_title)))
+            .plus(BottomBarBean(R.drawable.icon2, stringResource(R.string.second_tab_title)))
+            .plus(BottomBarBean(R.drawable.icon2, stringResource(R.string.third_tab_title)))
+            .plus(BottomBarBean(R.drawable.icon2, stringResource(R.string.fourth_tab_title)))
+            .plus(BottomBarBean(R.drawable.icon2, stringResource(R.string.fifth_tab_title)))
         BottomBarView(list, pagerState)
     }
 }
@@ -77,6 +80,7 @@ fun BottomNav(pagerState: PagerState) {
         stringResource(R.string.first_tab_title),
         stringResource(R.string.second_tab_title),
         stringResource(R.string.third_tab_title),
+        stringResource(R.string.fourth_tab_title),
         stringResource(R.string.fourth_tab_title),
     )
 

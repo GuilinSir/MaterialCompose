@@ -1,4 +1,4 @@
-package com.guilin.mycompose.ui.view.wight
+package com.guilin.mycompose.ui.wight
 
 import android.widget.Toast
 import androidx.compose.foundation.background

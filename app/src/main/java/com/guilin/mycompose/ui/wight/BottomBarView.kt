@@ -1,4 +1,4 @@
-package com.guilin.mycompose.ui.view.wight
+package com.guilin.mycompose.ui.wight
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background

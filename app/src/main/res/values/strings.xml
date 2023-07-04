@@ -6,4 +6,5 @@
     <string name="second_tab_title">布局组件</string>
     <string name="third_tab_title">设计</string>
     <string name="fourth_tab_title">Demo</string>
+    <string name="fifth_tab_title">主题</string>
 </resources>

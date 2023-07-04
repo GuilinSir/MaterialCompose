@@ -74,6 +74,5 @@ dependencies {
     implementation(libs.navigation)
     //implementation(libs.accompanist.navigation.animation)
     implementation(libs.accompanist.systemuicontroller)
-
-
+    implementation(libs.mmkv.static)
 }

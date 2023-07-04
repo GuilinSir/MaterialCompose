@@ -9,7 +9,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavController
 import com.guilin.mycompose.R
-import com.guilin.mycompose.ui.view.wight.TopBarView
+import com.guilin.mycompose.ui.wight.TopBarView
 
 /**
  * @description:设计

@@ -10,81 +10,72 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
-import androidx.compose.material3.Divider
-import androidx.compose.material3.Icon
-import androidx.compose.material3.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.NavigateNext
+import androidx.compose.material3.Divider
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.guilin.common.constant.SpKey
 import com.guilin.mycompose.R
-import com.guilin.mycompose.constant.NavHost
+import com.guilin.mycompose.bean.BottomBarBean
+import com.guilin.mycompose.bean.ThemeBean
+import com.guilin.mycompose.enum.ThemeEnum
+import com.guilin.mycompose.ui.theme.themeTypeState
 import com.guilin.mycompose.ui.wight.TopBarView
+import com.guilin.mycompose.utils.SpUtils
 
 /**
- * @description:基础组件
+ * @description:主题切换
  * @author:  guilin
  * @email:   308139995@qq.com
- * @date :   2023/6/28 8:26 AM
+ * @date :   2023/6/28 3:26 PM
  */
-val list = listOf<String>(
-    "Alertdialog",
-    "Button",
-    "Card",
-    "FloatingActionButton",
-    "Icon",
-    "IconButton",
-    "Image",
-    "Slider",
-    "Text",
-    "TextField"
-)
-
-fun clickEvent(item: String, navController: NavController) {
-    when (item) {
-        "Alertdialog" -> NavHost().Navigate(navController, "alertdialog_page/" + "123")
-        "Button" -> NavHost().Navigate(navController, "button_page")
-
-    }
-}
+val themeList = listOf<ThemeBean>()
+    .plus(ThemeBean(ThemeEnum.PURPLE_THEME.state, ThemeEnum.PURPLE_THEME.colorName))
+    .plus(ThemeBean(ThemeEnum.GREEN_THEME.state, ThemeEnum.GREEN_THEME.colorName))
+    .plus(ThemeBean(ThemeEnum.RED_THEME.state, ThemeEnum.RED_THEME.colorName))
+    .plus(ThemeBean(ThemeEnum.ORANGE_THEME.state, ThemeEnum.ORANGE_THEME.colorName))
 
 
 @Composable
-fun NavController.BasicPage() {
-    //verticalArrangement = Arrangement.Center,
-    //horizontalAlignment = Alignment.CenterHorizontally
-    Surface(Modifier.background(MaterialTheme.colorScheme.surface)) {
-        Column(Modifier.fillMaxSize()) {
-            TopBarView(false, stringResource(R.string.first_tab_title), this@BasicPage,true)
-            BasicListView(list = list, Modifier.weight(1f), this@BasicPage)
+fun NavController.ThemePage() {
+    Surface(Modifier.fillMaxSize()) {
+        Surface(Modifier.background(MaterialTheme.colorScheme.surface)) {
+            Column(Modifier.fillMaxSize()) {
+                TopBarView(false, stringResource(R.string.fifth_tab_title), this@ThemePage, true)
+                ThemeListView(themeList, Modifier.weight(1f))
+            }
         }
     }
+
 }
 
-
 @Composable
-fun BasicListView(list: List<String>, modifier: Modifier, navController: NavController) {
+fun ThemeListView(list: List<ThemeBean>, modifier: Modifier) {
     LazyColumn(modifier = modifier) {
         itemsIndexed(list) { index, item ->
-            BasicRow(item, navController)
+            ThemeRow(item)
         }
     }
 }
 
 @Composable
-fun BasicRow(item: String, navController: NavController) {
+fun ThemeRow(item: ThemeBean) {
     Column(
         Modifier
             .fillMaxWidth()
             .height(60.dp)
             .clickable {
-                clickEvent(item, navController)
+                SpUtils.putInt(SpKey.CHANGED_THEME, item.state)
+                themeTypeState.value.value = item.state
             },
         //Modifier.align(alignment = Alignment.CenterHorizontally) 垂直布局Column 进行水平居中
     ) {
@@ -95,7 +86,7 @@ fun BasicRow(item: String, navController: NavController) {
             //horizontalArrangement = Arrangement.Center,//设置水平居中对齐
             verticalAlignment = Alignment.CenterVertically//设置垂直居中对齐
         ) {
-            Text(text = item, modifier = Modifier.weight(1f))
+            Text(text = item.name, modifier = Modifier.weight(1f))
             Icon(
                 imageVector = Icons.Filled.NavigateNext,
                 contentDescription = "查看",
@@ -109,4 +100,3 @@ fun BasicRow(item: String, navController: NavController) {
         )
     }
 }
-
