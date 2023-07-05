@@ -1,7 +1,7 @@
 package com.guilin.mycompose
 
 import android.app.Application
-import com.guilin.mycompose.utils.SpUtils
+import com.guilin.mycompose.utils.MMKVUtils
 
 /**
  * @description:
@@ -12,6 +12,6 @@ import com.guilin.mycompose.utils.SpUtils
 open class AppApplication : Application() {
     override fun onCreate() {
         super.onCreate()
-        SpUtils.initMMKV(this)
+        MMKVUtils.initMMKV(this)
     }
 }

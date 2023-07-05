@@ -29,7 +29,6 @@ import com.guilin.common.constant.SpKey
 import com.guilin.mycompose.enum.ThemeEnum
 import com.guilin.mycompose.ui.theme.themeTypeState
 import com.guilin.mycompose.ui.wight.TopBarView
-import com.guilin.mycompose.utils.SpUtils
 
 /**
  * @description:

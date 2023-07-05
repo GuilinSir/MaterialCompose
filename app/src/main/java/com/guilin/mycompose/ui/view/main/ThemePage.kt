@@ -30,7 +30,8 @@ import com.guilin.mycompose.bean.ThemeBean
 import com.guilin.mycompose.enum.ThemeEnum
 import com.guilin.mycompose.ui.theme.themeTypeState
 import com.guilin.mycompose.ui.wight.TopBarView
-import com.guilin.mycompose.utils.SpUtils
+import com.guilin.mycompose.utils.MMKVDelegate
+import com.guilin.mycompose.utils.MMKVUtils
 
 /**
  * @description:主题切换
@@ -55,7 +56,6 @@ fun NavController.ThemePage() {
             }
         }
     }
-
 }
 
 @Composable
@@ -69,12 +69,14 @@ fun ThemeListView(list: List<ThemeBean>, modifier: Modifier) {
 
 @Composable
 fun ThemeRow(item: ThemeBean) {
+    var state by MMKVDelegate(SpKey.CHANGED_THEME, 0)
     Column(
         Modifier
             .fillMaxWidth()
             .height(60.dp)
             .clickable {
-                SpUtils.putInt(SpKey.CHANGED_THEME, item.state)
+                state = item.state
+                //MMKVUtils.encode(SpKey.CHANGED_THEME, item.state)
                 themeTypeState.value.value = item.state
             },
         //Modifier.align(alignment = Alignment.CenterHorizontally) 垂直布局Column 进行水平居中

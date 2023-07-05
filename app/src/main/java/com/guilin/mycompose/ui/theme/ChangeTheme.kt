@@ -15,7 +15,8 @@ import com.guilin.mycompose.ui.theme.color.LightColorsGreen
 import com.guilin.mycompose.ui.theme.color.LightColorsOrange
 import com.guilin.mycompose.ui.theme.color.LightColorsPurple
 import com.guilin.mycompose.ui.theme.color.LightColorsRed
-import com.guilin.mycompose.utils.SpUtils
+import com.guilin.mycompose.utils.MMKVDelegate
+import com.guilin.mycompose.utils.MMKVUtils
 
 /**
  * @description:
@@ -23,9 +24,10 @@ import com.guilin.mycompose.utils.SpUtils
  * @email:   308139995@qq.com
  * @date :   2023/7/4 3:19 PM
  */
+var state by MMKVDelegate(SpKey.CHANGED_THEME,0)
 val themeTypeState: Lazy<MutableState<Int>> =
     lazy(mode = LazyThreadSafetyMode.SYNCHRONIZED) {
-        SpUtils.getInt(SpKey.CHANGED_THEME, 0)?.let { mutableStateOf(it) }!!
+        mutableStateOf(state)
     }
 
 @Composable
