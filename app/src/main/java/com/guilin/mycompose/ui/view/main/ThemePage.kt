@@ -28,6 +28,7 @@ import com.guilin.mycompose.R
 import com.guilin.mycompose.bean.BottomBarBean
 import com.guilin.mycompose.bean.ThemeBean
 import com.guilin.mycompose.enum.ThemeEnum
+import com.guilin.mycompose.ui.theme.state
 import com.guilin.mycompose.ui.theme.themeTypeState
 import com.guilin.mycompose.ui.wight.TopBarView
 import com.guilin.mycompose.utils.MMKVDelegate
@@ -69,7 +70,6 @@ fun ThemeListView(list: List<ThemeBean>, modifier: Modifier) {
 
 @Composable
 fun ThemeRow(item: ThemeBean) {
-    var state by MMKVDelegate(SpKey.CHANGED_THEME, 0)
     Column(
         Modifier
             .fillMaxWidth()
