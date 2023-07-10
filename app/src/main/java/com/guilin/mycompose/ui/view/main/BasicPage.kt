@@ -35,6 +35,8 @@ import com.guilin.mycompose.ui.wight.TopBarView
  */
 val list = listOf<String>(
     "Alertdialog",
+    "AssistChip",
+    "Badge",
     "Button",
     "Card",
     "FloatingActionButton",
@@ -49,7 +51,17 @@ val list = listOf<String>(
 fun clickEvent(item: String, navController: NavController) {
     when (item) {
         "Alertdialog" -> NavHost().Navigate(navController, "alertdialog_page/" + "123")
+        "AssistChip" -> NavHost().Navigate(navController, "assist_chip_page")
+        "Badge" -> NavHost().Navigate(navController, "badge_page")
         "Button" -> NavHost().Navigate(navController, "button_page")
+        "Card" -> NavHost().Navigate(navController, "card_page")
+        "FloatingActionButton" -> NavHost().Navigate(navController, "floating_action_button_page")
+        "Icon" -> NavHost().Navigate(navController, "icon_page")
+        "IconButton" -> NavHost().Navigate(navController, "icon_button_page")
+        "Image" -> NavHost().Navigate(navController, "image_page")
+        "Slider" -> NavHost().Navigate(navController, "slider_page")
+        "Text" -> NavHost().Navigate(navController, "text_page")
+        "TextField" -> NavHost().Navigate(navController, "text_field_page")
 
     }
 }
@@ -61,7 +73,7 @@ fun NavController.BasicPage() {
     //horizontalAlignment = Alignment.CenterHorizontally
     Surface(Modifier.background(MaterialTheme.colorScheme.surface)) {
         Column(Modifier.fillMaxSize()) {
-            TopBarView(false, stringResource(R.string.first_tab_title), this@BasicPage,true)
+            TopBarView(false, stringResource(R.string.first_tab_title), this@BasicPage, true)
             BasicListView(list = list, Modifier.weight(1f), this@BasicPage)
         }
     }
