@@ -16,6 +16,8 @@ import com.guilin.mycompose.ui.view.basic.AssistChipPage
 import com.guilin.mycompose.ui.view.basic.BadgePage
 import com.guilin.mycompose.ui.view.basic.ButtonPage
 import com.guilin.mycompose.ui.view.basic.CardPage
+import com.guilin.mycompose.ui.view.layout.BottomAppBarPage
+import com.guilin.mycompose.ui.view.main.LayoutPage
 
 /**
  * @description:
@@ -76,6 +78,8 @@ class NavHost {
             composable("slider_page") { }
             composable("text_page") { }
             composable("text_field_page") { }
+
+            composable("bottom_app_bar_page") { navController.BottomAppBarPage() }
 
 
         }

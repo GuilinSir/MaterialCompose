@@ -40,7 +40,7 @@ fun NavController.ButtonPage() {
     val borderColor = if (pressState.value) Color.Green else Color.Red
 
     Column(Modifier.fillMaxSize()) {
-        TopBarView(true, "Alertdialog", this@ButtonPage, true)
+        TopBarView(true, "Button", this@ButtonPage, true)
         Column(
             modifier = Modifier
                 .weight(1f)

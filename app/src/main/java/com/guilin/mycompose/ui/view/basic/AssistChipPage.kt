@@ -28,7 +28,7 @@ import com.guilin.mycompose.ui.wight.TopBarView
 @Composable
 fun NavController.AssistChipPage() {
     Column(Modifier.fillMaxSize()) {
-        TopBarView(true, "Alertdialog", this@AssistChipPage, true)
+        TopBarView(true, "AssistChip", this@AssistChipPage, true)
         Column(
             modifier = Modifier
                 .weight(1f)

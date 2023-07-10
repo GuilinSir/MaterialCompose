@@ -35,7 +35,7 @@ import com.guilin.mycompose.ui.wight.TopBarView
 @Composable
 fun NavController.BadgePage() {
     Column(Modifier.fillMaxSize()) {
-        TopBarView(true, "Alertdialog", this@BadgePage, true)
+        TopBarView(true, "Badge", this@BadgePage, true)
         Column(
             modifier = Modifier
                 .weight(1f)
