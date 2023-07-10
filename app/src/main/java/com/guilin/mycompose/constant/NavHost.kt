@@ -12,7 +12,10 @@ import androidx.navigation.navArgument
 import com.guilin.mycompose.R
 import com.guilin.mycompose.ui.view.MainPage
 import com.guilin.mycompose.ui.view.basic.AlertdialogPage
+import com.guilin.mycompose.ui.view.basic.AssistChipPage
+import com.guilin.mycompose.ui.view.basic.BadgePage
 import com.guilin.mycompose.ui.view.basic.ButtonPage
+import com.guilin.mycompose.ui.view.basic.CardPage
 
 /**
  * @description:
@@ -56,18 +59,24 @@ class NavHost {
 //            }
         ) {
             composable("main_page") { navController.MainPage() }
-            //带参数
-            composable("alertdialog_page/{girl_name}",
+            composable(
+                "alertdialog_page/{girl_name}",
                 arguments = listOf(navArgument("girl_name") {
                     type = NavType.StringType
-                }
-                )
+                })
             ) { navController.AlertdialogPage(it) }
-            composable(
-                "button_page"
-            ) {
-                navController.ButtonPage()
-            }
+            composable("assist_chip_page") { navController.AssistChipPage() }
+            composable("badge_page") { navController.BadgePage() }
+            composable("button_page") { navController.ButtonPage() }
+            composable("card_page") { navController.CardPage() }
+            composable("floating_action_button_page") { }
+            composable("icon_page") { }
+            composable("icon_button_page") { }
+            composable("image_page") { }
+            composable("slider_page") { }
+            composable("text_page") { }
+            composable("text_field_page") { }
+
 
         }
     }
