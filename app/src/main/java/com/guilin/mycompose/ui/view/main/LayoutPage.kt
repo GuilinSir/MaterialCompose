@@ -54,7 +54,7 @@ fun NavController.LayoutPage() {
     //verticalArrangement = Arrangement.Center,
     //horizontalAlignment = Alignment.CenterHorizontally
     Scaffold(topBar = {
-        TopBarView(false, stringResource(R.string.third_tab_title), this@LayoutPage, true)
+        TopBarView(false, stringResource(R.string.second_tab_title), this@LayoutPage, true)
     }, content = {
         Column(Modifier.padding(it)) {
             LayoutListView(list = layoutList, Modifier.weight(1f), this@LayoutPage)

@@ -38,7 +38,7 @@ fun NavController.BottomAppBarPage() {
         TopBarView(true, "BottomAppBar", this@BottomAppBarPage, true)
     }, content = {
         Column(
-            Modifier.padding(it),
+            Modifier.padding(it).fillMaxSize(),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {

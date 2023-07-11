@@ -45,7 +45,7 @@ fun NavController.ButtonPage() {
         TopBarView(true, "Badge", this@ButtonPage, true)
     }, content = {
         Column(
-            Modifier.padding(it),
+            Modifier.padding(it).fillMaxSize(),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {

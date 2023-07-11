@@ -51,7 +51,7 @@ fun NavController.BottomSheetScaffoldPage() {
         TopBarView(true, "BottomSheetScaffold", this@BottomSheetScaffoldPage, true)
     }, content = {
         Column(
-            Modifier.padding(it),
+            Modifier.padding(it).fillMaxSize(),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {

@@ -25,7 +25,7 @@ fun NavController.DesignPage() {
     Scaffold(topBar = {
         TopBarView(false, stringResource(R.string.third_tab_title), this@DesignPage, true)
     }, content = {
-        Column(Modifier.padding(it)) {
+        Column(Modifier.padding(it).fillMaxSize()) {
             Text(text = "DesignPage")
         }
     })

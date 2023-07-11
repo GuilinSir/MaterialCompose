@@ -43,7 +43,7 @@ fun NavController.BadgePage() {
         TopBarView(true, "Badge", this@BadgePage, true)
     }, content = {
         Column(
-            Modifier.padding(it),
+            Modifier.padding(it).fillMaxSize(),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {

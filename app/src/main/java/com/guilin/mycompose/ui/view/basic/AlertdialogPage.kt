@@ -71,11 +71,7 @@ fun NavController.AlertdialogPage(navBackStackEntry: NavBackStackEntry) {
     Scaffold(topBar = {
         TopBarView(true, "Alertdialog", this@AlertdialogPage, true)
     }, content = {
-        Column(Modifier.padding(it)) {
-            Column(
-                modifier = Modifier
-                    .weight(1f)
-                    .fillMaxWidth(),
+        Column(Modifier.padding(it).fillMaxSize(),
                 verticalArrangement = Arrangement.Center,
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
@@ -93,8 +89,6 @@ fun NavController.AlertdialogPage(navBackStackEntry: NavBackStackEntry) {
                 AlertDialog2(openDialog2)
 
             }
-
-        }
     })
 
 }

@@ -34,7 +34,7 @@ fun NavController.AssistChipPage() {
         TopBarView(true, "AssistChip", this@AssistChipPage, true)
     }, content = {
         Column(
-            Modifier.padding(it),
+            Modifier.padding(it).fillMaxSize(),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
