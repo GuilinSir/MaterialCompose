@@ -16,6 +16,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.NavigateNext
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -35,13 +36,15 @@ import com.guilin.mycompose.ui.wight.TopBarView
  */
 val layoutList = listOf<String>(
     "BottomAppBar",
-    "BottomSheetScaffold"
+    "BottomSheetScaffold",
+    "CenterAlignedTopAppBar"
 )
 
 fun layoutClickEvent(item: String, navController: NavController) {
     when (item) {
         "BottomAppBar" -> NavHost().Navigate(navController, "bottom_app_bar_page")
-        "BottomSheetScaffold" ->NavHost().Navigate(navController, "bottom_sheet_scaffold_page")
+        "BottomSheetScaffold" -> NavHost().Navigate(navController, "bottom_sheet_scaffold_page")
+        "CenterAlignedTopAppBar" ->NavHost().Navigate(navController, "center_aligned_top_app_bar_page")
     }
 }
 
@@ -50,12 +53,13 @@ fun layoutClickEvent(item: String, navController: NavController) {
 fun NavController.LayoutPage() {
     //verticalArrangement = Arrangement.Center,
     //horizontalAlignment = Alignment.CenterHorizontally
-    Surface(Modifier.background(MaterialTheme.colorScheme.surface)) {
-        Column(Modifier.fillMaxSize()) {
-            TopBarView(false, "BottomAppBar", this@LayoutPage, true)
+    Scaffold(topBar = {
+        TopBarView(false, stringResource(R.string.third_tab_title), this@LayoutPage, true)
+    }, content = {
+        Column(Modifier.padding(it)) {
             LayoutListView(list = layoutList, Modifier.weight(1f), this@LayoutPage)
         }
-    }
+    })
 }
 
 

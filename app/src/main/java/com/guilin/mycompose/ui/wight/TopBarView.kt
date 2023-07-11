@@ -20,9 +20,12 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.filled.Share
+import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.Alignment
@@ -30,6 +33,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
@@ -51,8 +55,6 @@ fun TopBarView(
     navController: NavController,
     isImmersive: Boolean = false
 ) {
-    val topAppBarHeight = 50.dp
-
     if (isImmersive) {
         val systemUiController = rememberSystemUiController()
         SideEffect {
@@ -62,42 +64,42 @@ fun TopBarView(
             )
         }
     }
-    Column(
-        Modifier
-            .height(topAppBarHeight + getStatusBarHeightDp())
-            .background(MaterialTheme.colorScheme.primary)
-    ) {
-        if(isImmersive) {
-            Spacer(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(getStatusBarHeightDp())
-            )
-        }
-        //自定义的appbar
-        Box(
-            Modifier
-                .height(topAppBarHeight)
-        ) {
+    CenterAlignedTopAppBar(
+        title = {
             Text(
-                title,
-                style = MaterialTheme.typography.titleMedium,
-                color = MaterialTheme.colorScheme.onPrimary,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(topAppBarHeight)
-                    .wrapContentSize(Alignment.Center)
+                text = title,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
+                style = MaterialTheme.typography.titleMedium
             )
+        },
+        navigationIcon = {
             if (isBack) {
-                //返回按钮
-                IconButton(onClick = {
-                    navController.popBackStack()
-                }) {
-                    Icon(Icons.Filled.ArrowBack, null, tint = MaterialTheme.colorScheme.onPrimary)
+                IconButton(onClick = { navController.popBackStack() }) {
+                    Icon(
+                        imageVector = Icons.Filled.ArrowBack,
+                        contentDescription = "Localized description"
+                    )
                 }
             }
-        }
-    }
+        },
+        actions = {
+            IconButton(onClick = { /* doSomething() */ }) {
+                Icon(
+                    imageVector = Icons.Filled.Favorite,
+                    contentDescription = "Localized description"
+                )
+            }
+        },
+        colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
+            containerColor = MaterialTheme.colorScheme.primary,
+            titleContentColor = MaterialTheme.colorScheme.onPrimary,
+            actionIconContentColor = MaterialTheme.colorScheme.onPrimary,
+            navigationIconContentColor = MaterialTheme.colorScheme.onPrimary
+        )
+
+    )
+
 }
 
 

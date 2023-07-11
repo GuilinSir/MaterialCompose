@@ -5,9 +5,13 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.filled.Star
+import androidx.compose.material3.AssistChip
+import androidx.compose.material3.AssistChipDefaults
 import androidx.compose.material3.Badge
 import androidx.compose.material3.BadgedBox
 import androidx.compose.material3.ButtonDefaults
@@ -15,6 +19,7 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -34,12 +39,11 @@ import com.guilin.mycompose.ui.wight.TopBarView
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun NavController.BadgePage() {
-    Column(Modifier.fillMaxSize()) {
+    Scaffold(topBar = {
         TopBarView(true, "Badge", this@BadgePage, true)
+    }, content = {
         Column(
-            modifier = Modifier
-                .weight(1f)
-                .fillMaxWidth(),
+            Modifier.padding(it),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
@@ -85,5 +89,5 @@ fun NavController.BadgePage() {
                 )
             }
         }
-    }
+    })
 }

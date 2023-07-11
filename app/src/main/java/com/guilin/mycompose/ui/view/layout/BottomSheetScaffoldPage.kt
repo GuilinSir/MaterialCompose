@@ -23,6 +23,7 @@ import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.FloatingActionButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SheetValue
 import androidx.compose.material3.Text
 import androidx.compose.material3.rememberBottomSheetScaffoldState
@@ -46,12 +47,11 @@ import kotlinx.coroutines.launch
 fun NavController.BottomSheetScaffoldPage() {
     val scope = rememberCoroutineScope()
     val scaffoldState = rememberBottomSheetScaffoldState()
-    Column(Modifier.fillMaxSize()) {
+    Scaffold(topBar = {
         TopBarView(true, "BottomSheetScaffold", this@BottomSheetScaffoldPage, true)
+    }, content = {
         Column(
-            modifier = Modifier
-                .weight(1f)
-                .fillMaxWidth(),
+            Modifier.padding(it),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
@@ -106,5 +106,5 @@ fun NavController.BottomSheetScaffoldPage() {
                 }
             }
         }
-    }
+    })
 }

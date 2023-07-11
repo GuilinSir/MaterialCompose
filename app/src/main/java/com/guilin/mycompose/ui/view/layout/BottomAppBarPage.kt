@@ -17,11 +17,13 @@ import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.FloatingActionButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.guilin.mycompose.ui.view.basic.CardPage
 import com.guilin.mycompose.ui.wight.TopBarView
 
 /**
@@ -32,12 +34,11 @@ import com.guilin.mycompose.ui.wight.TopBarView
  */
 @Composable
 fun NavController.BottomAppBarPage() {
-    Column(Modifier.fillMaxSize()) {
+    Scaffold(topBar = {
         TopBarView(true, "BottomAppBar", this@BottomAppBarPage, true)
+    }, content = {
         Column(
-            modifier = Modifier
-                .weight(1f)
-                .fillMaxWidth(),
+            Modifier.padding(it),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
@@ -69,5 +70,5 @@ fun NavController.BottomAppBarPage() {
                 }
             )
         }
-    }
+    })
 }

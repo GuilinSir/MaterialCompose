@@ -16,6 +16,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.NavigateNext
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -71,12 +72,17 @@ fun clickEvent(item: String, navController: NavController) {
 fun NavController.BasicPage() {
     //verticalArrangement = Arrangement.Center,
     //horizontalAlignment = Alignment.CenterHorizontally
-    Surface(Modifier.background(MaterialTheme.colorScheme.surface)) {
-        Column(Modifier.fillMaxSize()) {
-            TopBarView(false, stringResource(R.string.first_tab_title), this@BasicPage, true)
-            BasicListView(list = list, Modifier.weight(1f), this@BasicPage)
-        }
-    }
+//    Surface(Modifier.background(MaterialTheme.colorScheme.surface)) {
+//        Column(Modifier.fillMaxSize()) {
+//            TopBarView(false, stringResource(R.string.first_tab_title), this@BasicPage, true)
+//            BasicListView(list = list, Modifier.weight(1f), this@BasicPage)
+//        }
+//    }
+    Scaffold(topBar = {
+        TopBarView(false, stringResource(R.string.first_tab_title), this@BasicPage, true)
+    }, content = { paddingValues ->
+        BasicListView(list = list, Modifier.padding(paddingValues), this@BasicPage)
+    })
 }
 
 

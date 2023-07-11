@@ -2,7 +2,6 @@ package com.guilin.mycompose.constant
 
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.MutableState
 import androidx.navigation.NavController
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
@@ -10,6 +9,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.guilin.mycompose.R
+import com.guilin.mycompose.ui.view.layout.CenterAlignedTopAppBarPage
 import com.guilin.mycompose.ui.view.MainPage
 import com.guilin.mycompose.ui.view.basic.AlertdialogPage
 import com.guilin.mycompose.ui.view.basic.AssistChipPage
@@ -18,7 +18,6 @@ import com.guilin.mycompose.ui.view.basic.ButtonPage
 import com.guilin.mycompose.ui.view.basic.CardPage
 import com.guilin.mycompose.ui.view.layout.BottomAppBarPage
 import com.guilin.mycompose.ui.view.layout.BottomSheetScaffoldPage
-import com.guilin.mycompose.ui.view.main.LayoutPage
 
 /**
  * @description:
@@ -82,6 +81,7 @@ class NavHost {
 
             composable("bottom_app_bar_page") { navController.BottomAppBarPage() }
             composable("bottom_sheet_scaffold_page") { navController.BottomSheetScaffoldPage() }
+            composable("center_aligned_top_app_bar_page") { navController.CenterAlignedTopAppBarPage() }
 
 
 

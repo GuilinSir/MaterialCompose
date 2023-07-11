@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CardElevation
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -30,12 +31,11 @@ import com.guilin.mycompose.ui.wight.TopBarView
  */
 @Composable
 fun NavController.CardPage() {
-    Column(Modifier.fillMaxSize()) {
+    Scaffold(topBar = {
         TopBarView(true, "Card", this@CardPage, true)
+    }, content = {
         Column(
-            modifier = Modifier
-                .weight(1f)
-                .fillMaxWidth(),
+            Modifier.padding(it),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
@@ -44,7 +44,7 @@ fun NavController.CardPage() {
                     .fillMaxWidth()
                     .padding(15.dp)// 外边距
                     .clickable { },
-                elevation = CardDefaults.cardElevation(10.dp,10.dp,10.dp,10.dp,10.dp,10.dp)
+                elevation = CardDefaults.cardElevation(10.dp, 10.dp, 10.dp, 10.dp, 10.dp, 10.dp)
             ) {
                 Column(
                     modifier = Modifier.padding(15.dp) // 内边距
@@ -52,7 +52,8 @@ fun NavController.CardPage() {
                     Text(
                         buildAnnotatedString {
                             append("欢迎来到 ")
-                            withStyle(style = SpanStyle(fontWeight = FontWeight.W900)
+                            withStyle(
+                                style = SpanStyle(fontWeight = FontWeight.W900)
                             ) {
                                 append("Jetpack Compose")
                             }
@@ -69,5 +70,5 @@ fun NavController.CardPage() {
                 }
             }
         }
-    }
+    })
 }

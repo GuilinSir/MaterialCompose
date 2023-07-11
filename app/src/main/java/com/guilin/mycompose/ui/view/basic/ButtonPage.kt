@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CutCornerShape
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -16,6 +17,7 @@ import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
@@ -39,12 +41,11 @@ fun NavController.ButtonPage() {
     val pressState = interact.collectIsPressedAsState()
     val borderColor = if (pressState.value) Color.Green else Color.Red
 
-    Column(Modifier.fillMaxSize()) {
-        TopBarView(true, "Button", this@ButtonPage, true)
+    Scaffold(topBar = {
+        TopBarView(true, "Badge", this@ButtonPage, true)
+    }, content = {
         Column(
-            modifier = Modifier
-                .weight(1f)
-                .fillMaxWidth(),
+            Modifier.padding(it),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
@@ -99,7 +100,5 @@ fun NavController.ButtonPage() {
                 Text(text = "确认")
             }
         }
-    }
-
-
+    })
 }

@@ -15,6 +15,7 @@ import androidx.compose.material.icons.filled.NavigateNext
 import androidx.compose.material3.Divider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -49,14 +50,13 @@ val themeList = listOf<ThemeBean>()
 
 @Composable
 fun NavController.ThemePage() {
-    Surface(Modifier.fillMaxSize()) {
-        Surface(Modifier.background(MaterialTheme.colorScheme.surface)) {
-            Column(Modifier.fillMaxSize()) {
-                TopBarView(false, stringResource(R.string.fifth_tab_title), this@ThemePage, true)
-                ThemeListView(themeList, Modifier.weight(1f))
-            }
+    Scaffold(topBar = {
+        TopBarView(false, stringResource(R.string.third_tab_title), this@ThemePage, true)
+    }, content = {
+        Column(Modifier.padding(it)) {
+            ThemeListView(themeList, Modifier.weight(1f))
         }
-    }
+    })
 }
 
 @Composable

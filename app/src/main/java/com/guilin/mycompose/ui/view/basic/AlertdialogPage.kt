@@ -12,6 +12,7 @@ import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
@@ -20,14 +21,19 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavBackStackEntry
 import androidx.navigation.NavController
 import com.guilin.common.constant.SpKey
+import com.guilin.mycompose.R
 import com.guilin.mycompose.enum.ThemeEnum
 import com.guilin.mycompose.ui.theme.themeTypeState
+import com.guilin.mycompose.ui.view.main.ThemeListView
+import com.guilin.mycompose.ui.view.main.ThemePage
+import com.guilin.mycompose.ui.view.main.themeList
 import com.guilin.mycompose.ui.wight.TopBarView
 
 /**
@@ -62,31 +68,35 @@ fun NavController.AlertdialogPage(navBackStackEntry: NavBackStackEntry) {
     val openDialog2 = remember {
         mutableStateOf(false)
     }
-
-    Column(Modifier.fillMaxSize()) {
+    Scaffold(topBar = {
         TopBarView(true, "Alertdialog", this@AlertdialogPage, true)
-        Column(
-            modifier = Modifier
-                .weight(1f)
-                .fillMaxWidth(),
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            Button(onClick = {
-                openDialog.value = true
-            }) {
-                Text(text = "样式一")
+    }, content = {
+        Column(Modifier.padding(it)) {
+            Column(
+                modifier = Modifier
+                    .weight(1f)
+                    .fillMaxWidth(),
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                Button(onClick = {
+                    openDialog.value = true
+                }) {
+                    Text(text = "样式一")
+                }
+                Button(onClick = {
+                    openDialog2.value = true
+                }) {
+                    Text(text = "样式二")
+                }
+                AlertDialog(openDialog)
+                AlertDialog2(openDialog2)
+
             }
-            Button(onClick = {
-                openDialog2.value = true
-            }) {
-                Text(text = "样式二")
-            }
-            AlertDialog(openDialog)
-            AlertDialog2(openDialog2)
 
         }
-    }
+    })
+
 }
 
 @Composable

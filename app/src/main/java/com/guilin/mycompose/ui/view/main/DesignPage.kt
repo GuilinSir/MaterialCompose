@@ -2,6 +2,9 @@ package com.guilin.mycompose.ui.view.main
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.safeContentPadding
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -19,12 +22,12 @@ import com.guilin.mycompose.ui.wight.TopBarView
  */
 @Composable
 fun NavController.DesignPage() {
-    Surface (Modifier.fillMaxSize()){
-        Column {
-            TopBarView(false, stringResource(R.string.third_tab_title), this@DesignPage,true)
+    Scaffold(topBar = {
+        TopBarView(false, stringResource(R.string.third_tab_title), this@DesignPage, true)
+    }, content = {
+        Column(Modifier.padding(it)) {
             Text(text = "DesignPage")
         }
-
-    }
+    })
 
 }
