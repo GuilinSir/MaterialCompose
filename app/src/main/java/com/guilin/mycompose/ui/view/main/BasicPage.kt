@@ -40,6 +40,7 @@ val list = listOf<String>(
     "Badge",
     "Button",
     "Card",
+    "Checkbox",
     "FloatingActionButton",
     "Icon",
     "IconButton",
@@ -56,6 +57,7 @@ fun clickEvent(item: String, navController: NavController) {
         "Badge" -> NavHost().Navigate(navController, "badge_page")
         "Button" -> NavHost().Navigate(navController, "button_page")
         "Card" -> NavHost().Navigate(navController, "card_page")
+        "Checkbox" -> NavHost().Navigate(navController, "checkbox_page")
         "FloatingActionButton" -> NavHost().Navigate(navController, "floating_action_button_page")
         "Icon" -> NavHost().Navigate(navController, "icon_page")
         "IconButton" -> NavHost().Navigate(navController, "icon_button_page")

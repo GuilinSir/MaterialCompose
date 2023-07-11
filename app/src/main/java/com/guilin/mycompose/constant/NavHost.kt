@@ -16,6 +16,7 @@ import com.guilin.mycompose.ui.view.basic.AssistChipPage
 import com.guilin.mycompose.ui.view.basic.BadgePage
 import com.guilin.mycompose.ui.view.basic.ButtonPage
 import com.guilin.mycompose.ui.view.basic.CardPage
+import com.guilin.mycompose.ui.view.basic.CheckboxPage
 import com.guilin.mycompose.ui.view.layout.BottomAppBarPage
 import com.guilin.mycompose.ui.view.layout.BottomSheetScaffoldPage
 
@@ -71,6 +72,8 @@ class NavHost {
             composable("badge_page") { navController.BadgePage() }
             composable("button_page") { navController.ButtonPage() }
             composable("card_page") { navController.CardPage() }
+            composable("checkbox_page") { navController.CheckboxPage() }
+
             composable("floating_action_button_page") { }
             composable("icon_page") { }
             composable("icon_button_page") { }
