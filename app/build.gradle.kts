@@ -60,6 +60,7 @@ dependencies {
     implementation(libs.ui.graphics)
     implementation(libs.ui.tooling.preview)
     implementation(libs.material3)
+    implementation(libs.material3.window)
     implementation(libs.appcompat)
     implementation(libs.androidx.constraintlayout.compose)
     //implementation(libs.material)

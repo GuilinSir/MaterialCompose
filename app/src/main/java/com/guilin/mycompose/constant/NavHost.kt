@@ -17,6 +17,7 @@ import com.guilin.mycompose.ui.view.basic.BadgePage
 import com.guilin.mycompose.ui.view.basic.ButtonPage
 import com.guilin.mycompose.ui.view.basic.CardPage
 import com.guilin.mycompose.ui.view.layout.BottomAppBarPage
+import com.guilin.mycompose.ui.view.layout.BottomSheetScaffoldPage
 import com.guilin.mycompose.ui.view.main.LayoutPage
 
 /**
@@ -80,6 +81,8 @@ class NavHost {
             composable("text_field_page") { }
 
             composable("bottom_app_bar_page") { navController.BottomAppBarPage() }
+            composable("bottom_sheet_scaffold_page") { navController.BottomSheetScaffoldPage() }
+
 
 
         }

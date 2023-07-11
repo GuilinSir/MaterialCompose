@@ -1,55 +1,39 @@
 package com.guilin.mycompose.ui.view.layout
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.Edit
-import androidx.compose.material.icons.filled.Star
-import androidx.compose.material3.Badge
-import androidx.compose.material3.BadgedBox
 import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.BottomAppBarDefaults
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.FloatingActionButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.NavigationBar
-import androidx.compose.material3.NavigationBarItem
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.semantics.contentDescription
-import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.guilin.mycompose.ui.wight.TopBarView
 
 /**
- * @description:
+ * @description:BottomAppBar页面
  * @author:  guilin
  * @email:   308139995@qq.com
  * @date :   2023/7/10 3:22 PM
  */
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun NavController.BottomAppBarPage() {
     Column(Modifier.fillMaxSize()) {
-        TopBarView(true, "Alertdialog", this@BottomAppBarPage, true)
+        TopBarView(true, "BottomAppBar", this@BottomAppBarPage, true)
         Column(
             modifier = Modifier
                 .weight(1f)
@@ -73,7 +57,6 @@ fun NavController.BottomAppBarPage() {
                     }
                 },
                 floatingActionButton = {
-
                     FloatingActionButton(
                         onClick = { },
                         containerColor = BottomAppBarDefaults.bottomAppBarFabColor,

@@ -34,24 +34,14 @@ import com.guilin.mycompose.ui.wight.TopBarView
  * @date :   2023/6/28 8:26 AM
  */
 val layoutList = listOf<String>(
-    "BottomAppBar"
+    "BottomAppBar",
+    "BottomSheetScaffold"
 )
 
 fun layoutClickEvent(item: String, navController: NavController) {
     when (item) {
         "BottomAppBar" -> NavHost().Navigate(navController, "bottom_app_bar_page")
-//        "AssistChip" -> NavHost().Navigate(navController, "assist_chip_page")
-//        "Badge" -> NavHost().Navigate(navController, "badge_page")
-//        "Button" -> NavHost().Navigate(navController, "button_page")
-//        "Card" -> NavHost().Navigate(navController, "card_page")
-//        "FloatingActionButton" -> NavHost().Navigate(navController, "floating_action_button_page")
-//        "Icon" -> NavHost().Navigate(navController, "icon_page")
-//        "IconButton" -> NavHost().Navigate(navController, "icon_button_page")
-//        "Image" -> NavHost().Navigate(navController, "image_page")
-//        "Slider" -> NavHost().Navigate(navController, "slider_page")
-//        "Text" -> NavHost().Navigate(navController, "text_page")
-//        "TextField" -> NavHost().Navigate(navController, "text_field_page")
-
+        "BottomSheetScaffold" ->NavHost().Navigate(navController, "bottom_sheet_scaffold_page")
     }
 }
 
