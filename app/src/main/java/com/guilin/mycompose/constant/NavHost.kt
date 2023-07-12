@@ -20,6 +20,11 @@ import com.guilin.mycompose.ui.view.basic.CheckboxPage
 import com.guilin.mycompose.ui.view.layout.BottomAppBarPage
 import com.guilin.mycompose.ui.view.layout.BottomSheetScaffoldPage
 import com.guilin.mycompose.ui.view.layout.CircularProgressIndicatorPage
+import com.guilin.mycompose.ui.view.layout.DatePickerPage
+import com.guilin.mycompose.ui.view.layout.DatePickerPage1
+import com.guilin.mycompose.ui.view.layout.DatePickerPage2
+import com.guilin.mycompose.ui.view.layout.DatePickerPage3
+import com.guilin.mycompose.ui.view.layout.DatePickerPage4
 
 /**
  * @description:
@@ -87,7 +92,11 @@ class NavHost {
             composable("bottom_sheet_scaffold_page") { navController.BottomSheetScaffoldPage() }
             composable("center_aligned_top_app_bar_page") { navController.CenterAlignedTopAppBarPage() }
             composable("circular_progress_indicator_page") { navController.CircularProgressIndicatorPage() }
-
+            composable("date_packer_page") { navController.DatePickerPage() }
+            composable("date_packer_page1") { navController.DatePickerPage1() }
+            composable("date_packer_page2") { navController.DatePickerPage2() }
+            composable("date_packer_page3") { navController.DatePickerPage3() }
+            composable("date_packer_page4") { navController.DatePickerPage4() }
 
 
         }

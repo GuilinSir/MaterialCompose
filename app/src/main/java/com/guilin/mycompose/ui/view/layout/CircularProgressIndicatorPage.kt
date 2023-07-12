@@ -27,10 +27,10 @@ import com.guilin.mycompose.ui.wight.TopBarView
 import kotlinx.coroutines.launch
 
 /**
- * @description:BottomSheetScaffold页面
+ * @description:圆形进度条
  * @author:  guilin
  * @email:   308139995@qq.com
- * @date :   2023/7/10 3:22 PM
+ * @date :   2023/7/12 8:40 AM
  *
  *@Composable
  * fun CircularProgressIndicator(

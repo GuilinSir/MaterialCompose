@@ -16,6 +16,7 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableLongStateOf
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -45,11 +46,11 @@ import kotlinx.coroutines.launch
 @Composable
 fun NavController.MainPage() {
 
-    val pagerState = rememberPagerState(0, 0f)
-
+    val pagerState = rememberPagerState(pageCount = {
+        5
+    })
     Column {
         HorizontalPager(
-            pageCount = 5,
             state = pagerState,
             modifier = Modifier.weight(1f)
         ) { page ->
@@ -63,11 +64,13 @@ fun NavController.MainPage() {
         }
         //BottomNav(pagerState)
         val list = listOf<BottomBarBean>()
+            .asSequence()
             .plus(BottomBarBean(R.drawable.icon1, stringResource(R.string.first_tab_title)))
             .plus(BottomBarBean(R.drawable.icon2, stringResource(R.string.second_tab_title)))
             .plus(BottomBarBean(R.drawable.icon2, stringResource(R.string.third_tab_title)))
             .plus(BottomBarBean(R.drawable.icon2, stringResource(R.string.fourth_tab_title)))
             .plus(BottomBarBean(R.drawable.icon2, stringResource(R.string.fifth_tab_title)))
+            .toList()
         BottomBarView(list, pagerState)
     }
 }

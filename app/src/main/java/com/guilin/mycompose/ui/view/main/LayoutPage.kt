@@ -38,7 +38,8 @@ val layoutList = listOf<String>(
     "BottomAppBar",
     "BottomSheetScaffold",
     "CenterAlignedTopAppBar",
-    "CircularProgressIndicator"
+    "CircularProgressIndicator",
+    "DatePicker"
 )
 
 fun layoutClickEvent(item: String, navController: NavController) {
@@ -47,6 +48,8 @@ fun layoutClickEvent(item: String, navController: NavController) {
         "BottomSheetScaffold" -> NavHost().Navigate(navController, "bottom_sheet_scaffold_page")
         "CenterAlignedTopAppBar" -> NavHost().Navigate(navController, "center_aligned_top_app_bar_page")
         "CircularProgressIndicator" -> NavHost().Navigate(navController, "circular_progress_indicator_page")
+        "DatePicker" -> NavHost().Navigate(navController, "date_packer_page")
+
     }
 }
 
