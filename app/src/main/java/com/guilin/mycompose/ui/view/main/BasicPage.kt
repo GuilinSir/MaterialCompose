@@ -66,6 +66,7 @@ fun clickEvent(item: String, navController: NavController) {
         "Slider" -> NavHost().Navigate(navController, NavRoute.SLIDER_PAGE)
         "Text" -> NavHost().Navigate(navController, NavRoute.TEXT_PAGE)
         "TextField" -> NavHost().Navigate(navController, NavRoute.TEXT_FIELD_PAGE)
+
     }
 }
 
