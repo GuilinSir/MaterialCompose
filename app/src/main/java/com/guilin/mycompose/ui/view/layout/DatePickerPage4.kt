@@ -31,30 +31,6 @@ import kotlinx.coroutines.launch
  * @author:  guilin
  * @email:   308139995@qq.com
  * @date :   2023/7/12 9:11 AM
- *
- *@ExperimentalMaterial3Api
- * @Composable
- * fun DatePicker(
- *     state: DatePickerState,
- *     modifier: Modifier = Modifier,
- *     dateFormatter: DatePickerFormatter = remember { DatePickerDefaults.dateFormatter() },
- *     title: (@Composable () -> Unit)? = {
- *         DatePickerDefaults.DatePickerTitle(
- *             displayMode = state.displayMode,
- *             modifier = Modifier.padding(DatePickerTitlePadding)
- *         )
- *     },
- *     headline: (@Composable () -> Unit)? = {
- *         DatePickerDefaults.DatePickerHeadline(
- *             selectedDateMillis = state.selectedDateMillis,
- *             displayMode = state.displayMode,
- *             dateFormatter = dateFormatter,
- *             modifier = Modifier.padding(DatePickerHeadlinePadding)
- *         )
- *     },
- *     showModeToggle: Boolean = true,
- *     colors: DatePickerColors = DatePickerDefaults.colors()
- * ): Unit
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

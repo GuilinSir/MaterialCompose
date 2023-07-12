@@ -1,6 +1,5 @@
 package com.guilin.mycompose.constant
 
-import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavController
 import androidx.navigation.NavType
@@ -25,6 +24,7 @@ import com.guilin.mycompose.ui.view.layout.DatePickerPage1
 import com.guilin.mycompose.ui.view.layout.DatePickerPage2
 import com.guilin.mycompose.ui.view.layout.DatePickerPage3
 import com.guilin.mycompose.ui.view.layout.DatePickerPage4
+import com.guilin.mycompose.ui.view.layout.DismissibleNavigationDrawerPage
 
 /**
  * @description:
@@ -33,7 +33,6 @@ import com.guilin.mycompose.ui.view.layout.DatePickerPage4
  * @date :   2023/6/29 9:30 AM
  */
 class NavHost {
-    @OptIn(ExperimentalAnimationApi::class)
     @Composable
     fun MainNavigation() {
         // 创建NavController
@@ -67,36 +66,36 @@ class NavHost {
 //                )
 //            }
         ) {
-            composable("main_page") { navController.MainPage() }
+            composable(NavRoute.MAIN_PAGE) { navController.MainPage() }
             composable(
-                "alertdialog_page/{girl_name}",
+                NavRoute.ALERT_DIALOG_PAGE + "/{girl_name}",
                 arguments = listOf(navArgument("girl_name") {
                     type = NavType.StringType
                 })
             ) { navController.AlertdialogPage(it) }
-            composable("assist_chip_page") { navController.AssistChipPage() }
-            composable("badge_page") { navController.BadgePage() }
-            composable("button_page") { navController.ButtonPage() }
-            composable("card_page") { navController.CardPage() }
-            composable("checkbox_page") { navController.CheckboxPage() }
+            composable(NavRoute.ASSIST_CHIP_PAGE) { navController.AssistChipPage() }
+            composable(NavRoute.BADGE_PAGE) { navController.BadgePage() }
+            composable(NavRoute.BUTTON_PAGE) { navController.ButtonPage() }
+            composable(NavRoute.CARD_PAGE) { navController.CardPage() }
+            composable(NavRoute.CHECKBOX_PAGE) { navController.CheckboxPage() }
+            composable(NavRoute.FLOATING_ACTION_BUTTON_PAGE) { }
+            composable(NavRoute.ICON_PAGE) { }
+            composable(NavRoute.ICON_BUTTON_PAGE) { }
+            composable(NavRoute.IMAGE_PAGE) { }
+            composable(NavRoute.SLIDER_PAGE) { }
+            composable(NavRoute.TEXT_PAGE) { }
+            composable(NavRoute.TEXT_FIELD_PAGE) { }
 
-            composable("floating_action_button_page") { }
-            composable("icon_page") { }
-            composable("icon_button_page") { }
-            composable("image_page") { }
-            composable("slider_page") { }
-            composable("text_page") { }
-            composable("text_field_page") { }
-
-            composable("bottom_app_bar_page") { navController.BottomAppBarPage() }
-            composable("bottom_sheet_scaffold_page") { navController.BottomSheetScaffoldPage() }
-            composable("center_aligned_top_app_bar_page") { navController.CenterAlignedTopAppBarPage() }
-            composable("circular_progress_indicator_page") { navController.CircularProgressIndicatorPage() }
-            composable("date_packer_page") { navController.DatePickerPage() }
-            composable("date_packer_page1") { navController.DatePickerPage1() }
-            composable("date_packer_page2") { navController.DatePickerPage2() }
-            composable("date_packer_page3") { navController.DatePickerPage3() }
-            composable("date_packer_page4") { navController.DatePickerPage4() }
+            composable(NavRoute.BOTTOM_APP_BAR_PAGE) { navController.BottomAppBarPage() }
+            composable(NavRoute.BOTTOM_SHEET_SCAFFOLD_PAGE) { navController.BottomSheetScaffoldPage() }
+            composable(NavRoute.CENTER_ALIGNED_TOP_APP_BAR_PAGE) { navController.CenterAlignedTopAppBarPage() }
+            composable(NavRoute.CIRCULAR_PROGRESS_INDICATOR_PAGE) { navController.CircularProgressIndicatorPage() }
+            composable(NavRoute.DATE_PACKER_PAGE) { navController.DatePickerPage() }
+            composable(NavRoute.DATE_PACKER_PAGE1) { navController.DatePickerPage1() }
+            composable(NavRoute.DATE_PACKER_PAGE2) { navController.DatePickerPage2() }
+            composable(NavRoute.DATE_PACKER_PAGE3) { navController.DatePickerPage3() }
+            composable(NavRoute.DATE_PACKER_PAGE4) { navController.DatePickerPage4() }
+            composable(NavRoute.DISMISSIBLE_NAVIGATION_DRAWER_PAGE) { navController.DismissibleNavigationDrawerPage() }
 
 
         }

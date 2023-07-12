@@ -26,6 +26,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.guilin.mycompose.R
 import com.guilin.mycompose.constant.NavHost
+import com.guilin.mycompose.constant.NavRoute
 import com.guilin.mycompose.ui.wight.TopBarView
 
 /**
@@ -34,21 +35,46 @@ import com.guilin.mycompose.ui.wight.TopBarView
  * @email:   308139995@qq.com
  * @date :   2023/6/28 8:26 AM
  */
-val layoutList = listOf<String>(
+val layoutList = listOf(
     "BottomAppBar",
     "BottomSheetScaffold",
     "CenterAlignedTopAppBar",
     "CircularProgressIndicator",
-    "DatePicker"
+    "DatePicker",
+    "DismissibleNavigationDrawer"
 )
 
 fun layoutClickEvent(item: String, navController: NavController) {
     when (item) {
-        "BottomAppBar" -> NavHost().Navigate(navController, "bottom_app_bar_page")
-        "BottomSheetScaffold" -> NavHost().Navigate(navController, "bottom_sheet_scaffold_page")
-        "CenterAlignedTopAppBar" -> NavHost().Navigate(navController, "center_aligned_top_app_bar_page")
-        "CircularProgressIndicator" -> NavHost().Navigate(navController, "circular_progress_indicator_page")
-        "DatePicker" -> NavHost().Navigate(navController, "date_packer_page")
+        "BottomAppBar" -> NavHost().Navigate(
+            navController,
+            NavRoute.BOTTOM_APP_BAR_PAGE
+        )
+
+        "BottomSheetScaffold" -> NavHost().Navigate(
+            navController,
+            NavRoute.BOTTOM_SHEET_SCAFFOLD_PAGE
+        )
+
+        "CenterAlignedTopAppBar" -> NavHost().Navigate(
+            navController,
+            NavRoute.CENTER_ALIGNED_TOP_APP_BAR_PAGE
+        )
+
+        "CircularProgressIndicator" -> NavHost().Navigate(
+            navController,
+            NavRoute.CIRCULAR_PROGRESS_INDICATOR_PAGE
+        )
+
+        "DatePicker" -> NavHost().Navigate(
+            navController,
+            NavRoute.DATE_PACKER_PAGE
+        )
+
+        "DismissibleNavigationDrawer" -> NavHost().Navigate(
+            navController,
+            NavRoute.DISMISSIBLE_NAVIGATION_DRAWER_PAGE
+        )
 
     }
 }
@@ -56,8 +82,6 @@ fun layoutClickEvent(item: String, navController: NavController) {
 
 @Composable
 fun NavController.LayoutPage() {
-    //verticalArrangement = Arrangement.Center,
-    //horizontalAlignment = Alignment.CenterHorizontally
     Scaffold(topBar = {
         TopBarView(false, stringResource(R.string.second_tab_title), this@LayoutPage, true)
     }, content = {
@@ -86,13 +110,11 @@ fun LayoutRow(item: String, navController: NavController) {
             .clickable {
                 layoutClickEvent(item, navController)
             },
-        //Modifier.align(alignment = Alignment.CenterHorizontally) 垂直布局Column 进行水平居中
     ) {
         Row(
             Modifier
                 .weight(1f)
                 .padding(24.dp, 0.dp),
-            //horizontalArrangement = Arrangement.Center,//设置水平居中对齐
             verticalAlignment = Alignment.CenterVertically//设置垂直居中对齐
         ) {
             Text(text = item, modifier = Modifier.weight(1f))
@@ -102,7 +124,6 @@ fun LayoutRow(item: String, navController: NavController) {
             )
         }
         Divider(
-            //color = Color.Red,
             thickness = 0.5.dp,
             modifier = Modifier
                 .padding(24.dp, 0.dp),

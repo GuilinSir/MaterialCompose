@@ -26,6 +26,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.guilin.mycompose.R
 import com.guilin.mycompose.constant.NavHost
+import com.guilin.mycompose.constant.NavRoute
 import com.guilin.mycompose.ui.wight.TopBarView
 
 /**
@@ -52,20 +53,19 @@ val list = listOf<String>(
 
 fun clickEvent(item: String, navController: NavController) {
     when (item) {
-        "Alertdialog" -> NavHost().Navigate(navController, "alertdialog_page/" + "123")
-        "AssistChip" -> NavHost().Navigate(navController, "assist_chip_page")
-        "Badge" -> NavHost().Navigate(navController, "badge_page")
-        "Button" -> NavHost().Navigate(navController, "button_page")
-        "Card" -> NavHost().Navigate(navController, "card_page")
-        "Checkbox" -> NavHost().Navigate(navController, "checkbox_page")
-        "FloatingActionButton" -> NavHost().Navigate(navController, "floating_action_button_page")
-        "Icon" -> NavHost().Navigate(navController, "icon_page")
-        "IconButton" -> NavHost().Navigate(navController, "icon_button_page")
-        "Image" -> NavHost().Navigate(navController, "image_page")
-        "Slider" -> NavHost().Navigate(navController, "slider_page")
-        "Text" -> NavHost().Navigate(navController, "text_page")
-        "TextField" -> NavHost().Navigate(navController, "text_field_page")
-
+        "Alertdialog" -> NavHost().Navigate(navController, NavRoute.ALERT_DIALOG_PAGE + "/" + "123")
+        "AssistChip" -> NavHost().Navigate(navController, NavRoute.ASSIST_CHIP_PAGE)
+        "Badge" -> NavHost().Navigate(navController, NavRoute.BADGE_PAGE)
+        "Button" -> NavHost().Navigate(navController, NavRoute.BUTTON_PAGE)
+        "Card" -> NavHost().Navigate(navController, NavRoute.CARD_PAGE)
+        "Checkbox" -> NavHost().Navigate(navController, NavRoute.CHECKBOX_PAGE)
+        "FloatingActionButton" -> NavHost().Navigate(navController, NavRoute.FLOATING_ACTION_BUTTON_PAGE)
+        "Icon" -> NavHost().Navigate(navController, NavRoute.ICON_PAGE)
+        "IconButton" -> NavHost().Navigate(navController, NavRoute.ICON_BUTTON_PAGE)
+        "Image" -> NavHost().Navigate(navController, NavRoute.IMAGE_PAGE)
+        "Slider" -> NavHost().Navigate(navController, NavRoute.SLIDER_PAGE)
+        "Text" -> NavHost().Navigate(navController, NavRoute.TEXT_PAGE)
+        "TextField" -> NavHost().Navigate(navController, NavRoute.TEXT_FIELD_PAGE)
     }
 }
 
