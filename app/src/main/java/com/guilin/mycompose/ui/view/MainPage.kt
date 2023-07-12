@@ -28,6 +28,7 @@ import androidx.navigation.NavController
 import com.guilin.mycompose.R
 import com.guilin.mycompose.bean.BottomBarBean
 import com.guilin.mycompose.ui.view.main.BasicPage
+import com.guilin.mycompose.ui.view.main.ComponentsPage
 import com.guilin.mycompose.ui.view.main.DesignPage
 import com.guilin.mycompose.ui.view.main.LayoutPage
 import com.guilin.mycompose.ui.view.main.LookOnPage
@@ -46,27 +47,27 @@ import kotlinx.coroutines.launch
 @Composable
 fun NavController.MainPage() {
 
-    val pagerState = rememberPagerState(pageCount = {
-        5
-    })
+    val pagerState = rememberPagerState(pageCount = { 4 })
     Column {
         HorizontalPager(
             state = pagerState,
             modifier = Modifier.weight(1f)
         ) { page ->
             when (page) {
-                0 -> BasicPage()
-                1 -> LayoutPage()
-                2 -> DesignPage()
-                3 -> LookOnPage()
-                4 -> ThemePage()
+                0 -> ComponentsPage()
+//                1 -> BasicPage()
+//                2 -> LayoutPage()
+                1 -> DesignPage()
+                2 -> LookOnPage()
+                3 -> ThemePage()
             }
         }
         //BottomNav(pagerState)
         val list = listOf<BottomBarBean>()
             .asSequence()
-            .plus(BottomBarBean(R.drawable.icon1, stringResource(R.string.first_tab_title)))
-            .plus(BottomBarBean(R.drawable.icon2, stringResource(R.string.second_tab_title)))
+            .plus(BottomBarBean(R.drawable.icon1, "Components"))
+//            .plus(BottomBarBean(R.drawable.icon2, stringResource(R.string.first_tab_title)))
+//            .plus(BottomBarBean(R.drawable.icon2, stringResource(R.string.second_tab_title)))
             .plus(BottomBarBean(R.drawable.icon2, stringResource(R.string.third_tab_title)))
             .plus(BottomBarBean(R.drawable.icon2, stringResource(R.string.fourth_tab_title)))
             .plus(BottomBarBean(R.drawable.icon2, stringResource(R.string.fifth_tab_title)))
@@ -80,6 +81,7 @@ fun NavController.MainPage() {
 fun BottomNav(pagerState: PagerState) {
     val scope = rememberCoroutineScope()
     val listItems = listOf(
+        "Components",
         stringResource(R.string.first_tab_title),
         stringResource(R.string.second_tab_title),
         stringResource(R.string.third_tab_title),
@@ -100,6 +102,7 @@ fun BottomNav(pagerState: PagerState) {
                         1 -> BottomIcon(Icons.Filled.Home, pagerState.currentPage, index)
                         2 -> BottomIcon(Icons.Filled.Home, pagerState.currentPage, index)
                         3 -> BottomIcon(Icons.Filled.Home, pagerState.currentPage, index)
+                        4 -> BottomIcon(Icons.Filled.Home, pagerState.currentPage, index)
                     }
                 },
                 label = {

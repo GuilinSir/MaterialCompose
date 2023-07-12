@@ -64,7 +64,7 @@ fun NavController.DismissibleNavigationDrawerPage() {
                 drawerContent = {
                     DismissibleDrawerSheet(
                         //drawerContainerColor = MaterialTheme.colorScheme.secondaryContainer,
-//                        drawerContentColor =MaterialTheme.colorScheme.onSecondaryContainer
+                        //drawerContentColor =MaterialTheme.colorScheme.onSecondaryContainer
                     ) {
                         Spacer(Modifier.height(12.dp))
                         items.forEach() {

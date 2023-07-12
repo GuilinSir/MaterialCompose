@@ -1,6 +1,7 @@
 [versions]
 accompanist-systemuicontroller = "0.24.7-alpha"
 agp = "8.2.0-alpha07"
+gson = "2.8.6"
 kotlin = "1.8.10"
 core-ktx = "1.9.0"
 junit = "4.13.2"
@@ -21,6 +22,7 @@ constraintlayout-compose = "1.0.1"
 [libraries]
 accompanist-systemuicontroller = { module = "com.google.accompanist:accompanist-systemuicontroller", version.ref = "accompanist-systemuicontroller" }
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
+gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidx-test-ext-junit" }
 espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso-core" }

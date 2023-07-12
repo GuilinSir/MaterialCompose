@@ -36,7 +36,7 @@ import com.guilin.mycompose.ui.wight.TopBarView
  * @date :   2023/6/28 8:26 AM
  */
 val list = listOf<String>(
-    "Alertdialog",
+    "AlertDialog",
     "AssistChip",
     "Badge",
     "Button",
@@ -53,7 +53,7 @@ val list = listOf<String>(
 
 fun clickEvent(item: String, navController: NavController) {
     when (item) {
-        "Alertdialog" -> NavHost().Navigate(navController, NavRoute.ALERT_DIALOG_PAGE + "/" + "123")
+        "AlertDialog" -> NavHost().Navigate(navController, NavRoute.ALERT_DIALOG_PAGE + "/" + "123")
         "AssistChip" -> NavHost().Navigate(navController, NavRoute.ASSIST_CHIP_PAGE)
         "Badge" -> NavHost().Navigate(navController, NavRoute.BADGE_PAGE)
         "Button" -> NavHost().Navigate(navController, NavRoute.BUTTON_PAGE)

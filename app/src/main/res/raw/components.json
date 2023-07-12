@@ -1,0 +1,386 @@
+[
+  {
+    "name": "Badge",
+    "children": [
+      {
+        "name": "Badge"
+      },
+      {
+        "name": "BadgedBox"
+      }
+    ]
+  },
+  {
+    "name": "Bottom app bar",
+    "children": [
+      {
+        "name": "BottomAppBar"
+      }
+    ]
+  },
+  {
+    "name": "Bottom sheet",
+    "children": [
+      {
+        "name": "BottomSheetScaffold"
+      },
+      {
+        "name": "ModalBottomSheet"
+      }
+    ]
+  },
+  {
+    "name": "Buttons",
+    "children": [
+      {
+        "name": "Button"
+      },
+      {
+        "name": "ElevatedButton"
+      },
+      {
+        "name": "FilledTonalButton"
+      },
+      {
+        "name": "OutlinedButton"
+      },
+      {
+        "name": "TextButton"
+      }
+    ]
+  },
+  {
+    "name": "Cards",
+    "children": [
+      {
+        "name": "Card"
+      },
+      {
+        "name": "ElevatedCard"
+      },
+      {
+        "name": "OutlinedCard"
+      }
+    ]
+  },
+  {
+    "name": "Checkbox",
+    "children": [
+      {
+        "name": "Checkbox"
+      },
+      {
+        "name": "TriStateCheckbox"
+      }
+    ]
+  },
+  {
+    "name": "Chips",
+    "children": [
+      {
+        "name": "AssistChip"
+      },
+      {
+        "name": "ElevatedAssistChip"
+      },
+      {
+        "name": "FilterChip"
+      },
+      {
+        "name": "ElevatedFilterChip"
+      },
+      {
+        "name": "InputChip"
+      },
+      {
+        "name": "SuggestionChip"
+      },
+      {
+        "name": "ElevatedSuggestionChip"
+      }
+    ]
+  },
+  {
+    "name": "Date Picker",
+    "children": [
+      {
+        "name": "DatePicker"
+      },
+      {
+        "name": "DatePickerDialog"
+      },
+      {
+        "name": "DateRangePicker"
+      }
+    ]
+  },
+  {
+    "name": "Dialogs",
+    "children": [
+      {
+        "name": "AlertDialog"
+      }
+    ]
+  },
+  {
+    "name": "Dividers",
+    "children": [
+      {
+        "name": "Dividers"
+      }
+    ]
+  },
+  {
+    "name": "Extended FAB",
+    "children": [
+      {
+        "name": "ExtendedFloatingActionButton"
+      }
+    ]
+  },
+  {
+    "name": "FAB",
+    "children": [
+      {
+        "name": "FloatingActionButton"
+      },
+      {
+        "name": "SmallFloatingActionButton"
+      },
+      {
+        "name": "LargeFloatingActionButton"
+      }
+    ]
+  },
+  {
+    "name": "Icon button",
+    "children": [
+      {
+        "name": "IconButton"
+      },
+      {
+        "name": "IconToggleButton"
+      },
+      {
+        "name": "FilledIconButton"
+      },
+      {
+        "name": "FilledIconToggleButton"
+      },
+      {
+        "name": "FilledTonalIconButton"
+      },
+      {
+        "name": "FilledTonalIconToggleButton"
+      },
+      {
+        "name": "OutlinedIconButton"
+      },
+      {
+        "name": "OutlinedIconToggleButton"
+      }
+    ]
+  },
+  {
+    "name": "Lists",
+    "children": [
+      {
+        "name": "ListItem"
+      }
+    ]
+  },
+  {
+    "name": "Menus",
+    "children": [
+      {
+        "name": "DropdownMenu"
+      },
+      {
+        "name": "DropdownMenuItem"
+      },
+      {
+        "name": "ExposedDropdownMenuBox"
+      }
+    ]
+  },
+  {
+    "name": "Navigation bar",
+    "children": [
+      {
+        "name": "NavigationBar"
+      },
+      {
+        "name": "NavigationBarItem"
+      }
+    ]
+  },
+  {
+    "name": "Navigation drawer",
+    "children": [
+      {
+        "name": "ModalNavigationDrawer"
+      },
+      {
+        "name": "ModalDrawerSheet"
+      },
+      {
+        "name": "PermanentNavigationDrawer"
+      },
+      {
+        "name": "PermanentDrawerSheet"
+      },
+      {
+        "name": "DismissibleNavigationDrawer"
+      },
+      {
+        "name": "DismissibleDrawerSheet"
+      },
+      {
+        "name": "NavigationDrawerItem"
+      }
+    ]
+  },
+  {
+    "name": "Navigation rail",
+    "children": [
+      {
+        "name": "NavigationRail"
+      },
+      {
+        "name": "NavigationRailItem"
+      }
+    ]
+  },
+  {
+    "name": "Progress indicators",
+    "children": [
+      {
+        "name": "LinearProgressIndicator"
+      },
+      {
+        "name": "CircularProgressIndicator"
+      }
+    ]
+  },
+  {
+    "name": "Radio button",
+    "children": [
+      {
+        "name": "RadioButton"
+      }
+    ]
+  },
+  {
+    "name": "Search Bar",
+    "children": [
+      {
+        "name": "SearchBar"
+      },
+      {
+        "name": "DockedSearchBar"
+      }
+    ]
+  },
+  {
+    "name": "Sliders",
+    "children": [
+      {
+        "name": "Slider"
+      },
+      {
+        "name": "RangeSlider"
+      }
+    ]
+  },
+  {
+    "name": "Snackbars",
+    "children": [
+      {
+        "name": "Snackbar"
+      }
+    ]
+  },
+  {
+    "name": "Swipe to Dismiss",
+    "children": [
+      {
+        "name": "SwipeToDismiss"
+      }
+    ]
+  },
+  {
+    "name": "Switch",
+    "children": [
+      {
+        "name": "Switch"
+      }
+    ]
+  },
+  {
+    "name": "Tabs",
+    "children": [
+      {
+        "name": "Tab"
+      },
+      {
+        "name": "LeadingIconTab"
+      },
+      {
+        "name": "TabRow"
+      },
+      {
+        "name": "ScrollableTabRow"
+      }
+    ]
+  },
+  {
+    "name": "Text fields",
+    "children": [
+      {
+        "name": "TextField"
+      },
+      {
+        "name": "OutlinedTextField"
+      }
+    ]
+  },
+  {
+    "name": "Time Picker",
+    "children": [
+      {
+        "name": "TimePicker"
+      },
+      {
+        "name": "TimeInput"
+      }
+    ]
+  },
+  {
+    "name": "Tool tip",
+    "children": [
+      {
+        "name": "PlainTooltipBox"
+      },
+      {
+        "name": "RichTooltipBox"
+      }
+    ]
+  },
+  {
+    "name": "Top app bar",
+    "children": [
+      {
+        "name": "TopAppBar"
+      },
+      {
+        "name": "CenterAlignedTopAppBar"
+      },
+      {
+        "name": "MediumTopAppBar"
+      },
+      {
+        "name": "LargeTopAppBar"
+      }
+    ]
+  }
+]
