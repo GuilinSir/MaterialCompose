@@ -37,14 +37,16 @@ import com.guilin.mycompose.ui.wight.TopBarView
 val layoutList = listOf<String>(
     "BottomAppBar",
     "BottomSheetScaffold",
-    "CenterAlignedTopAppBar"
+    "CenterAlignedTopAppBar",
+    "CircularProgressIndicator"
 )
 
 fun layoutClickEvent(item: String, navController: NavController) {
     when (item) {
         "BottomAppBar" -> NavHost().Navigate(navController, "bottom_app_bar_page")
         "BottomSheetScaffold" -> NavHost().Navigate(navController, "bottom_sheet_scaffold_page")
-        "CenterAlignedTopAppBar" ->NavHost().Navigate(navController, "center_aligned_top_app_bar_page")
+        "CenterAlignedTopAppBar" -> NavHost().Navigate(navController, "center_aligned_top_app_bar_page")
+        "CircularProgressIndicator" -> NavHost().Navigate(navController, "circular_progress_indicator_page")
     }
 }
 

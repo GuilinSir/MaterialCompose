@@ -135,7 +135,6 @@ fun NavController.CheckboxPage() {
                         onAllCheck(true)
                         onUnAllCheck(true)
                         list2.forEachIndexed { index, mutableState ->
-                            Log.e("CheckboxPage", "item:" + index + mutableState.value.toString())
                             if (!mutableState.value) onAllCheck(false)
                             if (mutableState.value) onUnAllCheck(false)
                         }
@@ -158,7 +157,6 @@ fun NavController.CheckboxPage() {
                             onUnAllCheck(true)
                             onListChange(list)
                             list2.forEachIndexed { index, mutableState ->
-                                Log.e("CheckboxPage", "item:" + index + mutableState.value.toString())
                                 if (!mutableState.value) onAllCheck(false)
                                 if (mutableState.value) onUnAllCheck(false)
                             }

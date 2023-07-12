@@ -19,6 +19,7 @@ import com.guilin.mycompose.ui.view.basic.CardPage
 import com.guilin.mycompose.ui.view.basic.CheckboxPage
 import com.guilin.mycompose.ui.view.layout.BottomAppBarPage
 import com.guilin.mycompose.ui.view.layout.BottomSheetScaffoldPage
+import com.guilin.mycompose.ui.view.layout.CircularProgressIndicatorPage
 
 /**
  * @description:
@@ -85,6 +86,7 @@ class NavHost {
             composable("bottom_app_bar_page") { navController.BottomAppBarPage() }
             composable("bottom_sheet_scaffold_page") { navController.BottomSheetScaffoldPage() }
             composable("center_aligned_top_app_bar_page") { navController.CenterAlignedTopAppBarPage() }
+            composable("circular_progress_indicator_page") { navController.CircularProgressIndicatorPage() }
 
 
 
