@@ -1,4 +1,4 @@
-package com.guilin.mycompose.ui.view.basic
+package com.guilin.mycompose.ui.view.components.dialogs
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
@@ -21,19 +21,11 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavBackStackEntry
 import androidx.navigation.NavController
-import com.guilin.common.constant.SpKey
-import com.guilin.mycompose.R
-import com.guilin.mycompose.enum.ThemeEnum
-import com.guilin.mycompose.ui.theme.themeTypeState
-import com.guilin.mycompose.ui.view.main.ThemeListView
-import com.guilin.mycompose.ui.view.main.ThemePage
-import com.guilin.mycompose.ui.view.main.themeList
 import com.guilin.mycompose.ui.wight.TopBarView
 
 /**

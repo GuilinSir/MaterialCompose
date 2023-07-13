@@ -1,4 +1,4 @@
-package com.guilin.mycompose.ui.view.basic
+package com.guilin.mycompose.ui.view.components.buttons
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.interaction.MutableInteractionSource

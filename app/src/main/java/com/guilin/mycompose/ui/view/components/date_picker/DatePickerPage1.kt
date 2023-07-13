@@ -1,4 +1,4 @@
-package com.guilin.mycompose.ui.view.layout
+package com.guilin.mycompose.ui.view.components.date_picker
 
 import android.os.Build
 import androidx.compose.foundation.layout.Arrangement

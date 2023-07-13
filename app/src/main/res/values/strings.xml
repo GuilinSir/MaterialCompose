@@ -2,6 +2,7 @@
     <string name="app_name">MyCompose</string>
     <string name="show_less">Show less</string>
     <string name="show_more">Show more</string>
+    <string name="zero_tab_title">Components</string>
     <string name="first_tab_title">基础组件</string>
     <string name="second_tab_title">布局组件</string>
     <string name="third_tab_title">设计</string>

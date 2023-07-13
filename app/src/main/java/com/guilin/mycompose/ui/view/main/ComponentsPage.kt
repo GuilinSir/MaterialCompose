@@ -12,7 +12,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowForwardIos
 import androidx.compose.material.icons.filled.ExpandMore
 import androidx.compose.material.icons.filled.NavigateNext
 import androidx.compose.material3.Divider
@@ -128,55 +127,80 @@ fun ComponentsRow(item: ComponentsChild, navController: NavController) {
 
 fun componentsClickEvent(item: String, navController: NavController) {
     when (item) {
-        "AlertDialog" -> NavHost().Navigate(
-            navController,
-            NavRoute.ALERT_DIALOG_PAGE + "/" + "123"
-        )
+        "Badge" -> NavHost().navigate(navController, NavRoute.BADGE_PAGE)
+        "BadgedBox" -> NavHost().navigate(navController, NavRoute.BADGED_BOX_PAGE)
 
-        "AssistChip" -> NavHost().Navigate(navController, NavRoute.ASSIST_CHIP_PAGE)
-        "Badge" -> NavHost().Navigate(navController, NavRoute.BADGE_PAGE)
-        "Button" -> NavHost().Navigate(navController, NavRoute.BUTTON_PAGE)
-        "Card" -> NavHost().Navigate(navController, NavRoute.CARD_PAGE)
-        "Checkbox" -> NavHost().Navigate(navController, NavRoute.CHECKBOX_PAGE)
-        "FloatingActionButton" -> NavHost().Navigate(
-            navController,
-            NavRoute.FLOATING_ACTION_BUTTON_PAGE
-        )
-
-        "Icon" -> NavHost().Navigate(navController, NavRoute.ICON_PAGE)
-        "IconButton" -> NavHost().Navigate(navController, NavRoute.ICON_BUTTON_PAGE)
-        "Image" -> NavHost().Navigate(navController, NavRoute.IMAGE_PAGE)
-        "Slider" -> NavHost().Navigate(navController, NavRoute.SLIDER_PAGE)
-        "Text" -> NavHost().Navigate(navController, NavRoute.TEXT_PAGE)
-        "TextField" -> NavHost().Navigate(navController, NavRoute.TEXT_FIELD_PAGE)
-        "BottomAppBar" -> NavHost().Navigate(
+        "BottomAppBar" -> NavHost().navigate(
             navController,
             NavRoute.BOTTOM_APP_BAR_PAGE
         )
 
-        "BottomSheetScaffold" -> NavHost().Navigate(
+        "BottomSheetScaffold" -> NavHost().navigate(
             navController,
             NavRoute.BOTTOM_SHEET_SCAFFOLD_PAGE
         )
-
-        "CenterAlignedTopAppBar" -> NavHost().Navigate(
+        "ModalBottomSheet" -> NavHost().navigate(
             navController,
-            NavRoute.CENTER_ALIGNED_TOP_APP_BAR_PAGE
+            NavRoute.MODAL_BOTTOM_SHEET_PAGE
         )
 
-        "CircularProgressIndicator" -> NavHost().Navigate(
-            navController,
-            NavRoute.CIRCULAR_PROGRESS_INDICATOR_PAGE
-        )
+        "Button" -> NavHost().navigate(navController, NavRoute.BUTTON_PAGE)
 
-        "DatePicker" -> NavHost().Navigate(
+        "Card" -> NavHost().navigate(navController, NavRoute.CARD_PAGE)
+
+        "Checkbox" -> NavHost().navigate(navController, NavRoute.CHECKBOX_PAGE)
+
+        "AssistChip" -> NavHost().navigate(navController, NavRoute.ASSIST_CHIP_PAGE)
+
+        "DatePicker" -> NavHost().navigate(
             navController,
             NavRoute.DATE_PACKER_PAGE
         )
 
-        "DismissibleNavigationDrawer" -> NavHost().Navigate(
+        "AlertDialog" -> NavHost().navigate(
+            navController,
+            NavRoute.ALERT_DIALOG_PAGE + "/" + "123"
+        )
+
+
+        "FloatingActionButton" -> NavHost().navigate(
+            navController,
+            NavRoute.FLOATING_ACTION_BUTTON_PAGE
+        )
+
+        "IconButton" -> NavHost().navigate(navController, NavRoute.ICON_BUTTON_PAGE)
+
+        "DismissibleNavigationDrawer" -> NavHost().navigate(
             navController,
             NavRoute.DISMISSIBLE_NAVIGATION_DRAWER_PAGE
         )
+
+        "CircularProgressIndicator" -> NavHost().navigate(
+            navController,
+            NavRoute.CIRCULAR_PROGRESS_INDICATOR_PAGE
+        )
+
+        "Slider" -> NavHost().navigate(navController, NavRoute.SLIDER_PAGE)
+
+        "TextField" -> NavHost().navigate(navController, NavRoute.TEXT_FIELD_PAGE)
+
+        "CenterAlignedTopAppBar" -> NavHost().navigate(
+            navController,
+            NavRoute.CENTER_ALIGNED_TOP_APP_BAR_PAGE
+        )
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }

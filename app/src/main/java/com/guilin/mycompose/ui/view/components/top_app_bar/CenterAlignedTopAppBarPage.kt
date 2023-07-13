@@ -1,4 +1,4 @@
-package com.guilin.mycompose.ui.view.layout
+package com.guilin.mycompose.ui.view.components.top_app_bar
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.fillMaxWidth

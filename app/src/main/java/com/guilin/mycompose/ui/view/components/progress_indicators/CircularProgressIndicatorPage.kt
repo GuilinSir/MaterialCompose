@@ -1,4 +1,4 @@
-package com.guilin.mycompose.ui.view.layout
+package com.guilin.mycompose.ui.view.components.progress_indicators
 
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.foundation.layout.Arrangement

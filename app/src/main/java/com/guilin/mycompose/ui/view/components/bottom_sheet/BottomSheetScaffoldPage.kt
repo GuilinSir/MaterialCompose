@@ -1,4 +1,4 @@
-package com.guilin.mycompose.ui.view.layout
+package com.guilin.mycompose.ui.view.components.bottom_sheet
 
 import android.util.Log
 import androidx.compose.foundation.layout.Arrangement

@@ -1,4 +1,4 @@
-package com.guilin.mycompose.ui.view.basic
+package com.guilin.mycompose.ui.view.components.badge
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -38,31 +38,15 @@ import com.guilin.mycompose.ui.wight.TopBarView
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun NavController.BadgePage() {
+fun NavController.BadgedBoxPage() {
     Scaffold(topBar = {
-        TopBarView(true, "Badge", this@BadgePage, true)
+        TopBarView(true, "BadgedBox", this@BadgedBoxPage, true)
     }, content = {
         Column(
             Modifier.padding(it).fillMaxSize(),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Badge(content = {
-                Text(text = "")
-            })
-            Spacer(modifier = Modifier.size(5.dp))
-            Badge(content = {
-                Text(text = "1")
-            })
-            Spacer(modifier = Modifier.size(5.dp))
-            Badge(content = {
-                Text(text = "10")
-            })
-            Spacer(modifier = Modifier.size(5.dp))
-            Badge(content = {
-                Text(text = "100")
-            })
-            Spacer(modifier = Modifier.size(5.dp))
             NavigationBar {
                 NavigationBarItem(
                     icon = {
