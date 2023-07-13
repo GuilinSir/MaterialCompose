@@ -33,6 +33,7 @@ import com.guilin.mycompose.ui.view.components.buttons.OutlinedButtonPage
 import com.guilin.mycompose.ui.view.components.buttons.TextButtonPage
 import com.guilin.mycompose.ui.view.components.cards.ElevatedCardPage
 import com.guilin.mycompose.ui.view.components.cards.OutlinedCardPaged
+import com.guilin.mycompose.ui.view.components.checkbox.TriStateCheckboxPage
 
 /**
  * @description:
@@ -51,30 +52,35 @@ class NavHost {
             startDestination = "main_page",
         ) {
             composable(NavRoute.MAIN_PAGE) { navController.MainPage() }
+
             composable(NavRoute.BADGE_PAGE) { navController.BadgePage() }
             composable(NavRoute.BADGED_BOX_PAGE) { navController.BadgedBoxPage() }
+
             composable(NavRoute.BOTTOM_APP_BAR_PAGE) { navController.BottomAppBarPage() }
             composable(NavRoute.BOTTOM_SHEET_SCAFFOLD_PAGE) { navController.BottomSheetScaffoldPage() }
             composable(NavRoute.MODAL_BOTTOM_SHEET_PAGE) { navController.ModalBottomSheetPage() }
+
             composable(NavRoute.BUTTON_PAGE) { navController.ButtonPage() }
             composable(NavRoute.ELEVATED_BUTTON_PAGE) { navController.ElevatedButtonPage() }
             composable(NavRoute.FILLED_TONAL_BUTTON_PAGE) { navController.FilledTonalButtonPage() }
             composable(NavRoute.OUTLINED_BUTTON_PAGE) { navController.OutlinedButtonPage() }
             composable(NavRoute.TEXT_BUTTON_PAGE) { navController.TextButtonPage() }
 
-
             composable(NavRoute.CARD_PAGE) { navController.CardPage() }
             composable(NavRoute.ELEVATED_CARD_PAGE) { navController.ElevatedCardPage() }
             composable(NavRoute.OUTLINED_CARD_PAGE) { navController.OutlinedCardPaged() }
 
-
             composable(NavRoute.CHECKBOX_PAGE) { navController.CheckboxPage() }
+            composable(NavRoute.TRI_STATE_CHECKBOX_PAGE) { navController.TriStateCheckboxPage() }
+
             composable(NavRoute.ASSIST_CHIP_PAGE) { navController.AssistChipPage() }
+
             composable(NavRoute.DATE_PACKER_PAGE) { navController.DatePickerPage() }
             composable(NavRoute.DATE_PACKER_PAGE1) { navController.DatePickerPage1() }
             composable(NavRoute.DATE_PACKER_PAGE2) { navController.DatePickerPage2() }
             composable(NavRoute.DATE_PACKER_PAGE3) { navController.DatePickerPage3() }
             composable(NavRoute.DATE_PACKER_PAGE4) { navController.DatePickerPage4() }
+
             composable(NavRoute.ALERT_DIALOG_PAGE) { navController.AlertdialogPage(it) }
             composable(NavRoute.FLOATING_ACTION_BUTTON_PAGE) { }
             composable(NavRoute.ICON_BUTTON_PAGE) { }
@@ -83,6 +89,81 @@ class NavHost {
             composable(NavRoute.SLIDER_PAGE) { }
             composable(NavRoute.TEXT_FIELD_PAGE) { }
             composable(NavRoute.CENTER_ALIGNED_TOP_APP_BAR_PAGE) { navController.CenterAlignedTopAppBarPage() }
+        }
+    }
+
+
+    fun componentsClickEvent(item: String, navController: NavController) {
+        when (item) {
+            "Badge" -> NavHost().navigate(navController, NavRoute.BADGE_PAGE)
+            "BadgedBox" -> NavHost().navigate(navController, NavRoute.BADGED_BOX_PAGE)
+
+            "BottomAppBar" -> NavHost().navigate(
+                navController,
+                NavRoute.BOTTOM_APP_BAR_PAGE
+            )
+
+            "BottomSheetScaffold" -> NavHost().navigate(
+                navController,
+                NavRoute.BOTTOM_SHEET_SCAFFOLD_PAGE
+            )
+
+            "ModalBottomSheet" -> NavHost().navigate(
+                navController,
+                NavRoute.MODAL_BOTTOM_SHEET_PAGE
+            )
+            "Button" -> NavHost().navigate(navController, NavRoute.BUTTON_PAGE)
+            "ElevatedButton" -> NavHost().navigate(navController, NavRoute.ELEVATED_BUTTON_PAGE)
+            "FilledTonalButton" -> NavHost().navigate(navController, NavRoute.FILLED_TONAL_BUTTON_PAGE)
+            "OutlinedButton" -> NavHost().navigate(navController, NavRoute.OUTLINED_BUTTON_PAGE)
+            "TextButton" -> NavHost().navigate(navController, NavRoute.TEXT_BUTTON_PAGE)
+
+            "Card" -> NavHost().navigate(navController, NavRoute.CARD_PAGE)
+            "ElevatedCard" -> NavHost().navigate(navController, NavRoute.ELEVATED_CARD_PAGE)
+            "OutlinedCard" -> NavHost().navigate(navController, NavRoute.OUTLINED_CARD_PAGE)
+
+            "Checkbox" -> NavHost().navigate(navController, NavRoute.CHECKBOX_PAGE)
+            "TriStateCheckbox" -> NavHost().navigate(navController, NavRoute.TRI_STATE_CHECKBOX_PAGE)
+
+
+
+            "AssistChip" -> NavHost().navigate(navController, NavRoute.ASSIST_CHIP_PAGE)
+
+            "DatePicker" -> NavHost().navigate(
+                navController,
+                NavRoute.DATE_PACKER_PAGE
+            )
+
+            "AlertDialog" -> NavHost().navigate(
+                navController,
+                NavRoute.ALERT_DIALOG_PAGE + "/" + "123"
+            )
+
+            "FloatingActionButton" -> NavHost().navigate(
+                navController,
+                NavRoute.FLOATING_ACTION_BUTTON_PAGE
+            )
+
+            "IconButton" -> NavHost().navigate(navController, NavRoute.ICON_BUTTON_PAGE)
+
+            "DismissibleNavigationDrawer" -> NavHost().navigate(
+                navController,
+                NavRoute.DISMISSIBLE_NAVIGATION_DRAWER_PAGE
+            )
+
+            "CircularProgressIndicator" -> NavHost().navigate(
+                navController,
+                NavRoute.CIRCULAR_PROGRESS_INDICATOR_PAGE
+            )
+
+            "Slider" -> NavHost().navigate(navController, NavRoute.SLIDER_PAGE)
+
+            "TextField" -> NavHost().navigate(navController, NavRoute.TEXT_FIELD_PAGE)
+
+            "CenterAlignedTopAppBar" -> NavHost().navigate(
+                navController,
+                NavRoute.CENTER_ALIGNED_TOP_APP_BAR_PAGE
+            )
         }
     }
 
@@ -96,6 +177,5 @@ class NavHost {
             }
         }
     }
-
 }
 

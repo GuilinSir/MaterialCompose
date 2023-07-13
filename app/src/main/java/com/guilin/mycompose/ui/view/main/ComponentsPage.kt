@@ -101,7 +101,7 @@ fun ComponentsRow(item: ComponentsChild, navController: NavController) {
             .fillMaxWidth()
             .height(55.dp)
             .clickable {
-                componentsClickEvent(item.name, navController)
+                NavHost().componentsClickEvent(item.name, navController)
             },
         //Modifier.align(alignment = Alignment.CenterHorizontally) 垂直布局Column 进行水平居中
     ) {
@@ -124,80 +124,5 @@ fun ComponentsRow(item: ComponentsChild, navController: NavController) {
             modifier = Modifier
                 .padding(24.dp, 0.dp),
         )
-    }
-}
-
-fun componentsClickEvent(item: String, navController: NavController) {
-    when (item) {
-        "Badge" -> NavHost().navigate(navController, NavRoute.BADGE_PAGE)
-        "BadgedBox" -> NavHost().navigate(navController, NavRoute.BADGED_BOX_PAGE)
-
-        "BottomAppBar" -> NavHost().navigate(
-            navController,
-            NavRoute.BOTTOM_APP_BAR_PAGE
-        )
-
-        "BottomSheetScaffold" -> NavHost().navigate(
-            navController,
-            NavRoute.BOTTOM_SHEET_SCAFFOLD_PAGE
-        )
-
-        "ModalBottomSheet" -> NavHost().navigate(
-            navController,
-            NavRoute.MODAL_BOTTOM_SHEET_PAGE
-        )
-
-        "Button" -> NavHost().navigate(navController, NavRoute.BUTTON_PAGE)
-        "ElevatedButton" -> NavHost().navigate(navController, NavRoute.ELEVATED_BUTTON_PAGE)
-        "FilledTonalButton" -> NavHost().navigate(navController, NavRoute.FILLED_TONAL_BUTTON_PAGE)
-        "OutlinedButton" -> NavHost().navigate(navController, NavRoute.OUTLINED_BUTTON_PAGE)
-        "TextButton" -> NavHost().navigate(navController, NavRoute.TEXT_BUTTON_PAGE)
-
-        "Card" -> NavHost().navigate(navController, NavRoute.CARD_PAGE)
-        "ElevatedCard" -> NavHost().navigate(navController, NavRoute.ELEVATED_CARD_PAGE)
-        "OutlinedCard" -> NavHost().navigate(navController, NavRoute.OUTLINED_CARD_PAGE)
-
-        "Checkbox" -> NavHost().navigate(navController, NavRoute.CHECKBOX_PAGE)
-
-        "AssistChip" -> NavHost().navigate(navController, NavRoute.ASSIST_CHIP_PAGE)
-
-        "DatePicker" -> NavHost().navigate(
-            navController,
-            NavRoute.DATE_PACKER_PAGE
-        )
-
-        "AlertDialog" -> NavHost().navigate(
-            navController,
-            NavRoute.ALERT_DIALOG_PAGE + "/" + "123"
-        )
-
-
-        "FloatingActionButton" -> NavHost().navigate(
-            navController,
-            NavRoute.FLOATING_ACTION_BUTTON_PAGE
-        )
-
-        "IconButton" -> NavHost().navigate(navController, NavRoute.ICON_BUTTON_PAGE)
-
-        "DismissibleNavigationDrawer" -> NavHost().navigate(
-            navController,
-            NavRoute.DISMISSIBLE_NAVIGATION_DRAWER_PAGE
-        )
-
-        "CircularProgressIndicator" -> NavHost().navigate(
-            navController,
-            NavRoute.CIRCULAR_PROGRESS_INDICATOR_PAGE
-        )
-
-        "Slider" -> NavHost().navigate(navController, NavRoute.SLIDER_PAGE)
-
-        "TextField" -> NavHost().navigate(navController, NavRoute.TEXT_FIELD_PAGE)
-
-        "CenterAlignedTopAppBar" -> NavHost().navigate(
-            navController,
-            NavRoute.CENTER_ALIGNED_TOP_APP_BAR_PAGE
-        )
-
-
     }
 }

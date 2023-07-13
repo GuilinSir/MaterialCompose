@@ -27,8 +27,8 @@ object NavRoute {
     const val ELEVATED_CARD_PAGE = "elevated_card_page"
     const val OUTLINED_CARD_PAGE = "outlined_card_page"
 
-
     const val CHECKBOX_PAGE = "checkbox_page"
+    const val TRI_STATE_CHECKBOX_PAGE = "tri_state_checkbox_page"
 
     const val ASSIST_CHIP_PAGE = "assist_chip_page"
 
@@ -53,19 +53,6 @@ object NavRoute {
     const val TEXT_FIELD_PAGE = "text_field_page"
 
     const val CENTER_ALIGNED_TOP_APP_BAR_PAGE = "center_aligned_top_app_bar_page"
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 }
