@@ -1,5 +1,7 @@
 package com.guilin.mycompose.bean
 
+import androidx.compose.ui.graphics.Color
+
 /**
  * @description:
  * @author:  guilin
@@ -7,5 +9,9 @@ package com.guilin.mycompose.bean
  * @date :   2023/7/4 3:35 PM
  */
 data class ThemeBean(
-    var state: Int, var name: String
+    var state: Int,
+    var name: String,
+    var primary: Color,
+    var secondary: Color,
+    var tertiary:Color
 )

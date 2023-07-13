@@ -22,6 +22,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.google.gson.Gson
@@ -64,7 +65,7 @@ fun ComponentsListView(
             stickyHeader() {
                 Row(
                     modifier = Modifier
-                        .background(color = MaterialTheme.colorScheme.secondary)
+                        .background(color = MaterialTheme.colorScheme.tertiary)
                         .height(30.dp)
                         .fillMaxWidth()
                         .padding(horizontal = 10.dp),
@@ -75,13 +76,14 @@ fun ComponentsListView(
                         text = data.name, modifier = Modifier
                             .weight(1f)
                             .padding(start = 10.dp),
-                        color = MaterialTheme.colorScheme.onSecondary
+                        color = MaterialTheme.colorScheme.onTertiary,
+                        fontWeight = FontWeight.Bold
                     )
-                    Icon(
-                        imageVector = Icons.Filled.ExpandMore,
-                        contentDescription = "查看",
-                        tint = MaterialTheme.colorScheme.onSecondary
-                    )
+//                    Icon(
+//                        imageVector = Icons.Filled.ExpandMore,
+//                        contentDescription = "查看",
+//                        tint = MaterialTheme.colorScheme.onSecondary
+//                    )
                 }
 
             }
@@ -97,7 +99,7 @@ fun ComponentsRow(item: ComponentsChild, navController: NavController) {
     Column(
         Modifier
             .fillMaxWidth()
-            .height(60.dp)
+            .height(55.dp)
             .clickable {
                 componentsClickEvent(item.name, navController)
             },
@@ -106,7 +108,7 @@ fun ComponentsRow(item: ComponentsChild, navController: NavController) {
         Row(
             Modifier
                 .weight(1f)
-                .padding(24.dp, 0.dp),
+                .padding(30.dp, 0.dp),
             //horizontalArrangement = Arrangement.Center,//设置水平居中对齐
             verticalAlignment = Alignment.CenterVertically//设置垂直居中对齐
         ) {
@@ -139,6 +141,7 @@ fun componentsClickEvent(item: String, navController: NavController) {
             navController,
             NavRoute.BOTTOM_SHEET_SCAFFOLD_PAGE
         )
+
         "ModalBottomSheet" -> NavHost().navigate(
             navController,
             NavRoute.MODAL_BOTTOM_SHEET_PAGE
@@ -188,18 +191,6 @@ fun componentsClickEvent(item: String, navController: NavController) {
             navController,
             NavRoute.CENTER_ALIGNED_TOP_APP_BAR_PAGE
         )
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     }

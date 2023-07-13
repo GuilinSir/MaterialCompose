@@ -43,9 +43,9 @@ fun NavController.MainPage() {
         val list = listOf<BottomBarBean>()
             .asSequence()
             .plus(BottomBarBean(R.drawable.icon1, stringResource(R.string.zero_tab_title)))
+            .plus(BottomBarBean(R.drawable.icon2, stringResource(R.string.first_tab_title)))
+            .plus(BottomBarBean(R.drawable.icon2, stringResource(R.string.second_tab_title)))
             .plus(BottomBarBean(R.drawable.icon2, stringResource(R.string.third_tab_title)))
-            .plus(BottomBarBean(R.drawable.icon2, stringResource(R.string.fourth_tab_title)))
-            .plus(BottomBarBean(R.drawable.icon2, stringResource(R.string.fifth_tab_title)))
             .toList()
         BottomBarView(list, pagerState)
     }

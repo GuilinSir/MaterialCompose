@@ -8,14 +8,14 @@ package com.guilin.mycompose.enum
  */
 enum class ThemeEnum(val state: Int, val colorName: String) {
     // 紫色
-    PURPLE_THEME(0, "紫色"),
+    PURPLE_THEME(0, "Purple"),
 
     // 绿色
-    GREEN_THEME(1, "绿色"),
+    GREEN_THEME(1, "Green"),
 
     //红色
-    RED_THEME(2, "红色"),
+    RED_THEME(2, "Red"),
 
     //橙色
-    ORANGE_THEME(3, "橙色"),
+    ORANGE_THEME(3, "Orange"),
 }
