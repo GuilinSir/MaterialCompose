@@ -34,6 +34,12 @@ import com.guilin.mycompose.ui.view.components.buttons.TextButtonPage
 import com.guilin.mycompose.ui.view.components.cards.ElevatedCardPage
 import com.guilin.mycompose.ui.view.components.cards.OutlinedCardPaged
 import com.guilin.mycompose.ui.view.components.checkbox.TriStateCheckboxPage
+import com.guilin.mycompose.ui.view.components.chips.ElevatedAssistChipPage
+import com.guilin.mycompose.ui.view.components.chips.ElevatedFilterChipPage
+import com.guilin.mycompose.ui.view.components.chips.ElevatedSuggestionChipPage
+import com.guilin.mycompose.ui.view.components.chips.FilterChipPage
+import com.guilin.mycompose.ui.view.components.chips.InputChipPage
+import com.guilin.mycompose.ui.view.components.chips.SuggestionChipPage
 
 /**
  * @description:
@@ -73,7 +79,16 @@ class NavHost {
             composable(NavRoute.CHECKBOX_PAGE) { navController.CheckboxPage() }
             composable(NavRoute.TRI_STATE_CHECKBOX_PAGE) { navController.TriStateCheckboxPage() }
 
+
+
             composable(NavRoute.ASSIST_CHIP_PAGE) { navController.AssistChipPage() }
+            composable(NavRoute.ELEVATED_ASSIST_CHIP) { navController.ElevatedAssistChipPage() }
+            composable(NavRoute.FILTER_CHIP) { navController.FilterChipPage() }
+            composable(NavRoute.ELEVATED_FILTER_CHIP) { navController.ElevatedFilterChipPage() }
+            composable(NavRoute.INPUT_CHIP) { navController.InputChipPage() }
+            composable(NavRoute.SUGGESTION_CHIP) { navController.SuggestionChipPage() }
+            composable(NavRoute.ELEVATED_SUGGESTION_CHIP) { navController.ElevatedSuggestionChipPage() }
+
 
             composable(NavRoute.DATE_PACKER_PAGE) { navController.DatePickerPage() }
             composable(NavRoute.DATE_PACKER_PAGE1) { navController.DatePickerPage1() }
@@ -125,9 +140,13 @@ class NavHost {
             "Checkbox" -> NavHost().navigate(navController, NavRoute.CHECKBOX_PAGE)
             "TriStateCheckbox" -> NavHost().navigate(navController, NavRoute.TRI_STATE_CHECKBOX_PAGE)
 
-
-
             "AssistChip" -> NavHost().navigate(navController, NavRoute.ASSIST_CHIP_PAGE)
+            "ElevatedAssistChip" -> NavHost().navigate(navController, NavRoute.ELEVATED_ASSIST_CHIP)
+            "FilterChip" -> NavHost().navigate(navController, NavRoute.FILTER_CHIP)
+            "ElevatedFilterChip" -> NavHost().navigate(navController, NavRoute.ELEVATED_FILTER_CHIP)
+            "InputChip" -> NavHost().navigate(navController, NavRoute.INPUT_CHIP)
+            "SuggestionChip" -> NavHost().navigate(navController, NavRoute.SUGGESTION_CHIP)
+            "ElevatedSuggestionChip" -> NavHost().navigate(navController, NavRoute.ELEVATED_SUGGESTION_CHIP)
 
             "DatePicker" -> NavHost().navigate(
                 navController,

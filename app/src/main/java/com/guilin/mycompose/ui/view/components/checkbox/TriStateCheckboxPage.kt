@@ -35,9 +35,6 @@ import com.guilin.mycompose.ui.wight.TopBarView
 @SuppressLint("MutableCollectionMutableState")
 @Composable
 fun NavController.TriStateCheckboxPage() {
-    var checkedState0 by remember {
-        mutableStateOf(false)
-    }
     var (checkedState, onStateChange) = remember { mutableStateOf(true) }
 
     Scaffold(topBar = {
@@ -60,10 +57,9 @@ fun NavController.TriStateCheckboxPage() {
             list.add(remember {
                 mutableStateOf(true)
             })
-            var (list2, onListChange) = remember {
+            val (list2, onListChange) = remember {
                 mutableStateOf(list)
             }
-
 
             val (allChecked, onAllCheck) = remember {
                 mutableStateOf(true)

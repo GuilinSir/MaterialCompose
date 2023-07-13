@@ -31,6 +31,13 @@ object NavRoute {
     const val TRI_STATE_CHECKBOX_PAGE = "tri_state_checkbox_page"
 
     const val ASSIST_CHIP_PAGE = "assist_chip_page"
+    const val ELEVATED_ASSIST_CHIP = "elevated_assist_chip_page"
+    const val FILTER_CHIP = "filter_chip_page"
+    const val ELEVATED_FILTER_CHIP = "elevated_filter_chip_page"
+    const val INPUT_CHIP = "input_chip_page"
+    const val SUGGESTION_CHIP = "suggestion_chip_page"
+    const val ELEVATED_SUGGESTION_CHIP = "elevated_suggestion_chip_page"
+
 
     const val DATE_PACKER_PAGE = "date_packer_page"
     const val DATE_PACKER_PAGE1 = "date_packer_page1"
