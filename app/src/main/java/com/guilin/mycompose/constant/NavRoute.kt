@@ -20,10 +20,13 @@ object NavRoute {
     const val BUTTON_PAGE = "button_page"
     const val ELEVATED_BUTTON_PAGE = "elevated_button_page"
     const val FILLED_TONAL_BUTTON_PAGE = "filled_tonal_button_page"
-    const val OUTLINE_BUTTON_PAGE = "outline_button_page"
+    const val OUTLINED_BUTTON_PAGE = "outlined_button_page"
     const val TEXT_BUTTON_PAGE = "text_button_page"
 
     const val CARD_PAGE = "card_page"
+    const val ELEVATED_CARD_PAGE = "elevated_card_page"
+    const val OUTLINED_CARD_PAGE = "outlined_card_page"
+
 
     const val CHECKBOX_PAGE = "checkbox_page"
 

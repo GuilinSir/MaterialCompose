@@ -10,6 +10,9 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CardElevation
+import androidx.compose.material3.ElevatedButton
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.OutlinedCard
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -30,10 +33,11 @@ import com.guilin.mycompose.ui.wight.TopBarView
  * @email:   308139995@qq.com
  * @date :   2023/7/10 2:42 PM
  */
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun NavController.CardPage() {
+fun NavController.OutlinedCardPaged() {
     Scaffold(topBar = {
-        TopBarView(true, "Card", this@CardPage, true)
+        TopBarView(true, "OutlinedCard", this@OutlinedCardPaged, true)
     }, content = {
         Column(
             Modifier
@@ -42,7 +46,8 @@ fun NavController.CardPage() {
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Card(
+            OutlinedCard(
+                onClick = {},
                 modifier = Modifier
                     .size(width = 240.dp, height = 180.dp)            ) {
                 Column(
@@ -62,7 +67,7 @@ fun NavController.CardPage() {
                         buildAnnotatedString {
                             append("The chapter you are currently viewing is ")
                             withStyle(style = SpanStyle(fontWeight = FontWeight.W900)) {
-                                append("Card")
+                                append("OutlinedCard")
                             }
                         }
                     )
