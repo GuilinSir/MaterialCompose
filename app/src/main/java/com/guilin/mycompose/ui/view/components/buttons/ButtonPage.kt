@@ -42,7 +42,7 @@ fun NavController.ButtonPage() {
     val borderColor = if (pressState.value) Color.Green else Color.Red
 
     Scaffold(topBar = {
-        TopBarView(true, "Badge", this@ButtonPage, true)
+        TopBarView(true, "Button", this@ButtonPage, true)
     }, content = {
         Column(
             Modifier.padding(it).fillMaxSize(),

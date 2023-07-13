@@ -18,6 +18,10 @@ object NavRoute {
     const val MODAL_BOTTOM_SHEET_PAGE = "modal_bottom_sheet_page"
 
     const val BUTTON_PAGE = "button_page"
+    const val ELEVATED_BUTTON_PAGE = "elevated_button_page"
+    const val FILLED_TONAL_BUTTON_PAGE = "filled_tonal_button_page"
+    const val OUTLINE_BUTTON_PAGE = "outline_button_page"
+    const val TEXT_BUTTON_PAGE = "text_button_page"
 
     const val CARD_PAGE = "card_page"
 

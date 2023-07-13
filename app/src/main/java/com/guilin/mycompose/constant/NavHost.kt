@@ -27,6 +27,10 @@ import com.guilin.mycompose.ui.view.components.date_picker.DatePickerPage4
 import com.guilin.mycompose.ui.view.components.navigation_drawer.DismissibleNavigationDrawerPage
 import com.guilin.mycompose.ui.view.components.badge.BadgedBoxPage
 import com.guilin.mycompose.ui.view.components.bottom_sheet.ModalBottomSheetPage
+import com.guilin.mycompose.ui.view.components.buttons.ElevatedButtonPage
+import com.guilin.mycompose.ui.view.components.buttons.FilledTonalButtonPage
+import com.guilin.mycompose.ui.view.components.buttons.OutlinedButtonPage
+import com.guilin.mycompose.ui.view.components.buttons.TextButtonPage
 
 /**
  * @description:
@@ -51,6 +55,12 @@ class NavHost {
             composable(NavRoute.BOTTOM_SHEET_SCAFFOLD_PAGE) { navController.BottomSheetScaffoldPage() }
             composable(NavRoute.MODAL_BOTTOM_SHEET_PAGE) { navController.ModalBottomSheetPage() }
             composable(NavRoute.BUTTON_PAGE) { navController.ButtonPage() }
+            composable(NavRoute.ELEVATED_BUTTON_PAGE) { navController.ElevatedButtonPage() }
+            composable(NavRoute.FILLED_TONAL_BUTTON_PAGE) { navController.FilledTonalButtonPage() }
+            composable(NavRoute.OUTLINE_BUTTON_PAGE) { navController.OutlinedButtonPage() }
+            composable(NavRoute.TEXT_BUTTON_PAGE) { navController.TextButtonPage() }
+
+
             composable(NavRoute.CARD_PAGE) { navController.CardPage() }
             composable(NavRoute.CHECKBOX_PAGE) { navController.CheckboxPage() }
             composable(NavRoute.ASSIST_CHIP_PAGE) { navController.AssistChipPage() }

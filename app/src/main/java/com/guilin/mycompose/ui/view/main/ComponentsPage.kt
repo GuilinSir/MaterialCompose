@@ -148,6 +148,10 @@ fun componentsClickEvent(item: String, navController: NavController) {
         )
 
         "Button" -> NavHost().navigate(navController, NavRoute.BUTTON_PAGE)
+        "ElevatedButton" -> NavHost().navigate(navController, NavRoute.ELEVATED_BUTTON_PAGE)
+        "FilledTonalButton" -> NavHost().navigate(navController, NavRoute.FILLED_TONAL_BUTTON_PAGE)
+        "OutlinedButton" -> NavHost().navigate(navController, NavRoute.OUTLINE_BUTTON_PAGE)
+        "TextButton" -> NavHost().navigate(navController, NavRoute.TEXT_BUTTON_PAGE)
 
         "Card" -> NavHost().navigate(navController, NavRoute.CARD_PAGE)
 
