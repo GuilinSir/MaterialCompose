@@ -1,11 +1,11 @@
 package com.guilin.mycompose.ui.view.components.date_picker
 
 import android.annotation.SuppressLint
-import android.os.Build
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Button
 import androidx.compose.material3.DatePicker
 import androidx.compose.material3.DatePickerDialog
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -17,6 +17,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -56,9 +57,13 @@ import com.guilin.mycompose.ui.wight.TopBarView
 @SuppressLint("UnrememberedMutableState")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun NavController.DatePickerPage3() {
+fun NavController.DatePickerDialogPage() {
+    val openDialog = remember { mutableStateOf(true) }
+    val datePickerState = rememberDatePickerState()
+    val confirmEnabled = derivedStateOf { datePickerState.selectedDateMillis != null }
+    val scope = rememberCoroutineScope()
     Scaffold(topBar = {
-        TopBarView(true, "DatePicker", this@DatePickerPage3, true)
+        TopBarView(true, "DatePickerDialog", this@DatePickerDialogPage, true)
     }, content = {
         Column(
             Modifier
@@ -67,23 +72,21 @@ fun NavController.DatePickerPage3() {
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            val openDialog = remember { mutableStateOf(true) }
             if (openDialog.value) {
-                val datePickerState = rememberDatePickerState()
-                val confirmEnabled = derivedStateOf { datePickerState.selectedDateMillis != null }
                 DatePickerDialog(
                     onDismissRequest = {
                         openDialog.value = false
-                    }, modifier = Modifier.padding(horizontal = 20.dp),
+                    },
+                    modifier = Modifier.padding(horizontal = 20.dp),
                     confirmButton = {
                         TextButton(
                             onClick = {
                                 openDialog.value = false
-                                println("选中时间戳为： ${datePickerState.selectedDateMillis}")
+                                println("time stamp： ${datePickerState.selectedDateMillis}")
                             },
                             enabled = confirmEnabled.value
                         ) {
-                            Text("确定")
+                            Text("Confirm")
                         }
                     },
                     dismissButton = {
@@ -92,13 +95,17 @@ fun NavController.DatePickerPage3() {
                                 openDialog.value = false
                             }
                         ) {
-                            Text("取消")
+                            Text("Cancel")
                         }
                     }
                 ) {
                     DatePicker(state = datePickerState)
                 }
             }
+            Button(onClick = { openDialog.value = true }) {
+                Text(text = "Display")
+            }
+            //Text(text = "time stamp： ${datePickerState.selectedDateMillis}")
         }
     })
 }

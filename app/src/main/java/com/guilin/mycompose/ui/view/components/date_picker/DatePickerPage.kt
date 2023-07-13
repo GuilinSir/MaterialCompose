@@ -13,6 +13,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
+import com.guilin.mycompose.constant.NavRoute
 import com.guilin.mycompose.ui.wight.TopBarView
 
 /**
@@ -59,28 +60,15 @@ fun NavController.DatePickerPage() {
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Button(onClick = {
-                navigate("date_packer_page1")
+                navigate(NavRoute.DATE_PACKER_PAGE1)
             }) {
-                Text(text = "普通时间选择器")
+                Text(text = "Normal Date Picker")
             }
             Button(onClick = {
-                navigate("date_packer_page2")
+                navigate(NavRoute.DATE_PACKER_PAGE2)
             }) {
-                Text(text = "禁止选择某些日期")
+                Text(text = "Prohibit Selecting Dates")
             }
-
-            Button(onClick = {
-                navigate("date_packer_page3")
-            }) {
-                Text(text = "时间选择弹框")
-            }
-            Button(onClick = {
-                navigate("date_packer_page4")
-            }) {
-                Text(text = "日期范围选择器")
-            }
-
-
         }
     })
 }

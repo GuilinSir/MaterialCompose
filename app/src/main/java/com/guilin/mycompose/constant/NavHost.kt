@@ -22,8 +22,6 @@ import com.guilin.mycompose.ui.view.components.progress_indicators.CircularProgr
 import com.guilin.mycompose.ui.view.components.date_picker.DatePickerPage
 import com.guilin.mycompose.ui.view.components.date_picker.DatePickerPage1
 import com.guilin.mycompose.ui.view.components.date_picker.DatePickerPage2
-import com.guilin.mycompose.ui.view.components.date_picker.DatePickerPage3
-import com.guilin.mycompose.ui.view.components.date_picker.DatePickerPage4
 import com.guilin.mycompose.ui.view.components.navigation_drawer.DismissibleNavigationDrawerPage
 import com.guilin.mycompose.ui.view.components.badge.BadgedBoxPage
 import com.guilin.mycompose.ui.view.components.bottom_sheet.ModalBottomSheetPage
@@ -40,6 +38,8 @@ import com.guilin.mycompose.ui.view.components.chips.ElevatedSuggestionChipPage
 import com.guilin.mycompose.ui.view.components.chips.FilterChipPage
 import com.guilin.mycompose.ui.view.components.chips.InputChipPage
 import com.guilin.mycompose.ui.view.components.chips.SuggestionChipPage
+import com.guilin.mycompose.ui.view.components.date_picker.DatePickerDialogPage
+import com.guilin.mycompose.ui.view.components.date_picker.DateRangePickerPage
 
 /**
  * @description:
@@ -93,8 +93,8 @@ class NavHost {
             composable(NavRoute.DATE_PACKER_PAGE) { navController.DatePickerPage() }
             composable(NavRoute.DATE_PACKER_PAGE1) { navController.DatePickerPage1() }
             composable(NavRoute.DATE_PACKER_PAGE2) { navController.DatePickerPage2() }
-            composable(NavRoute.DATE_PACKER_PAGE3) { navController.DatePickerPage3() }
-            composable(NavRoute.DATE_PACKER_PAGE4) { navController.DatePickerPage4() }
+            composable(NavRoute.DATE_PACKER_DIALOG_PAGE) { navController.DatePickerDialogPage() }
+            composable(NavRoute.DATE_RANGE_PACKER_PAGE) { navController.DateRangePickerPage() }
 
             composable(NavRoute.ALERT_DIALOG_PAGE) { navController.AlertdialogPage(it) }
             composable(NavRoute.FLOATING_ACTION_BUTTON_PAGE) { }
@@ -127,9 +127,14 @@ class NavHost {
                 navController,
                 NavRoute.MODAL_BOTTOM_SHEET_PAGE
             )
+
             "Button" -> NavHost().navigate(navController, NavRoute.BUTTON_PAGE)
             "ElevatedButton" -> NavHost().navigate(navController, NavRoute.ELEVATED_BUTTON_PAGE)
-            "FilledTonalButton" -> NavHost().navigate(navController, NavRoute.FILLED_TONAL_BUTTON_PAGE)
+            "FilledTonalButton" -> NavHost().navigate(
+                navController,
+                NavRoute.FILLED_TONAL_BUTTON_PAGE
+            )
+
             "OutlinedButton" -> NavHost().navigate(navController, NavRoute.OUTLINED_BUTTON_PAGE)
             "TextButton" -> NavHost().navigate(navController, NavRoute.TEXT_BUTTON_PAGE)
 
@@ -138,7 +143,10 @@ class NavHost {
             "OutlinedCard" -> NavHost().navigate(navController, NavRoute.OUTLINED_CARD_PAGE)
 
             "Checkbox" -> NavHost().navigate(navController, NavRoute.CHECKBOX_PAGE)
-            "TriStateCheckbox" -> NavHost().navigate(navController, NavRoute.TRI_STATE_CHECKBOX_PAGE)
+            "TriStateCheckbox" -> NavHost().navigate(
+                navController,
+                NavRoute.TRI_STATE_CHECKBOX_PAGE
+            )
 
             "AssistChip" -> NavHost().navigate(navController, NavRoute.ASSIST_CHIP_PAGE)
             "ElevatedAssistChip" -> NavHost().navigate(navController, NavRoute.ELEVATED_ASSIST_CHIP)
@@ -146,16 +154,29 @@ class NavHost {
             "ElevatedFilterChip" -> NavHost().navigate(navController, NavRoute.ELEVATED_FILTER_CHIP)
             "InputChip" -> NavHost().navigate(navController, NavRoute.INPUT_CHIP)
             "SuggestionChip" -> NavHost().navigate(navController, NavRoute.SUGGESTION_CHIP)
-            "ElevatedSuggestionChip" -> NavHost().navigate(navController, NavRoute.ELEVATED_SUGGESTION_CHIP)
+            "ElevatedSuggestionChip" -> NavHost().navigate(
+                navController,
+                NavRoute.ELEVATED_SUGGESTION_CHIP
+            )
 
             "DatePicker" -> NavHost().navigate(
                 navController,
                 NavRoute.DATE_PACKER_PAGE
             )
 
+            "DatePickerDialog" -> NavHost().navigate(
+                navController,
+                NavRoute.DATE_PACKER_DIALOG_PAGE
+            )
+
+            "DateRangePicker" -> NavHost().navigate(
+                navController,
+                NavRoute.DATE_RANGE_PACKER_PAGE
+            )
+
             "AlertDialog" -> NavHost().navigate(
                 navController,
-                NavRoute.ALERT_DIALOG_PAGE + "/" + "123"
+                NavRoute.ALERT_DIALOG_PAGE
             )
 
             "FloatingActionButton" -> NavHost().navigate(

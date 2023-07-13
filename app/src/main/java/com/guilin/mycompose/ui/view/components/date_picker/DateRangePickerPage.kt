@@ -34,14 +34,14 @@ import kotlinx.coroutines.launch
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun NavController.DatePickerPage4() {
+fun NavController.DateRangePickerPage() {
     val snackState = remember { SnackbarHostState() }
     val snackScope = rememberCoroutineScope()
     SnackbarHost(hostState = snackState, Modifier.zIndex(1f))
 
     val state = rememberDateRangePickerState()
     Scaffold(topBar = {
-        TopBarView(true, "CircularProgressIndicator", this@DatePickerPage4, true)
+        TopBarView(true, "DateRangePicker", this@DateRangePickerPage, true)
     }, content = {
         Column(
             Modifier
