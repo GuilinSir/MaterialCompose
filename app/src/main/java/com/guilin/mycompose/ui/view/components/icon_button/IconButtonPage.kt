@@ -21,6 +21,15 @@ import com.guilin.mycompose.ui.wight.TopBarView
  * @email:   308139995@qq.com
  * @date :   2023/7/14 9:42 AM
  *
+ * @Composable
+ * fun IconButton(
+ *     onClick: () -> Unit,
+ *     modifier: Modifier = Modifier,
+ *     enabled: Boolean = true,控制该图标按钮的启用状态。当 时false，该组件将不会响应用户输入，并且它将显示为视觉禁用且对辅助功能服务禁用
+ *     colors: IconButtonColors = IconButtonDefaults.iconButtonColors(),
+ *     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+ *     content: @Composable () -> Unit
+ * ): Unit
  */
 @Composable
 fun NavController.IconButtonPage() {
@@ -28,7 +37,7 @@ fun NavController.IconButtonPage() {
         topBar = {
             TopBarView(
                 true,
-                "SmallFloatingActionButton",
+                "IconButton",
                 this@IconButtonPage,
                 true
             )
@@ -42,6 +51,9 @@ fun NavController.IconButtonPage() {
                 horizontalAlignment = Alignment.CenterHorizontally,
                 ) {
                 IconButton(onClick = { /* doSomething() */ }) {
+                    Icon(Icons.Outlined.Lock, contentDescription = "Localized description")
+                }
+                IconButton(enabled = false, onClick = { /* doSomething() */ }) {
                     Icon(Icons.Outlined.Lock, contentDescription = "Localized description")
                 }
             }
