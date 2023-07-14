@@ -63,6 +63,8 @@ object NavRoute {
     const val OUTLINED_ICON_BUTTON_PAGE = "outlined_icon_button_page"
     const val OUTLINED_ICON_TOGGLE_BUTTON_PAGE = "outlined_icon_toggle_button_page"
 
+    const val LIST_ITEM_PAGE = "list_item_page"
+
     const val DISMISSIBLE_NAVIGATION_DRAWER_PAGE = "dismissible_navigation_drawer_page"
 
     const val CIRCULAR_PROGRESS_INDICATOR_PAGE = "circular_progress_indicator_page"

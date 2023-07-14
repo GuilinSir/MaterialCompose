@@ -53,6 +53,7 @@ import com.guilin.mycompose.ui.view.components.icon_button.IconButtonPage
 import com.guilin.mycompose.ui.view.components.icon_button.IconToggleButtonPage
 import com.guilin.mycompose.ui.view.components.icon_button.OutlinedIconButtonPage
 import com.guilin.mycompose.ui.view.components.icon_button.OutlinedIconToggleButtonPage
+import com.guilin.mycompose.ui.view.components.lists.ListItemPage
 
 /**
  * @description:
@@ -148,6 +149,10 @@ class NavHost {
             }
             composable(NavRoute.OUTLINED_ICON_TOGGLE_BUTTON_PAGE) {
                 navController.OutlinedIconToggleButtonPage()
+            }
+
+            composable(NavRoute.LIST_ITEM_PAGE) {
+                navController.ListItemPage()
             }
 
 
@@ -291,6 +296,11 @@ class NavHost {
             "OutlinedIconToggleButton" -> NavHost().navigate(
                 navController,
                 NavRoute.OUTLINED_ICON_TOGGLE_BUTTON_PAGE
+            )
+
+            "ListItem" ->NavHost().navigate(
+                navController,
+                NavRoute.LIST_ITEM_PAGE
             )
 
 
