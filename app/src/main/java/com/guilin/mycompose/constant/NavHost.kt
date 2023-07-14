@@ -10,6 +10,9 @@ import androidx.navigation.navArgument
 import com.guilin.mycompose.R
 import com.guilin.mycompose.ui.view.components.top_app_bar.CenterAlignedTopAppBarPage
 import com.guilin.mycompose.ui.view.MainPage
+import com.guilin.mycompose.ui.view.components.FAB.FloatingActionButtonPage
+import com.guilin.mycompose.ui.view.components.FAB.LargeFloatingActionButtonPage
+import com.guilin.mycompose.ui.view.components.FAB.SmallFloatingActionButtonPage
 import com.guilin.mycompose.ui.view.components.dialogs.AlertdialogPage
 import com.guilin.mycompose.ui.view.components.chips.AssistChipPage
 import com.guilin.mycompose.ui.view.components.badge.BadgePage
@@ -104,9 +107,17 @@ class NavHost {
 
             composable(NavRoute.EXTENDED_FLOATING_ACTION_BUTTON_PAGE) { navController.ExtendedFloatingActionButtonPage() }
 
+            composable(NavRoute.FLOATING_ACTION_BUTTON_PAGE) {
+                navController.FloatingActionButtonPage()
+            }
+            composable(NavRoute.SMALL_FLOATING_ACTION_BUTTON_PAGE) {
+                navController.SmallFloatingActionButtonPage()
+            }
+            composable(NavRoute.LARGE_FLOATING_ACTION_BUTTON_PAGE) {
+                navController.LargeFloatingActionButtonPage()
+            }
 
 
-            composable(NavRoute.FLOATING_ACTION_BUTTON_PAGE) { }
             composable(NavRoute.ICON_BUTTON_PAGE) { }
             composable(NavRoute.DISMISSIBLE_NAVIGATION_DRAWER_PAGE) { navController.DismissibleNavigationDrawerPage() }
             composable(NavRoute.CIRCULAR_PROGRESS_INDICATOR_PAGE) { navController.CircularProgressIndicatorPage() }
@@ -201,6 +212,14 @@ class NavHost {
             "FloatingActionButton" -> NavHost().navigate(
                 navController,
                 NavRoute.FLOATING_ACTION_BUTTON_PAGE
+            )
+            "SmallFloatingActionButton" -> NavHost().navigate(
+                navController,
+                NavRoute.SMALL_FLOATING_ACTION_BUTTON_PAGE
+            )
+            "LargeFloatingActionButton" -> NavHost().navigate(
+                navController,
+                NavRoute.LARGE_FLOATING_ACTION_BUTTON_PAGE
             )
 
             "IconButton" -> NavHost().navigate(navController, NavRoute.ICON_BUTTON_PAGE)

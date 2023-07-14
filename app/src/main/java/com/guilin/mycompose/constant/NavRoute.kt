@@ -51,6 +51,8 @@ object NavRoute {
     const val EXTENDED_FLOATING_ACTION_BUTTON_PAGE = "extended_floating_action_button_page"
 
     const val FLOATING_ACTION_BUTTON_PAGE = "floating_action_button_page"
+    const val SMALL_FLOATING_ACTION_BUTTON_PAGE = "small_floating_action_button_page"
+    const val LARGE_FLOATING_ACTION_BUTTON_PAGE = "large_floating_action_button_page"
 
     const val ICON_BUTTON_PAGE = "icon_button_page"
 
