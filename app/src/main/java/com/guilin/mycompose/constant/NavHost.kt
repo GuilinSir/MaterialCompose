@@ -54,6 +54,8 @@ import com.guilin.mycompose.ui.view.components.icon_button.IconToggleButtonPage
 import com.guilin.mycompose.ui.view.components.icon_button.OutlinedIconButtonPage
 import com.guilin.mycompose.ui.view.components.icon_button.OutlinedIconToggleButtonPage
 import com.guilin.mycompose.ui.view.components.lists.ListItemPage
+import com.guilin.mycompose.ui.view.components.menus.DropdownMenuPage
+import com.guilin.mycompose.ui.view.components.menus.ExposedDropdownMenuBoxPage
 
 /**
  * @description:
@@ -154,6 +156,11 @@ class NavHost {
             composable(NavRoute.LIST_ITEM_PAGE) {
                 navController.ListItemPage()
             }
+
+            composable(NavRoute.DROPDOWN_MENU_PAGE) {
+                navController.DropdownMenuPage()
+            }
+            composable(NavRoute.EXPOSED_DROPDOWN_MENU_BOX_PAGE) { navController.ExposedDropdownMenuBoxPage() }
 
 
 
@@ -298,11 +305,25 @@ class NavHost {
                 NavRoute.OUTLINED_ICON_TOGGLE_BUTTON_PAGE
             )
 
-            "ListItem" ->NavHost().navigate(
+            "ListItem" -> NavHost().navigate(
                 navController,
                 NavRoute.LIST_ITEM_PAGE
             )
 
+            "DropdownMenu" -> NavHost().navigate(
+                navController,
+                NavRoute.DROPDOWN_MENU_PAGE
+            )
+
+            "DropdownMenuItem" -> NavHost().navigate(
+                navController,
+                NavRoute.DROPDOWN_MENU_PAGE
+            )
+
+            "ExposedDropdownMenuBox" -> NavHost().navigate(
+                navController,
+                NavRoute.EXPOSED_DROPDOWN_MENU_BOX_PAGE
+            )
 
             "DismissibleNavigationDrawer" -> NavHost().navigate(
                 navController,

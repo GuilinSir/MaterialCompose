@@ -65,6 +65,10 @@ object NavRoute {
 
     const val LIST_ITEM_PAGE = "list_item_page"
 
+    const val DROPDOWN_MENU_PAGE = "dropdown_menu_page"
+    const val EXPOSED_DROPDOWN_MENU_BOX_PAGE = "exposed_dropdown_menu_box_page"
+
+
     const val DISMISSIBLE_NAVIGATION_DRAWER_PAGE = "dismissible_navigation_drawer_page"
 
     const val CIRCULAR_PROGRESS_INDICATOR_PAGE = "circular_progress_indicator_page"
