@@ -45,9 +45,10 @@ object NavRoute {
     const val DATE_PACKER_DIALOG_PAGE = "date_packer_dialog_page"
     const val DATE_RANGE_PACKER_PAGE = "date_range_packer_page"
 
-    const val ALERT_DIALOG_PAGE = "alertdialog"
+    const val ALERT_DIALOG_PAGE = "alertdialog_page"
 
-    const val DIVIDERS = "dividers"
+    const val DIVIDERS_PAGE = "dividers_page"
+    const val EXTENDED_FLOATING_ACTION_BUTTON_PAGE = "extended_floating_action_button_page"
 
     const val FLOATING_ACTION_BUTTON_PAGE = "floating_action_button_page"
 

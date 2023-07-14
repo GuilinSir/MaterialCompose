@@ -33,18 +33,12 @@ import com.guilin.mycompose.ui.wight.TopBarView
  * @description:
  * @author:  guilin
  * @email:   308139995@qq.com
- * @date :   2023/6/29 10:12 AM
+ * @date :    2023/7/14 8:32 AM
  *
  */
 @Composable
 fun NavController.DividerPage() {
 
-    val openDialog = remember {
-        mutableStateOf(false)
-    }
-    val openDialog2 = remember {
-        mutableStateOf(false)
-    }
     Scaffold(topBar = {
         TopBarView(true, "Divider", this@DividerPage, true)
     }, content = {
