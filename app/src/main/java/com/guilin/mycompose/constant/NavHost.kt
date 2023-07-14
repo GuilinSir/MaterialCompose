@@ -40,6 +40,7 @@ import com.guilin.mycompose.ui.view.components.chips.InputChipPage
 import com.guilin.mycompose.ui.view.components.chips.SuggestionChipPage
 import com.guilin.mycompose.ui.view.components.date_picker.DatePickerDialogPage
 import com.guilin.mycompose.ui.view.components.date_picker.DateRangePickerPage
+import com.guilin.mycompose.ui.view.components.dividers.DividerPage
 
 /**
  * @description:
@@ -97,6 +98,9 @@ class NavHost {
             composable(NavRoute.DATE_RANGE_PACKER_PAGE) { navController.DateRangePickerPage() }
 
             composable(NavRoute.ALERT_DIALOG_PAGE) { navController.AlertdialogPage(it) }
+
+            composable(NavRoute.DIVIDERS) { navController.DividerPage() }
+
             composable(NavRoute.FLOATING_ACTION_BUTTON_PAGE) { }
             composable(NavRoute.ICON_BUTTON_PAGE) { }
             composable(NavRoute.DISMISSIBLE_NAVIGATION_DRAWER_PAGE) { navController.DismissibleNavigationDrawerPage() }
@@ -177,6 +181,11 @@ class NavHost {
             "AlertDialog" -> NavHost().navigate(
                 navController,
                 NavRoute.ALERT_DIALOG_PAGE
+            )
+
+            "Dividers" -> NavHost().navigate(
+                navController,
+                NavRoute.DIVIDERS
             )
 
             "FloatingActionButton" -> NavHost().navigate(

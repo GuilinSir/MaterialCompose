@@ -4,6 +4,7 @@ import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.ColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import com.guilin.common.constant.SpKey
 import com.guilin.mycompose.enum.ThemeEnum
@@ -27,7 +28,7 @@ import com.guilin.mycompose.utils.MMKVUtils
 var state by MMKVDelegate(SpKey.CHANGED_THEME,0)
 val themeTypeState: Lazy<MutableState<Int>> =
     lazy(mode = LazyThreadSafetyMode.SYNCHRONIZED) {
-        mutableStateOf(state)
+        mutableIntStateOf(state)
     }
 
 @Composable

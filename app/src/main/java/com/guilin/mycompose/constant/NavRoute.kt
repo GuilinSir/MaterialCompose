@@ -47,6 +47,8 @@ object NavRoute {
 
     const val ALERT_DIALOG_PAGE = "alertdialog"
 
+    const val DIVIDERS = "dividers"
+
     const val FLOATING_ACTION_BUTTON_PAGE = "floating_action_button_page"
 
     const val ICON_BUTTON_PAGE = "icon_button_page"
