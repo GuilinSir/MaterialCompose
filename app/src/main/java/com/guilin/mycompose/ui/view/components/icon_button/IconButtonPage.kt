@@ -8,10 +8,12 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Lock
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.IconButtonDefaults
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.navigation.NavController
 import com.guilin.mycompose.ui.wight.TopBarView
 
@@ -49,11 +51,18 @@ fun NavController.IconButtonPage() {
                     .fillMaxSize(),
                 verticalArrangement = Arrangement.Center,
                 horizontalAlignment = Alignment.CenterHorizontally,
-                ) {
+            ) {
                 IconButton(onClick = { /* doSomething() */ }) {
                     Icon(Icons.Outlined.Lock, contentDescription = "Localized description")
                 }
                 IconButton(enabled = false, onClick = { /* doSomething() */ }) {
+                    Icon(Icons.Outlined.Lock, contentDescription = "Localized description")
+                }
+
+                IconButton(
+                    onClick = { /* doSomething() */ },
+                    colors = IconButtonDefaults.iconButtonColors(containerColor = Color.Yellow, contentColor = Color.Blue)
+                ) {
                     Icon(Icons.Outlined.Lock, contentDescription = "Localized description")
                 }
             }
