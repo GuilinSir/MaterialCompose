@@ -55,6 +55,13 @@ object NavRoute {
     const val LARGE_FLOATING_ACTION_BUTTON_PAGE = "large_floating_action_button_page"
 
     const val ICON_BUTTON_PAGE = "icon_button_page"
+    const val ICON_TOGGLE_BUTTON_PAGE = "icon_toggle_button_page"
+    const val FILLED_ICON_BUTTON_PAGE = "filled_icon_button_page"
+    const val FILLED_ICON_TOGGLE_BUTTON_PAGE = "filled_icon_toggle_button_page"
+    const val FILLED_TONAL_ICON_BUTTON_PAGE = "filled_tonal_icon_button_page"
+    const val FILLED_TONAL_ICON_TOGGLE_BUTTON_PAGE = "filled_tonal_icon_toggle_button_page"
+    const val OUTLINED_ICON_BUTTON_PAGE = "outlined_icon_button_page"
+    const val OUTLINED_ICON_TOGGLE_BUTTON_PAGE = "outlined_icon_toggle_button_page"
 
     const val DISMISSIBLE_NAVIGATION_DRAWER_PAGE = "dismissible_navigation_drawer_page"
 

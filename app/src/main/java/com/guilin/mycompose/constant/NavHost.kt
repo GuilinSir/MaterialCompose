@@ -45,6 +45,14 @@ import com.guilin.mycompose.ui.view.components.date_picker.DatePickerDialogPage
 import com.guilin.mycompose.ui.view.components.date_picker.DateRangePickerPage
 import com.guilin.mycompose.ui.view.components.dividers.DividerPage
 import com.guilin.mycompose.ui.view.components.extended_FAB.ExtendedFloatingActionButtonPage
+import com.guilin.mycompose.ui.view.components.icon_button.FilledIconButtonPage
+import com.guilin.mycompose.ui.view.components.icon_button.FilledIconToggleButtonPage
+import com.guilin.mycompose.ui.view.components.icon_button.FilledTonalIconButtonPage
+import com.guilin.mycompose.ui.view.components.icon_button.FilledTonalIconToggleButtonPage
+import com.guilin.mycompose.ui.view.components.icon_button.IconButtonPage
+import com.guilin.mycompose.ui.view.components.icon_button.IconToggleButtonPage
+import com.guilin.mycompose.ui.view.components.icon_button.OutlinedIconButtonPage
+import com.guilin.mycompose.ui.view.components.icon_button.OutlinedIconToggleButtonPage
 
 /**
  * @description:
@@ -117,8 +125,33 @@ class NavHost {
                 navController.LargeFloatingActionButtonPage()
             }
 
+            composable(NavRoute.ICON_BUTTON_PAGE) {
+                navController.IconButtonPage()
+            }
+            composable(NavRoute.ICON_TOGGLE_BUTTON_PAGE) {
+                navController.IconToggleButtonPage()
+            }
+            composable(NavRoute.FILLED_ICON_BUTTON_PAGE) {
+                navController.FilledIconButtonPage()
+            }
+            composable(NavRoute.FILLED_ICON_TOGGLE_BUTTON_PAGE) {
+                navController.FilledIconToggleButtonPage()
+            }
+            composable(NavRoute.FILLED_TONAL_ICON_BUTTON_PAGE) {
+                navController.FilledTonalIconButtonPage()
+            }
+            composable(NavRoute.FILLED_TONAL_ICON_TOGGLE_BUTTON_PAGE) {
+                navController.FilledTonalIconToggleButtonPage()
+            }
+            composable(NavRoute.OUTLINED_ICON_BUTTON_PAGE) {
+                navController.OutlinedIconButtonPage()
+            }
+            composable(NavRoute.OUTLINED_ICON_TOGGLE_BUTTON_PAGE) {
+                navController.OutlinedIconToggleButtonPage()
+            }
 
-            composable(NavRoute.ICON_BUTTON_PAGE) { }
+
+
             composable(NavRoute.DISMISSIBLE_NAVIGATION_DRAWER_PAGE) { navController.DismissibleNavigationDrawerPage() }
             composable(NavRoute.CIRCULAR_PROGRESS_INDICATOR_PAGE) { navController.CircularProgressIndicatorPage() }
             composable(NavRoute.SLIDER_PAGE) { }
@@ -213,16 +246,53 @@ class NavHost {
                 navController,
                 NavRoute.FLOATING_ACTION_BUTTON_PAGE
             )
+
             "SmallFloatingActionButton" -> NavHost().navigate(
                 navController,
                 NavRoute.SMALL_FLOATING_ACTION_BUTTON_PAGE
             )
+
             "LargeFloatingActionButton" -> NavHost().navigate(
                 navController,
                 NavRoute.LARGE_FLOATING_ACTION_BUTTON_PAGE
             )
 
             "IconButton" -> NavHost().navigate(navController, NavRoute.ICON_BUTTON_PAGE)
+            "IconToggleButton" -> NavHost().navigate(
+                navController,
+                NavRoute.ICON_TOGGLE_BUTTON_PAGE
+            )
+
+            "FilledIconButton" -> NavHost().navigate(
+                navController,
+                NavRoute.FILLED_ICON_BUTTON_PAGE
+            )
+
+            "FilledIconToggleButton" -> NavHost().navigate(
+                navController,
+                NavRoute.FILLED_ICON_TOGGLE_BUTTON_PAGE
+            )
+
+            "FilledTonalIconButton" -> NavHost().navigate(
+                navController,
+                NavRoute.FILLED_TONAL_ICON_BUTTON_PAGE
+            )
+
+            "FilledTonalIconToggleButton" -> NavHost().navigate(
+                navController,
+                NavRoute.FILLED_TONAL_ICON_TOGGLE_BUTTON_PAGE
+            )
+
+            "OutlinedIconButton" -> NavHost().navigate(
+                navController,
+                NavRoute.OUTLINED_ICON_BUTTON_PAGE
+            )
+
+            "OutlinedIconToggleButton" -> NavHost().navigate(
+                navController,
+                NavRoute.OUTLINED_ICON_TOGGLE_BUTTON_PAGE
+            )
+
 
             "DismissibleNavigationDrawer" -> NavHost().navigate(
                 navController,

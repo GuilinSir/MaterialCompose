@@ -49,14 +49,6 @@ import com.guilin.mycompose.ui.wight.TopBarView
  */
 @Composable
 fun NavController.SmallFloatingActionButtonPage() {
-
-    val listState: LazyListState = rememberLazyListState()
-    val expandedFab by remember {
-        derivedStateOf {
-            listState.firstVisibleItemIndex == 0
-        }
-    }
-
     Scaffold(
         topBar = {
             TopBarView(
@@ -73,7 +65,6 @@ fun NavController.SmallFloatingActionButtonPage() {
                     .fillMaxSize(),
                 verticalArrangement = Arrangement.Center,
                 horizontalAlignment = Alignment.CenterHorizontally,
-
                 ) {
                 SmallFloatingActionButton(
                     onClick = { /* do something */ },
