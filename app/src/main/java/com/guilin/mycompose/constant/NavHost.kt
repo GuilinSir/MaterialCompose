@@ -58,6 +58,7 @@ import com.guilin.mycompose.ui.view.components.menus.DropdownMenuPage
 import com.guilin.mycompose.ui.view.components.menus.ExposedDropdownMenuBoxPage
 import com.guilin.mycompose.ui.view.components.navigation_bar.NavigationBarPage
 import com.guilin.mycompose.ui.view.components.navigation_drawer.ModalNavigationDrawerPage
+import com.guilin.mycompose.ui.view.components.navigation_drawer.PermanentNavigationDrawerPage
 
 /**
  * @description:
@@ -169,7 +170,8 @@ class NavHost {
 
             composable(NavRoute.MODAL_NAVIGATION_DRAWER_PAGE) { navController.ModalNavigationDrawerPage() }
             composable(NavRoute.MODAL_DRAWER_SHEET_PAGE) { navController.ModalNavigationDrawerPage() }
-
+            composable(NavRoute.PERMANENT_NAVIGATION_DRAWER_PAGE) { navController.PermanentNavigationDrawerPage() }
+            composable(NavRoute.PERMANENT_DRAWER_SHEET_PAGE) { navController.PermanentNavigationDrawerPage() }
 
             composable(NavRoute.DISMISSIBLE_NAVIGATION_DRAWER_PAGE) { navController.DismissibleNavigationDrawerPage() }
 
