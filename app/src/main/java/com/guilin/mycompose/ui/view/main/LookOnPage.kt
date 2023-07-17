@@ -3,6 +3,10 @@ package com.guilin.mycompose.ui.view.main
 import android.annotation.SuppressLint
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
+import androidx.compose.foundation.gestures.Orientation
+import androidx.compose.foundation.gestures.rememberScrollableState
+import androidx.compose.foundation.gestures.scrollable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -17,6 +21,8 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentHeight
+import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.rememberScrollState
@@ -41,6 +47,9 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.TileMode
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.TextStyle
@@ -52,6 +61,7 @@ import androidx.navigation.NavController
 import coil.compose.AsyncImage
 import com.guilin.mycompose.R
 import com.guilin.mycompose.utils.getStatusBarHeightDp
+import kotlin.math.roundToInt
 
 /**
  * @description:demo
@@ -67,6 +77,8 @@ fun NavController.LookOnPage() {
     Scaffold() {
         Column(
             Modifier
+                //Column一般和verticalScroll连用实现垂直方向的滚动效果,
+                // 而Row则与horizontalScroll连用
                 .verticalScroll(
                     state = rememberScrollState(),
                     // reverseScrolling = true // reverseScrolling设置为true的话,默认自动滚动到底部
@@ -80,21 +92,7 @@ fun NavController.LookOnPage() {
             SearchBar()
             NamesBar()
             GirlsArea()
-            AsyncImage(
-                modifier = Modifier.fillMaxWidth().padding(20.dp,10.dp),
-                model = "https://www.yangwangauto.com/content/dam/r-site/cn/car/r4-car-s3.jpg",
-                contentDescription = "图片"
-            )
-            AsyncImage(
-                modifier = Modifier.fillMaxWidth().padding(20.dp,10.dp),
-                model = "https://www.yangwangauto.com/content/dam/r-site/cn/car/r4-car-s3.jpg",
-                contentDescription = "图片"
-            )
-            AsyncImage(
-                modifier = Modifier.fillMaxWidth().padding(20.dp,10.dp),
-                model = "https://www.yangwangauto.com/content/dam/r-site/cn/car/r4-car-s3.jpg",
-                contentDescription = "图片"
-            )
+            DemoView()
         }
 //        val list = listOf<BottomBarBean>()
 //            .plus(BottomBarBean(R.drawable.icon1, "基础组件"))
@@ -342,6 +340,76 @@ fun GirlsArea() {
         }
     }
 }
+
+@Composable
+fun DemoView() {
+    repeat(3) {
+        AsyncImage(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(20.dp, 10.dp),
+            model = "https://www.yangwangauto.com/content/dam/r-site/cn/car/r4-car-s3.jpg",
+            contentDescription = "图片"
+        )
+    }
+    //红蓝绿三色水平渐变
+    val gradientBrush = Brush.horizontalGradient(
+        colors = listOf(Color.Red, Color.Blue, Color.Green),
+        startX = 0.0f,
+        endX = 500.0f,
+        tileMode = TileMode.Repeated
+    )
+    //brush设置渐变
+    Text(
+        "Text with gradient border",
+        modifier = Modifier
+            .padding(10.dp)
+            .border(width = 2.dp, brush = gradientBrush, shape = CircleShape)
+            .padding(10.dp)
+    )
+    //使用例子
+    Box(
+        Modifier
+            .size(50.dp)
+            .background(Color.Blue)
+    )
+    //使用例子
+    Box(
+        Modifier
+            .size(50.dp)
+            .wrapContentHeight(Alignment.CenterVertically)
+            .height(20.dp)
+            .background(Color.Blue)
+    )
+    //使用例子
+    Box(
+        Modifier
+            .size(50.dp)
+            .wrapContentWidth(Alignment.CenterHorizontally)
+            .width(20.dp)
+            .background(Color.Blue)
+    )
+
+    // actual composable state that we will show on UI and update in `Scrollable`
+    val offset = remember { mutableStateOf(0f) }
+    Box(
+        Modifier
+            .size(150.dp)
+            .scrollable(
+                orientation = Orientation.Vertical,
+                // state for Scrollable, describes how consume scroll amount
+                state = rememberScrollableState { delta ->
+                    offset.value = offset.value + delta // update the state
+                    delta // indicate that we consumed all the pixels available
+                }
+            )
+            .background(Color.LightGray),
+        contentAlignment = Alignment.Center
+    ) {
+        Text(offset.value.roundToInt().toString(), style = TextStyle(fontSize = 32.sp))
+    }
+}
+
 
 
 
