@@ -79,7 +79,8 @@ object NavRoute {
     const val DISMISSIBLE_DRAWER_SHEET_PAGE = "dismissible_drawer_sheet_page"
     const val NAVIGATION_DRAWER_ITEM_PAGE = "navigation_drawer_item_page"
 
-
+    const val NAVIGATION_RAIL_PAGE = "navigation_rail_page"
+    const val NAVIGATION_RAIL_ITEM_PAGE = "navigation_rail_item_page"
 
     const val CIRCULAR_PROGRESS_INDICATOR_PAGE = "circular_progress_indicator_page"
 

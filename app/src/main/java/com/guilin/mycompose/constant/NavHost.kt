@@ -59,6 +59,7 @@ import com.guilin.mycompose.ui.view.components.menus.ExposedDropdownMenuBoxPage
 import com.guilin.mycompose.ui.view.components.navigation_bar.NavigationBarPage
 import com.guilin.mycompose.ui.view.components.navigation_drawer.ModalNavigationDrawerPage
 import com.guilin.mycompose.ui.view.components.navigation_drawer.PermanentNavigationDrawerPage
+import com.guilin.mycompose.ui.view.components.navigation_rail.NavigationRailPage
 
 /**
  * @description:
@@ -179,6 +180,12 @@ class NavHost {
                 navController.ModalNavigationDrawerPage()
             }
 
+            composable(NavRoute.NAVIGATION_RAIL_PAGE) {
+                navController.NavigationRailPage()
+            }
+            composable(NavRoute.NAVIGATION_RAIL_ITEM_PAGE) {
+                navController.NavigationRailPage()
+            }
 
             composable(NavRoute.CIRCULAR_PROGRESS_INDICATOR_PAGE) { navController.CircularProgressIndicatorPage() }
             composable(NavRoute.SLIDER_PAGE) { }
@@ -383,6 +390,16 @@ class NavHost {
             "NavigationDrawerItem" -> NavHost().navigate(
                 navController,
                 NavRoute.NAVIGATION_DRAWER_ITEM_PAGE
+            )
+
+
+            "NavigationRail" -> NavHost().navigate(
+                navController,
+                NavRoute.NAVIGATION_RAIL_PAGE
+            )
+            "NavigationRailItem" -> NavHost().navigate(
+                navController,
+                NavRoute.NAVIGATION_RAIL_ITEM_PAGE
             )
 
 
