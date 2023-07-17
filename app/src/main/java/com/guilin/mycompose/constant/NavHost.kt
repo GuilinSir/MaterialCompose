@@ -176,7 +176,7 @@ class NavHost {
             composable(NavRoute.DISMISSIBLE_NAVIGATION_DRAWER_PAGE) { navController.DismissibleNavigationDrawerPage() }
             composable(NavRoute.DISMISSIBLE_DRAWER_SHEET_PAGE) { navController.DismissibleNavigationDrawerPage() }
             composable(NavRoute.NAVIGATION_DRAWER_ITEM_PAGE) {
-                //navController.DismissibleNavigationDrawerPage()
+                navController.ModalNavigationDrawerPage()
             }
 
 
