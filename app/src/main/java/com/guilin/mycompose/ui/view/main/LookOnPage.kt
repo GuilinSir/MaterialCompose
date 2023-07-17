@@ -64,7 +64,7 @@ import com.guilin.mycompose.utils.getStatusBarHeightDp
 @SuppressLint("InternalInsetResource", "DiscouragedApi")
 @Composable
 fun NavController.LookOnPage() {
-    Scaffold(Modifier.padding(top = getStatusBarHeightDp())) {
+    Scaffold() {
         Column(
             Modifier
                 .verticalScroll(
@@ -74,13 +74,14 @@ fun NavController.LookOnPage() {
                 .fillMaxWidth()
                 .padding(it)
                 .background(MaterialTheme.colorScheme.surface)
+                .padding(top = getStatusBarHeightDp())
         ) {
             TopBar()
             SearchBar()
             NamesBar()
             GirlsArea()
             AsyncImage(
-                modifier = Modifier.fillMaxWidth(),
+                modifier = Modifier.fillMaxWidth().padding(20.dp,10.dp),
                 model = "https://www.yangwangauto.com/content/dam/r-site/cn/car/r4-car-s3.jpg",
                 contentDescription = "图片"
             )
