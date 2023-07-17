@@ -174,6 +174,10 @@ class NavHost {
             composable(NavRoute.PERMANENT_DRAWER_SHEET_PAGE) { navController.PermanentNavigationDrawerPage() }
 
             composable(NavRoute.DISMISSIBLE_NAVIGATION_DRAWER_PAGE) { navController.DismissibleNavigationDrawerPage() }
+            composable(NavRoute.DISMISSIBLE_DRAWER_SHEET_PAGE) { navController.DismissibleNavigationDrawerPage() }
+            composable(NavRoute.NAVIGATION_DRAWER_ITEM_PAGE) {
+                //navController.DismissibleNavigationDrawerPage()
+            }
 
 
             composable(NavRoute.CIRCULAR_PROGRESS_INDICATOR_PAGE) { navController.CircularProgressIndicatorPage() }

@@ -32,7 +32,7 @@ import com.guilin.mycompose.ui.wight.TopBarView
 import kotlinx.coroutines.launch
 
 /**
- * @description:DismissibleNavigationDrawer
+ * @description:DismissibleNavigationDrawer(不经常切换时候使用)
  * @author:  guilin
  * @email:   308139995@qq.com
  * @date :   2023/7/12 14:11
@@ -47,7 +47,7 @@ fun NavController.DismissibleNavigationDrawerPage() {
     }
 
     Scaffold(topBar = {
-        TopBarView(true, "DismissibleNavigationDrawer", this@DismissibleNavigationDrawerPage, true)
+        TopBarView(true, "DismissibleNavigationDrawer+DismissibleDrawerSheet", this@DismissibleNavigationDrawerPage, true)
     }, content = {
         Column(
             Modifier
