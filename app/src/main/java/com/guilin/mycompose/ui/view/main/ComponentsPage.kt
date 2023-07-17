@@ -62,7 +62,7 @@ fun ComponentsListView(
 ) {
     LazyColumn(modifier = modifier) {
         list.forEachIndexed { index, data ->
-            stickyHeader() {
+            stickyHeader {
                 Row(
                     modifier = Modifier
                         .background(color = MaterialTheme.colorScheme.tertiary)

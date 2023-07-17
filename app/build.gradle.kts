@@ -77,4 +77,6 @@ dependencies {
     implementation(libs.accompanist.systemuicontroller)
     implementation(libs.mmkv.static)
     implementation (libs.gson)
+    implementation(libs.coil.compose)
+
 }

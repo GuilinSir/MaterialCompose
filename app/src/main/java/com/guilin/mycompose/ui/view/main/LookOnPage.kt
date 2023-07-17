@@ -19,16 +19,19 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.text.ClickableText
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -46,6 +49,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import coil.compose.AsyncImage
 import com.guilin.mycompose.R
 import com.guilin.mycompose.utils.getStatusBarHeightDp
 
@@ -60,18 +64,26 @@ import com.guilin.mycompose.utils.getStatusBarHeightDp
 @SuppressLint("InternalInsetResource", "DiscouragedApi")
 @Composable
 fun NavController.LookOnPage() {
-
-    Column(Modifier.padding(top = getStatusBarHeightDp())) {
+    Scaffold(Modifier.padding(top = getStatusBarHeightDp())) {
         Column(
             Modifier
+                .verticalScroll(
+                    state = rememberScrollState(),
+                    // reverseScrolling = true // reverseScrolling设置为true的话,默认自动滚动到底部
+                )
                 .fillMaxWidth()
-                .weight(1f)
+                .padding(it)
                 .background(MaterialTheme.colorScheme.surface)
         ) {
             TopBar()
             SearchBar()
             NamesBar()
             GirlsArea()
+            AsyncImage(
+                modifier = Modifier.fillMaxWidth(),
+                model = "https://www.yangwangauto.com/content/dam/r-site/cn/car/r4-car-s3.jpg",
+                contentDescription = "图片"
+            )
         }
 //        val list = listOf<BottomBarBean>()
 //            .plus(BottomBarBean(R.drawable.icon1, "基础组件"))
