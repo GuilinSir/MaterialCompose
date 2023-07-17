@@ -71,9 +71,15 @@ object NavRoute {
     const val NAVIGATION_BAR_PAGE = "navigation_bar_page"
     const val NAVIGATION_BAR_ITEM_PAGE = "navigation_bar_item_page"
 
-
-
+    const val MODAL_NAVIGATION_DRAWER_PAGE ="modal_navigation_drawer_page"
+    const val MODAL_DRAWER_SHEET_PAGE ="modal_drawer_sheet_page"
+    const val PERMANENT_NAVIGATION_DRAWER_PAGE ="permanent_navigation_drawer_page"
+    const val PERMANENT_DRAWER_SHEET_PAGE ="permanent_drawer_sheet_page"
     const val DISMISSIBLE_NAVIGATION_DRAWER_PAGE = "dismissible_navigation_drawer_page"
+    const val DISMISSIBLE_DRAWER_SHEET_PAGE = "dismissible_drawer_sheet_page"
+    const val NAVIGATION_DRAWER_ITEM_PAGE = "navigation_drawer_item_page"
+
+
 
     const val CIRCULAR_PROGRESS_INDICATOR_PAGE = "circular_progress_indicator_page"
 

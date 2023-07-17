@@ -57,6 +57,7 @@ import com.guilin.mycompose.ui.view.components.lists.ListItemPage
 import com.guilin.mycompose.ui.view.components.menus.DropdownMenuPage
 import com.guilin.mycompose.ui.view.components.menus.ExposedDropdownMenuBoxPage
 import com.guilin.mycompose.ui.view.components.navigation_bar.NavigationBarPage
+import com.guilin.mycompose.ui.view.components.navigation_drawer.ModalNavigationDrawerPage
 
 /**
  * @description:
@@ -166,8 +167,13 @@ class NavHost {
             composable(NavRoute.NAVIGATION_BAR_ITEM_PAGE) { navController.NavigationBarPage() }
 
 
+            composable(NavRoute.MODAL_NAVIGATION_DRAWER_PAGE) { navController.ModalNavigationDrawerPage() }
+            composable(NavRoute.MODAL_DRAWER_SHEET_PAGE) { navController.ModalNavigationDrawerPage() }
+
 
             composable(NavRoute.DISMISSIBLE_NAVIGATION_DRAWER_PAGE) { navController.DismissibleNavigationDrawerPage() }
+
+
             composable(NavRoute.CIRCULAR_PROGRESS_INDICATOR_PAGE) { navController.CircularProgressIndicatorPage() }
             composable(NavRoute.SLIDER_PAGE) { }
             composable(NavRoute.TEXT_FIELD_PAGE) { }
@@ -338,10 +344,41 @@ class NavHost {
                 NavRoute.NAVIGATION_BAR_ITEM_PAGE
             )
 
+            "ModalNavigationDrawer" -> NavHost().navigate(
+                navController,
+                NavRoute.MODAL_NAVIGATION_DRAWER_PAGE
+            )
+
+            "ModalDrawerSheet" -> NavHost().navigate(
+                navController,
+                NavRoute.MODAL_DRAWER_SHEET_PAGE
+            )
+
+            "PermanentNavigationDrawer" -> NavHost().navigate(
+                navController,
+                NavRoute.PERMANENT_NAVIGATION_DRAWER_PAGE
+            )
+
+            "PermanentDrawerSheet" -> NavHost().navigate(
+                navController,
+                NavRoute.PERMANENT_DRAWER_SHEET_PAGE
+            )
+
             "DismissibleNavigationDrawer" -> NavHost().navigate(
                 navController,
                 NavRoute.DISMISSIBLE_NAVIGATION_DRAWER_PAGE
             )
+
+            "DismissibleDrawerSheet" -> NavHost().navigate(
+                navController,
+                NavRoute.DISMISSIBLE_DRAWER_SHEET_PAGE
+            )
+
+            "NavigationDrawerItem" -> NavHost().navigate(
+                navController,
+                NavRoute.NAVIGATION_DRAWER_ITEM_PAGE
+            )
+
 
             "CircularProgressIndicator" -> NavHost().navigate(
                 navController,
