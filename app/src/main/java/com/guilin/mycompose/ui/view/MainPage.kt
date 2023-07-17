@@ -5,9 +5,12 @@ import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
+import androidx.compose.material3.Divider
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.guilin.mycompose.R
 import com.guilin.mycompose.bean.BottomBarBean
@@ -47,6 +50,7 @@ fun NavController.MainPage() {
             .plus(BottomBarBean(R.drawable.icon2, stringResource(R.string.second_tab_title)))
             .plus(BottomBarBean(R.drawable.icon2, stringResource(R.string.third_tab_title)))
             .toList()
+        Divider(thickness = 0.5.dp, color = MaterialTheme.colorScheme.primary)
         BottomBarView(list, pagerState)
     }
 }

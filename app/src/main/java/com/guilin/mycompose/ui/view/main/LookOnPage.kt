@@ -85,6 +85,16 @@ fun NavController.LookOnPage() {
                 model = "https://www.yangwangauto.com/content/dam/r-site/cn/car/r4-car-s3.jpg",
                 contentDescription = "图片"
             )
+            AsyncImage(
+                modifier = Modifier.fillMaxWidth().padding(20.dp,10.dp),
+                model = "https://www.yangwangauto.com/content/dam/r-site/cn/car/r4-car-s3.jpg",
+                contentDescription = "图片"
+            )
+            AsyncImage(
+                modifier = Modifier.fillMaxWidth().padding(20.dp,10.dp),
+                model = "https://www.yangwangauto.com/content/dam/r-site/cn/car/r4-car-s3.jpg",
+                contentDescription = "图片"
+            )
         }
 //        val list = listOf<BottomBarBean>()
 //            .plus(BottomBarBean(R.drawable.icon1, "基础组件"))
