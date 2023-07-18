@@ -85,6 +85,9 @@ object NavRoute {
     const val CIRCULAR_PROGRESS_INDICATOR_PAGE = "circular_progress_indicator_page"
     const val LINEAR_PROGRESS_INDICATOR_PAGE = "linear_progress_indicator_page"
 
+    const val RADIO_BUTTON_PAGE = "radio_button_page"
+
+
     const val SLIDER_PAGE = "slider_page"
 
     const val TEXT_FIELD_PAGE = "text_field_page"

@@ -59,6 +59,7 @@ import com.guilin.mycompose.ui.view.components.navigation_drawer.ModalNavigation
 import com.guilin.mycompose.ui.view.components.navigation_drawer.PermanentNavigationDrawerPage
 import com.guilin.mycompose.ui.view.components.navigation_rail.NavigationRailPage
 import com.guilin.mycompose.ui.view.components.progress_indicators.LinearProgressIndicatorPage
+import com.guilin.mycompose.ui.view.components.radio_button.RadioButtonPage
 
 /**
  * @description:
@@ -188,6 +189,10 @@ class NavHost {
 
             composable(NavRoute.LINEAR_PROGRESS_INDICATOR_PAGE) { navController.LinearProgressIndicatorPage() }
             composable(NavRoute.CIRCULAR_PROGRESS_INDICATOR_PAGE) { navController.CircularProgressIndicatorPage() }
+
+            composable(NavRoute.RADIO_BUTTON_PAGE) { navController.RadioButtonPage() }
+
+
 
             composable(NavRoute.SLIDER_PAGE) { }
             composable(NavRoute.TEXT_FIELD_PAGE) { }
@@ -410,6 +415,11 @@ class NavHost {
             "CircularProgressIndicator" -> NavHost().navigate(
                 navController,
                 NavRoute.CIRCULAR_PROGRESS_INDICATOR_PAGE
+            )
+
+            "RadioButton" -> NavHost().navigate(
+                navController,
+                NavRoute.RADIO_BUTTON_PAGE
             )
 
             "Slider" -> NavHost().navigate(navController, NavRoute.SLIDER_PAGE)
