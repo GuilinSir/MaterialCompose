@@ -2,11 +2,9 @@ package com.guilin.mycompose.constant
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavController
-import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import androidx.navigation.navArgument
 import com.guilin.mycompose.R
 import com.guilin.mycompose.ui.view.components.top_app_bar.CenterAlignedTopAppBarPage
 import com.guilin.mycompose.ui.view.MainPage
@@ -60,6 +58,7 @@ import com.guilin.mycompose.ui.view.components.navigation_bar.NavigationBarPage
 import com.guilin.mycompose.ui.view.components.navigation_drawer.ModalNavigationDrawerPage
 import com.guilin.mycompose.ui.view.components.navigation_drawer.PermanentNavigationDrawerPage
 import com.guilin.mycompose.ui.view.components.navigation_rail.NavigationRailPage
+import com.guilin.mycompose.ui.view.components.progress_indicators.LinearProgressIndicatorPage
 
 /**
  * @description:
@@ -187,7 +186,9 @@ class NavHost {
                 navController.NavigationRailPage()
             }
 
+            composable(NavRoute.LINEAR_PROGRESS_INDICATOR_PAGE) { navController.LinearProgressIndicatorPage() }
             composable(NavRoute.CIRCULAR_PROGRESS_INDICATOR_PAGE) { navController.CircularProgressIndicatorPage() }
+
             composable(NavRoute.SLIDER_PAGE) { }
             composable(NavRoute.TEXT_FIELD_PAGE) { }
             composable(NavRoute.CENTER_ALIGNED_TOP_APP_BAR_PAGE) { navController.CenterAlignedTopAppBarPage() }
@@ -402,7 +403,10 @@ class NavHost {
                 NavRoute.NAVIGATION_RAIL_ITEM_PAGE
             )
 
-
+            "LinearProgressIndicator" -> NavHost().navigate(
+                navController,
+                NavRoute.LINEAR_PROGRESS_INDICATOR_PAGE
+            )
             "CircularProgressIndicator" -> NavHost().navigate(
                 navController,
                 NavRoute.CIRCULAR_PROGRESS_INDICATOR_PAGE
@@ -419,7 +423,7 @@ class NavHost {
         }
     }
 
-    fun navigate(navController: NavController, route: String) {
+    private fun navigate(navController: NavController, route: String) {
         navController.navigate(route) {
             anim {
                 this.enter = R.anim.slide_in_right
