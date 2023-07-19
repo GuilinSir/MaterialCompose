@@ -93,6 +93,9 @@ object NavRoute {
     const val SLIDER_PAGE = "slider_page"
     const val RANGE_SLIDER_PAGE = "range_slider_page"
 
+    const val SNACK_BAR_PAGE = "snack_bar_page"
+
+
 
     const val TEXT_FIELD_PAGE = "text_field_page"
 

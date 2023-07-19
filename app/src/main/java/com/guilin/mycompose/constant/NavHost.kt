@@ -64,6 +64,7 @@ import com.guilin.mycompose.ui.view.components.search_bar.DockedSearchBarPage
 import com.guilin.mycompose.ui.view.components.search_bar.SearchBarPage
 import com.guilin.mycompose.ui.view.components.sliders.RangeSliderPage
 import com.guilin.mycompose.ui.view.components.sliders.SliderPage
+import com.guilin.mycompose.ui.view.components.snackbars.SnackBarPage
 
 /**
  * @description:
@@ -204,6 +205,10 @@ class NavHost {
             }
             composable(NavRoute.RANGE_SLIDER_PAGE) {
                 navController.RangeSliderPage()
+            }
+
+            composable(NavRoute.SNACK_BAR_PAGE) {
+                navController.SnackBarPage()
             }
 
             composable(NavRoute.TEXT_FIELD_PAGE) { }
@@ -447,6 +452,8 @@ class NavHost {
 
             "Slider" -> NavHost().navigate(navController, NavRoute.SLIDER_PAGE)
             "RangeSlider" -> NavHost().navigate(navController, NavRoute.RANGE_SLIDER_PAGE)
+
+            "Snackbar" ->NavHost().navigate(navController, NavRoute.SNACK_BAR_PAGE)
 
             "TextField" -> NavHost().navigate(navController, NavRoute.TEXT_FIELD_PAGE)
 
