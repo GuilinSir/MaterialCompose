@@ -62,6 +62,8 @@ import com.guilin.mycompose.ui.view.components.progress_indicators.LinearProgres
 import com.guilin.mycompose.ui.view.components.radio_button.RadioButtonPage
 import com.guilin.mycompose.ui.view.components.search_bar.DockedSearchBarPage
 import com.guilin.mycompose.ui.view.components.search_bar.SearchBarPage
+import com.guilin.mycompose.ui.view.components.sliders.RangeSliderPage
+import com.guilin.mycompose.ui.view.components.sliders.SliderPage
 
 /**
  * @description:
@@ -197,7 +199,13 @@ class NavHost {
             composable(NavRoute.SEARCH_BAR_PAGE) { navController.SearchBarPage() }
             composable(NavRoute.DOCKED_SEARCH_BAR_PAGE) { navController.DockedSearchBarPage() }
 
-            composable(NavRoute.SLIDER_PAGE) { }
+            composable(NavRoute.SLIDER_PAGE) {
+                navController.SliderPage()
+            }
+            composable(NavRoute.RANGE_SLIDER_PAGE) {
+                navController.RangeSliderPage()
+            }
+
             composable(NavRoute.TEXT_FIELD_PAGE) { }
             composable(NavRoute.CENTER_ALIGNED_TOP_APP_BAR_PAGE) { navController.CenterAlignedTopAppBarPage() }
         }
@@ -438,6 +446,7 @@ class NavHost {
             )
 
             "Slider" -> NavHost().navigate(navController, NavRoute.SLIDER_PAGE)
+            "RangeSlider" -> NavHost().navigate(navController, NavRoute.RANGE_SLIDER_PAGE)
 
             "TextField" -> NavHost().navigate(navController, NavRoute.TEXT_FIELD_PAGE)
 

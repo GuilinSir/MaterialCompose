@@ -91,6 +91,8 @@ object NavRoute {
     const val DOCKED_SEARCH_BAR_PAGE = "docked_search_bar_page"
 
     const val SLIDER_PAGE = "slider_page"
+    const val RANGE_SLIDER_PAGE = "range_slider_page"
+
 
     const val TEXT_FIELD_PAGE = "text_field_page"
 
