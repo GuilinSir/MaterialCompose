@@ -87,6 +87,8 @@ object NavRoute {
 
     const val RADIO_BUTTON_PAGE = "radio_button_page"
 
+    const val SEARCH_BAR_PAGE = "search_bar_page"
+    const val DOCKED_SEARCH_BAR_PAGE = "docked_search_bar_page"
 
     const val SLIDER_PAGE = "slider_page"
 

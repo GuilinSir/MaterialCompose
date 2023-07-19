@@ -60,6 +60,8 @@ import com.guilin.mycompose.ui.view.components.navigation_drawer.PermanentNaviga
 import com.guilin.mycompose.ui.view.components.navigation_rail.NavigationRailPage
 import com.guilin.mycompose.ui.view.components.progress_indicators.LinearProgressIndicatorPage
 import com.guilin.mycompose.ui.view.components.radio_button.RadioButtonPage
+import com.guilin.mycompose.ui.view.components.search_bar.DockedSearchBarPage
+import com.guilin.mycompose.ui.view.components.search_bar.SearchBarPage
 
 /**
  * @description:
@@ -192,7 +194,8 @@ class NavHost {
 
             composable(NavRoute.RADIO_BUTTON_PAGE) { navController.RadioButtonPage() }
 
-
+            composable(NavRoute.SEARCH_BAR_PAGE) { navController.SearchBarPage() }
+            composable(NavRoute.DOCKED_SEARCH_BAR_PAGE) { navController.DockedSearchBarPage() }
 
             composable(NavRoute.SLIDER_PAGE) { }
             composable(NavRoute.TEXT_FIELD_PAGE) { }
@@ -403,6 +406,7 @@ class NavHost {
                 navController,
                 NavRoute.NAVIGATION_RAIL_PAGE
             )
+
             "NavigationRailItem" -> NavHost().navigate(
                 navController,
                 NavRoute.NAVIGATION_RAIL_ITEM_PAGE
@@ -412,6 +416,7 @@ class NavHost {
                 navController,
                 NavRoute.LINEAR_PROGRESS_INDICATOR_PAGE
             )
+
             "CircularProgressIndicator" -> NavHost().navigate(
                 navController,
                 NavRoute.CIRCULAR_PROGRESS_INDICATOR_PAGE
@@ -420,6 +425,16 @@ class NavHost {
             "RadioButton" -> NavHost().navigate(
                 navController,
                 NavRoute.RADIO_BUTTON_PAGE
+            )
+
+            "SearchBar" -> NavHost().navigate(
+                navController,
+                NavRoute.SEARCH_BAR_PAGE
+            )
+
+            "DockedSearchBar" -> NavHost().navigate(
+                navController,
+                NavRoute.DOCKED_SEARCH_BAR_PAGE
             )
 
             "Slider" -> NavHost().navigate(navController, NavRoute.SLIDER_PAGE)

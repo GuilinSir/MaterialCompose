@@ -29,10 +29,10 @@ import com.guilin.mycompose.ui.wight.TopBarView
 import kotlinx.coroutines.launch
 
 /**
- * @description:圆形进度条
+ * @description:进度条
  * @author:  guilin
  * @email:   308139995@qq.com
- * @date :   2023/7/12 8:40 AM
+ * @date :   2023/7/18 8:40 AM
  *
  *@Composable
  * fun LinearProgressIndicator(
